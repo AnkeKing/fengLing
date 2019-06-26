@@ -1,2 +1,15 @@
 <!--pages/shopping/shopping.wxml-->
-<text>pages/shopping/shopping.wxml</text>
+<!-- <text>pages/shopping/shopping.wxml</text> -->
+<view class="pages">
+    <view class="content">
+        <view class="commodity">
+            <view class="self-support">自营商品</view>
+            <view class="times">预计一小时可达</view>
+        </view>
+        <view>
+            <image src=""></image>
+        </view>
+
+
+    </view>
+</view>
