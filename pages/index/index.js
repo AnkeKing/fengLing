@@ -50,5 +50,10 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  aa(){
+    wx.switchTab({
+      url:"../home/home"
+    })
   }
 })
