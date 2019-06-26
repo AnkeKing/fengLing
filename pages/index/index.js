@@ -7,7 +7,8 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    Topha:null
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,6 +17,11 @@ Page({
     })
   },
   onLoad: function () {
+    
+    this.setData({
+      Topha: app.globalData.statusBarHeight
+    })
+    console.log(this.data.Topha)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
