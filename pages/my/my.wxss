@@ -1,1 +1,26 @@
 /* pages/my/my.wxss */
+.nav{
+    height: 658rpx;
+    width: 750rpx;
+    background: #f94c36;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerImg{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+    margin-top: 117rpx
+}
+.userName{
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #c6fffb;
+    margin-top: 30rpx;
+}
+.phone{
+    font-size: 27rpx;
+    color: #c6fffb;
+    margin-top: 27rpx;
+}
