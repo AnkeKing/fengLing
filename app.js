@@ -1,11 +1,14 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch: function (ops) {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    //小程序在群里被打开后，获取情景值和shareTicket
+    if (ops.scene == 1044) {
+      console.log("shareTicket",ops.shareTicket)
+     }
     // 登录
     wx.login({
       success: res => {

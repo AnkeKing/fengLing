@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#F84D2F",
+  "navigationBarTitleText":"团购详情",
+  "navigationBarTextStyle": "white"
+}
