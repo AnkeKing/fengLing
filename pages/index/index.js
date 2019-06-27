@@ -3,7 +3,6 @@
 const app = getApp()
 const api = require("../../http/config.js");
 const http = require('../../http/index.js');
-const rlg = require("../../rlh/rlh.js");
 Page({
   data: {
     motto: 'Hello World',
@@ -11,7 +10,10 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     Topha:null,
-    jiaonan: null
+    jiaonan: null,
+    mobile:null,
+    code:null,
+    password:null
   },
   //事件处理函数
   bindViewTap: function() {
@@ -27,8 +29,6 @@ Page({
     this.setData({
       jiaonan: wx.getMenuButtonBoundingClientRect()
     })
-    console.log(this.data.Topha)
-    console.log(this.data.jiaonan)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -64,14 +64,51 @@ Page({
       hasUserInfo: true
     })
   },
-  huoqu(){
-  console.log("aa")
-  let thit=this
-    wx.login({
-      success(res) {
-        console.log("code",res.code)
-        
-      }
+  password(e){
+    console.log(e.detail.value)
+    this.setData({
+      password:e.detail.value
     })
+  },
+  mobile(e){
+    this.setData({
+      mobile: e.detail.value
+    })
+  },
+  huoqu(){
+    // 获取验证码
+    console.log(this.data.mobile)
+   let form={
+     mobile:this.data.mobile,
+      shopId: app.globalData.data.result.shopInfoDTO.id,
+      messageType:'BIND_WECHAT_PHONE'
+    }
+    http('https://pre-web-gateway.newbeescm.com/ms-web/u/sendMessage?mobile=' + this.data.mobile + " & shopId=" + app.globalData.data.result.shopInfoDTO.id + "&messageType=BIND_WECHAT_PHONE").then(res=>{
+      console.log(res.data.attachment.code)
+      this.setData({
+        code:res.data.attachment.code
+      })
+    })
+    
+  },
+  queren(){
+    let form = {
+      sourceType:'APP',
+      memberSource: 601,
+      mobile: this.data.mobile,
+      password: this.data.password,
+      code:this.data.code,
+      wechatOpenId:app.globalData.data.result.wechateId,
+      merchantId: app.globalData.data.result.shopInfoDTO.merchantId
+    }
+    console.log(app.globalData.data.result)
+    http(
+      api.baseUrl+"/memberAccount/bindMobileForMember",
+      form,
+      "post"
+    ).then(res => {
+      console.log(res)
+    })
+ 
 }
 })
