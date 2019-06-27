@@ -1,5 +1,6 @@
-const baseUrl="http://t.yushu.im/v2/movie/"
+const baseUrl ="https://pre-web-gateway.newbeescm.com/ms-web"
 
 module.exports={
     in_theaters:baseUrl+"in_theaters",
+  baseUrl
 }

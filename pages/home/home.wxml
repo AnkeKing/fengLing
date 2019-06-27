@@ -1,2 +1,155 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home</text>
+<view class="box">
+  <view class="tit" style="padding-top:{{statusBarHeight}}px">
+    <view class="top">
+        <view class="left">
+            <text class="co">北京科技职业学院(八...</text>
+        </view>
+        <view class="right">
+            <image src="../../img/ic_search_gary.png" class="img"></image>
+        </view>
+    </view>
+    <view class="bottom">
+      <view class="bottom-left">
+        <image src="../../img/aa.jpg" class="one"></image>
+      </view>
+       <view class="bottom-right">
+        <text class="text-one">西藏拉萨门店</text>
+        <text class="text-two">生活日用百货</text>
+        <text class="text-three">营业时间：法定工作日09.00-21.00法定节假日休息中</text>
+       </view>
+    </view>
+  </view>
+    <view class="swiper-tab">
+     <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">商品</view>
+     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">商家</view>
+     <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">
+     <image src="../../img/bb.jpg" class="img2"></image>
+    </view>
+  </view>
+    <!-- 中间的内容 -->
+    <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+    <view class="canten">
+      <view class="can-left">
+      <!-- 竖向的tab -->
+          <view class="tab {{Tab==0?'tex':''}}" data-current="0" bindtap="ckb">
+             衣服
+          </view>
+           <view class="tab {{Tab==1?'tex':''}}" data-current="1" bindtap="ckb">
+             推荐
+          </view>
+           <view class="tab {{Tab==2?'tex':''}}" data-current="2" bindtap="ckb">
+             日化
+          </view>
+           
+          <!-- ssss -->
+      </view>
+       <view class="can-right">
+         <view class = "{{Tab == 0 ? 'show':'hidden'}}" >
+         <view class="can-r">
+           <view class="f">
+            <image src="../../img/cc.jpg" class="ewm"></image>
+           </view>
+           <view class="tw">
+              <view class="tw-left">
+                <text class="i">西安门1</text>
+                <text class="t">1</text>
+                <text class="r">销量0个</text>
+              </view>
+              <view class="tw-right">
+                 <text class="da">￥1.30</text>
+                 <text class="g">1个起订</text>
+              </view>
+           </view>
+           <view class="thr">
+            <image src="../../img/ic_sub_cart.png" class="y"></image>
+            <text class="yy">1</text>
+             <image src="../../img/ic_add_cart.png" class="y1"></image>
+           </view>
+         </view>
+       </view>
+      <!-- 222222222 -->
+      <view class = "{{Tab == 1 ? 'show':'hidden'}}" >
+         <view class="can-r">
+           <view class="f">
+            <image src="../../img/cc.jpg" class="ewm"></image>
+           </view>
+           <view class="tw">
+              <view class="tw-left">
+                <text class="i">西安门2</text>
+                <text class="t">1</text>
+                <text class="r">销量0个</text>
+              </view>
+              <view class="tw-right">
+                 <text class="da">￥1.30</text>
+                 <text class="g">1个起订</text>
+              </view>
+           </view>
+           <view class="thr">
+            <image src="../../img/ic_sub_cart.png" class="y"></image>
+            <text class="yy">1</text>
+             <image src="../../img/ic_add_cart.png" class="y1"></image>
+           </view>
+         </view>
+       </view>
+      <!-- 33333333 -->
+      <view class = "{{Tab == 2 ? 'show':'hidden'}}" >
+         <view class="can-r">
+           <view class="f">
+            <image src="../../img/cc.jpg" class="ewm"></image>
+           </view>
+           <view class="tw">
+              <view class="tw-left">
+                <text class="i">西安门3</text>
+                <text class="t">1</text>
+                <text class="r">销量0个</text>
+              </view>
+              <view class="tw-right">
+                 <text class="da">￥1.30</text>
+                 <text class="g">1个起订</text>
+              </view>
+           </view>
+           <view class="thr">
+            <image src="../../img/ic_sub_cart.png" class="y"></image>
+            <text class="yy">1</text>
+             <image src="../../img/ic_add_cart.png" class="y1"></image>
+           </view>
+         </view>
+       </view>
+      <!-- lalal -->
+       </view>
+       </view>
+        </view>
+      <!-- 中间内容222 -->
+       <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+        <view class="center">
+          <view class="c-one">
+           <image src="../../img/ic-receiveGoodLocation.png" class="imgo"  bindtap="getLocation"></image>
+           <text class="wen"  bindtap="getLocation">西藏拉萨市城关区吉日街道办事处江苏路36号</text>
+           <image src="../../img/ic_phone_black.png" class="imgt" bindtap="callme"></image>
+          </view>
+           <view class="c-two">
+            <image src="../../img/ic_disp.png" class="imgo"></image>
+           <text class="tb">基础配送费:</text>
+           <text class="wen">￥1</text>
+          </view> 
+           <view class="c-thr">
+           <image src="../../img/ic_sale_time.png" class="imgo"></image>
+           <text class="ying">营业时间：法定工作日09.00-21.00</text>
+           <view class="fa">法定节假日休息中</view>
+          </view>
+           <view class="c-fo">
+           <image src="../../img/ic_disp_time.png" class="imgo"></image>
+           <text class="ying">配送时间：09.00~19.15</text>
+          </view> 
+           <view class="c-fi">
+           <image src="../../img/ic_message.png" class="imgo"></image>
+           <text class="ying">生活日用百货</text>
+          </view> 
+        </view>
+       </view>
+        <!-- 中间内容333 -->
+       <view class = "{{currentTab == 2 ? 'show':'hidden'}}" >
+       <view>333</view>
+       </view>
+</view>
