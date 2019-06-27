@@ -1,11 +1,17 @@
 <!--index.wxml-->
-<view>
-      <view style='height:{{Topha*2}}rpx' class='top'></view>
-      <view class="denglu">
-          <input class="input1" placeholder='请输入手机号'></input>
-          <view class="denglu1">
-              <input placeholder='请输入验证码' class="input2"></input><text class="yzm">获取验证码</text>
-          </view>
-        
+<view class='topp'>
+      <view style='height:{{Topha}}px' class='top'></view>
+      <view style='height:{{jiaonan.height}}px;padding-top:{{jiaonan.top-Topha}}px' class='top1'>
+       <image src='../../image/ic_left_white.png' class='img1'></image> <text>绑定手机</text> <text class='kong'></text>
+      </view>
+      <view class='con'>
+          <input class='input1' placeholder='请输入手机号'></input> 
+          <image src='../../image/icon_gray_phone.png' class='con_img1'></image>
+          <input class='input1' placeholder='请输入验证码'></input>
+          <image src="../../image/icon_gray_code.png" class='con_img1 con_img2'></image>
+          <text class="con_yzm" bindtap='huoqu'>获取验证码</text>
+          <input class='input1' placeholder='请输入密码'></input> 
+          <image src="../../image/icon_gray_password.png"class='con_img1 con_img3' ></image>
+          <button class='btn' disabled>确认</button>
       </view>
 </view>

@@ -6,4 +6,5 @@ const baseUrl=" https://web-gateway.hivescm.com com/ms-web" //开发环境
 
 module.exports={
     in_theaters:baseUrl+"in_theaters",
+    code:""
 }

@@ -1,19 +1,22 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+const api = require("../../http/config.js");
+const http = require('../../http/index.js');
+const rlg = require("../../rlh/rlh.js");
 Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    Topha:null
+    Topha:null,
+    jiaonan: null
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../logs/logs',
     })
   },
   onLoad: function () {
@@ -21,7 +24,11 @@ Page({
     this.setData({
       Topha: app.globalData.statusBarHeight
     })
+    this.setData({
+      jiaonan: wx.getMenuButtonBoundingClientRect()
+    })
     console.log(this.data.Topha)
+    console.log(this.data.jiaonan)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -57,9 +64,16 @@ Page({
       hasUserInfo: true
     })
   },
-  aa(){
-    wx.switchTab({
-      url:"../home/home"
+  huoqu(){
+  console.log("aa")
+  let thit=this
+    wx.login({
+      success(res) {
+        console.log("code",res.code)
+        // http(api.baseUrl + weCat/auth/403/{code}?version=2&type=1).then(res => {
+        //   console.log(res)
+        // })
+      }
     })
-  }
+}
 })
