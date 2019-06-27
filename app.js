@@ -16,7 +16,7 @@ App({
           //发起网络请求
           http("https://web-gateway.newbeescm.com/ms-web/weCat/auth/403/" + res.code + "?version=2&type=1"
           ).then(res => {
-           
+
             this.globalData.data = res.data
             console.log(this.globalData.data)
           })
@@ -49,6 +49,8 @@ App({
   globalData: {
     userInfo: null,
     statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'],
-    data:null
+    data: null
   }
 })
+
+  
