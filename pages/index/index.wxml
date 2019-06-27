@@ -5,7 +5,7 @@
        <image src='../../image/ic_left_white.png' class='img1' ></image> <text>绑定手机</text> <text class='kong'></text>
       </view>
       <view class='con'>
-          <input class='input1' placeholder='请输入手机号' bindinput="mobile" type="number"></input> 
+          <input class='input1' placeholder='请输入手机号' value='' bindinput="mobile" type="number"></input> 
           <image src='../../image/icon_gray_phone.png' class='con_img1'></image>
           <input class='input1' placeholder='请输入验证码'></input>
           <image src="../../image/icon_gray_code.png" class='con_img1 con_img2'></image>

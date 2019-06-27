@@ -90,15 +90,27 @@ Page({
       })
     })
     
+    
   },
   queren(){
     console.log(app.globalData.data.result)
-    http(
-      api.baseUrl + "/memberAccount/bindMobileForMember?sourceType=" + "APP" + "&memberSource=601&" + "mobile=" + this.data.mobile + "&password=" + this.data.password + "&code=" + this.data.code + "&wechatOpenId=" + app.globalData.data.result.wechateId + "&merchantId=" + app.globalData.data.result.shopInfoDTO.merchantId,
+    // http(
+    //   api.baseUrl + "/memberAccount/bindMobileForMember?sourceType=" + "APP" + "&memberSource=601&" + "mobile=" + this.data.mobile + "&password=" + this.data.password + "&code=" + this.data.code + "&wechatOpenId=" + app.globalData.data.result.wechateId + "&merchantId=" + app.globalData.data.result.shopInfoDTO.merchantId,
    
-    ).then(res => {
+    // ).then(res => {
+    //   console.log(res)
+    // })
+    let ff={
+      "sourceType": 'APP',
+      "memberSource": 601,
+      "mobile": this.data.mobile ,
+      "password": this.data.password ,
+      "code": this.data.code,
+      "wechatOpenId": app.globalData.data.result.wechateId,
+      "merchantId": app.globalData.data.result.shopInfoDTO.merchantId
+    }
+    http(api.baseUrl +"/memberAccount/bindMobileForMember","params",ff,"get").then(res => {
       console.log(res)
     })
- 
 }
 })
