@@ -1,9 +1,12 @@
 {
     "pages": [
+        
         "pages/my/my",
         "list/collect/collect",
         "list/regularlist/regularlist",
         "list/address/address",
+        "list/address/newAddress/newAddress",
+        "list/bindphone/bindphone",
         "pages/index/index",
         "pages/logs/logs",
         "pages/shopping/shopping",

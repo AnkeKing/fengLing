@@ -1,0 +1,48 @@
+<!--list/address/newAddress/newAddress.wxml-->
+<view class='newAddress'>
+    <view class='nav'style="padding-top:{{statusBarHeight}}px">
+        <image src='../../../image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
+        新增收货地址
+    </view>
+    <view class='con'>
+        <view class='one'>
+            <view class='one_left'>
+                联系人
+            </view>
+            <view class='one_right'>
+                <input class='one_right_input'placeholder="请输入收货人姓名" placeholder-class='placeholder'></input>
+                <view class='one_right_bottom'>
+                    <button class='man'>男士</button>
+                    <button class='woman'>女士</button>
+                </view>
+            </view>
+        </view>
+        <view class='one'>
+            <view class='one_left'>
+                电话
+            </view>
+            <view class='one_right'>
+                <input class='one_right_input'placeholder="请输入手机号" placeholder-class='placeholder'></input>
+            </view>
+        </view>
+        <view class='one'>
+            <view class='one_left'>
+                详细地址
+            </view>
+            <view class='one_right address_con'>
+                <image src='../../../image/ic_loction.png' class='address_con_img'></image>
+                <input class='address_con_input'placeholder="点击选择地址" placeholder-class='placeholder'disabled></input>
+                <image src='../../../image/ic-next-left_gary.png' class='address_con_right'></image>
+            </view>
+        </view>
+        <view class='one'>
+            <view class='one_left'>
+                楼号门牌号
+            </view>
+            <view class='one_right'>
+                <input class='one_right_input'placeholder="例：10号楼2单元102" placeholder-class='placeholder'></input>
+            </view>
+        </view>
+    </view>
+    <button class='saveBtn'>保存</button>
+</view>

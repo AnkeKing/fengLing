@@ -1,0 +1,98 @@
+/* list/address/newAddress/newAddress.wxss */
+.newAddress{
+    width: 750rpx;
+    height: 100vh;
+    background: #f2f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.nav{
+    height: 105rpx;
+    width: 750rpx;
+    background: #f84134;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35rpx;
+    color: #fefefe;
+    font-weight: 400;
+    position: relative
+}
+.leftImg{
+    height: 35rpx;
+    width: 30rpx;
+    padding: 20rpx;
+    position: absolute;
+    left: 34rpx;
+    transform: translateX(-50%)
+}
+.con{
+    width: 750rpx;
+    background: #ffffff;
+}
+.one{
+    width: 100%;
+    padding: 33rpx 0rpx 20rpx;
+    border-bottom:2rpx solid #f4f4f5;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+.one_left{
+    width: 202rpx;
+    font-size: 28rpx;
+    color: #414141;
+    font-weight: 550;
+    box-sizing: border-box;
+    padding-left: 28rpx;
+}
+.one_right{
+    width: 492rpx;
+}
+.one_right_input{
+    flex: 1;
+}
+.placeholder{
+    font-size: 28rpx;
+    color: #cdcdcd;
+}
+.one_right_bottom{
+    width: 180rpx;
+    margin-top: 48rpx;
+    display: flex;
+    justify-content: space-between
+}
+.one_right_bottom>button{
+    width: 81rpx;
+    font-size: 22rpx;
+    color: #151515;
+    margin: 0;
+    padding: 0
+}
+.address_con{
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.address_con_img{
+    height: 28rpx;
+    width: 20rpx;
+}
+.address_con_input{
+    flex: 1;
+    margin-left: 16rpx
+}
+.address_con_right{
+    height: 28rpx;
+    width: 20rpx;
+    margin-right: 26rpx
+}
+.saveBtn{
+    height: 88rpx;
+    width:696rpx;
+    background: linear-gradient(to left,#f83a37, #f85a2e);
+    color: #ffffff;
+    font-size: 38rpx;
+    margin-top: 158rpx
+}

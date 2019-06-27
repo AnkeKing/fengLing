@@ -1,4 +1,4 @@
-// list/address/address.js
+// list/bindphone/bindphone.js
 const app=getApp()
 Page({
 
@@ -33,12 +33,7 @@ Page({
     backtrack() {
         wx.navigateBack({ changed: true });
     },
-    // 跳到新添加地址页面
-    newAddress(){
-        wx.navigateTo({
-            url: './newAddress/newAddress',
-        })
-    },
+
     /**
      * 生命周期函数--监听页面隐藏
      */

@@ -32,7 +32,7 @@ module.exports.toHide = toHide;
                 <image src='../../image/ic_my_address.png' class='list_img'></image>
                 <text class='list_one_text'>收货地址</text>
             </view>
-            <view class='list_one'>
+            <view class='list_one' bindtap='bindphone'>
                 <image src='../../image/ic_phone.png' class='list_img'></image>
                 <text class='list_one_text'>绑定手机</text>
             </view>

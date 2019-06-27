@@ -70,6 +70,12 @@ Page({
             url: '../../list/address/address',
         })
     },
+    // 跳到绑定手机页
+    bindphone(){
+        wx.navigateTo({
+            url: '../../list/bindphone/bindphone',
+        })
+    },
     phone_button: function() {
         wx.makePhoneCall({
             phoneNumber: "400-666-0246"

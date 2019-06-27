@@ -1,4 +1,4 @@
-// list/address/address.js
+// list/address/newAddress/newAddress.js
 const app=getApp()
 Page({
 
@@ -32,12 +32,6 @@ Page({
     // 返回上一级
     backtrack() {
         wx.navigateBack({ changed: true });
-    },
-    // 跳到新添加地址页面
-    newAddress(){
-        wx.navigateTo({
-            url: './newAddress/newAddress',
-        })
     },
     /**
      * 生命周期函数--监听页面隐藏
