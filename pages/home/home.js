@@ -8,8 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    currentTab:0,
+    Tab:0,
   //  困在全局直接在全局取
-      statusBarHeight: app.globalData.statusBarHeight
+      statusBarHeight: app.globalData.statusBarHeight,
   }, 
 
 // tab点击事件
@@ -22,7 +24,6 @@ Page({
         currentTab: e.target.dataset.current,
       })
     }
-    
   },
   getLocation: function () {
     wx.getLocation({
@@ -42,7 +43,7 @@ Page({
       phoneNumber:"17600181028",
     })
  },
-
+// http
 // 竖向点击事件
   ckb: function (e) {
     var that = this;
@@ -55,18 +56,21 @@ Page({
     }
   },
 
-  
-
-
-
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http(api.in_theaters).then(res => {
-      console.log(res)
+    http(
+      api.baseUrl + "/shopGoodsCategory/homeCategoryList",
+      "post",
+      {
+        shopId: 18,
+        storeId: 56200
+      }
+    ).then(res => {
+      console.log(res);
     })
+
   },
   
   /**

@@ -118,7 +118,7 @@ li{
 .canten{
   width:747rpx;
   height:825rpx;
-  border:1rpx solid red;
+  border-top:1rpx solid #ededed;
   display:flex;
   overflow-y: scroll;
   
@@ -126,7 +126,7 @@ li{
 .can-left{
  width:23%;
  height:auto;
- border:1rpx solid red;
+ /* border:1rpx solid red; */
  display:flex;
  align-items: center;
  flex-direction: column;
@@ -134,14 +134,15 @@ li{
 }
 
 .can-right{
+display:flex;
 width:77%;
  height:auto;
- border:1rpx solid black;
+ border-left:1rpx solid #d9d9d9;
 }
 .can-r{
   width:100%;
   height:300rpx;
-   border:1rpx solid red;
+  border-bottom:1rpx solid #ededed;
    display:flex;
 }
 .wid{

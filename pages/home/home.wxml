@@ -28,7 +28,7 @@
     </view>
   </view>
     <!-- 中间的内容 -->
-    <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+    <view class = "{{currentTab == 0 ? 'show':'hidden'}}">
     <view class="canten">
       <view class="can-left">
       <!-- 竖向的tab -->
@@ -45,7 +45,7 @@
           <!-- ssss -->
       </view>
        <view class="can-right">
-         <view class = "{{Tab == 0 ? 'show':'hidden'}}" >
+         <view class = "{{Tab == 0 ? 'show':'hidden'}}">
          <view class="can-r">
            <view class="f">
             <image src="../../img/cc.jpg" class="ewm"></image>
