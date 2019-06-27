@@ -70,9 +70,7 @@ Page({
     wx.login({
       success(res) {
         console.log("code",res.code)
-        // http(api.baseUrl + weCat/auth/403/{code}?version=2&type=1).then(res => {
-        //   console.log(res)
-        // })
+        
       }
     })
 }
