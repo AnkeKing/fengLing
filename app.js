@@ -1,4 +1,6 @@
 //app.js
+const api = require("./http/config.js");
+const http = require('./http/index.js');
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -10,6 +12,17 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+       
+          if (res.code) {
+            //发起网络请求
+            http("https://web-gateway.newbeescm.com/ms-web/weCat/auth/403/"+res.code+"?version=2&type=1"
+).then(res => {
+              console.log(res)
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        
       }
     })
     // 获取用户信息
