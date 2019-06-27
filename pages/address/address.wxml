@@ -1,2 +1,5 @@
 <!--pages/address/address.wxml-->
-<text>pages/address/address.wxml</text>
+<view class='topt'>
+    <view style="height:{{Topha*2}}rpx"></view>
+    <view style='margin-top:{{jiaonan.top}}rpx' class="title"> aa <text >选择收货地址</text>              <text></text></view>
+</view>

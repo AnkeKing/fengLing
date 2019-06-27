@@ -1,1 +1,10 @@
 /* pages/address/address.wxss */
+.topt{
+  background: black;
+  color: white;
+  height: 245rpx;
+}
+.title{
+ display: flex;
+ justify-content: space-around;
+}

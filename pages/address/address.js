@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    Topha:null,
+    jiaonan:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      Topha: app.globalData.statusBarHeight
+    })
+    this.setData({
+      jiaonan: wx.getMenuButtonBoundingClientRect()
+    })
+    console.log(app.globalData.statusBarHeight)
+    console.log(wx.getMenuButtonBoundingClientRect())
   },
 
   /**
