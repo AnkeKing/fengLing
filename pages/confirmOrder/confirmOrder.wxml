@@ -1,0 +1,6 @@
+<!--pages/confirmOrder/confirmOrder.wxml-->
+<view class="delivery-type">
+    <view class="public-type">商家配送<hr class="active-hr"/></view>
+    <view class="public-type active-type">到店自提</view>
+</view>
+<map-route route-info="{{routeInfo}}"></map-route>

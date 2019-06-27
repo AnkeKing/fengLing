@@ -5,16 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    dateObj:{},
+    shopCount:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // this.setData({
+    //   dateObj:options.dateObj
+    // })
   },
-
+  add(){
+    let count=this.data.shopCount;
+    count++;
+    this.setData({
+      shopCount:count
+    })
+  },
+  sub(){
+    let count=this.data.shopCount;
+    count--;
+    this.setData({
+      shopCount:count
+    })
+  },
+  toBying(){
+    wx.navigateTo({url: '../confirmOrder/confirmOrder'})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

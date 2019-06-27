@@ -1,2 +1,29 @@
-<!--pages/groupByingDetail/groupByingDetail.wxml-->
-<view class="title-box">pages/groupByingDetail/groupByingDetail.wxml</view>
+<!-- pages/groupByingDetail/groupByingDetail.wxml -->
+<view class="detail-box">
+    <text class="title">社区团购</text>
+    <!-- <text class="txt">截团时间:{{dateObj.stopDate}}</text>
+    <text class="txt">开团时间:{{dateObj.openDate}}</text> -->
+    <text class="txt">截团时间 : 2019/07/21 05:21:21</text>
+    <text class="txt">开团时间 : 2019/07/21 05:21:21</text>
+    <text class="txt">取货方式 : 自提</text>
+</view>
+<view class="shop-box">
+    <image class="shop-img" src="https://hbimg.huabanimg.com/7e41e3158ee4c04140b45ba5ed20ee1ad13f7018b70e5-LVuEKz_fw658" />
+    <view class="shop-detail">
+        <text class="shop-title">爸爸的包包衣服</text>
+        <text class="shop-orgin-price">￥7.00</text>
+        <view class="shop-handle-box">
+            <view class="shop-price-box">
+                <text class="shop-price-small">￥</text>
+                <text class="shop-price">600</text>
+                <text class="shop-price-small">.00</text>
+            </view>
+            <view class="shop-btn-box">
+                <image class="shop-btn" src="../../img/ic_sub_cart.png" bindtap="sub" wx:if="{{shopCount>0}}"/>
+                <text class="shop-count" wx:if="{{shopCount>0}}">{{shopCount}}</text>
+                <image class="shop-btn" src="../../img/ic_add_cart.png" bindtap="add" />
+            </view>
+        </view>
+    </view>
+</view>
+<button class="to-bying-btn"bindtap="toBying">立即购买</button>

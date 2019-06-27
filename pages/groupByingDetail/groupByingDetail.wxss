@@ -1,1 +1,110 @@
 /* pages/groupByingDetail/groupByingDetail.wxss */
+page{
+    display: flex;
+    flex-direction: column;
+}
+.detail-box{
+    width: 100vw;
+    padding: 28rpx 25rpx 24rpx 25rpx;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.detail-box::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    bottom: 0rpx;
+    left: 0rpx;
+    height: 1px;
+    background: #FBFBFB;
+    transition: scaleX(0.5);
+}
+.title{
+    font-size: 32rpx;
+    color: #333333;
+    font-weight: bold;
+    margin-bottom: 17rpx;
+}
+.txt{
+    font-size: 28rpx;
+    color: #333333;
+    margin-bottom: 14rpx;
+}
+.shop-box{
+    width: 100vw;
+    padding: 28rpx;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+}
+.shop-box::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    bottom: 0rpx;
+    left: 0rpx;
+    height: 1px;
+    background: #FBFBFB;
+    transition: scaleX(0.5);
+}
+.shop-img{
+    width: 202rpx;
+    height: 202rpx;
+
+}
+.shop-detail{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20rpx;
+    flex: 1;
+    justify-content: space-between;
+}
+.shop-title{
+    font-size: 32rpx;
+    color: #333333;
+}
+.shop-orgin-price{
+    font-size: 26rpx;
+    color: #959595;
+    text-decoration:line-through;
+    margin-top: 50rpx;
+}
+.shop-handle-box{
+    display: flex;
+    justify-content: space-between;
+
+}
+.shop-btn-box{
+    display: flex;
+    align-items: center;
+}
+.shop-count{
+    font-size: 30rpx;
+    color: #090909;
+    margin: 0 20rpx 0 20rpx;
+}
+.shop-btn{
+    width: 40rpx;
+    height: 40rpx;
+}
+.shop-price{
+    font-size: 36rpx;
+    color: #A53D46;
+}
+.shop-price-small{
+    font-size: 26rpx;
+    color: #A53D46;
+}
+.to-bying-btn{
+    width: 100vw;
+    height: 88rpx;
+    background: linear-gradient(to right, #FD5828 , #FE3933);
+    font-size: 32rpx;
+    color: #FFFFFF;
+    position: fixed;
+    left: 0rpx;
+    bottom: 0rpx;
+    border-radius: 0px;
+}

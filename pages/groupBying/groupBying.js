@@ -6,6 +6,7 @@ Page({
    */
   data: {
     stopDate: "2019/07/21 05:21:21",
+    openDate: "2019/06/19 07:27:27",
     currentDate: {}
   },
 
@@ -66,7 +67,10 @@ Page({
     }
   },
   toDetail(){
-    wx.navigateTo({url: '../groupByingDetail/groupByingDetail',})
+    wx.navigateTo({url: '../groupByingDetail/groupByingDetail?dateObj='+{
+      stopDate: "2019/07/21 05:21:21",
+      openDate: "2019/06/19 07:27:27"
+    }})
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
