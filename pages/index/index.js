@@ -92,20 +92,10 @@ Page({
     
   },
   queren(){
-    let form = {
-      sourceType:'APP',
-      memberSource: 601,
-      mobile: this.data.mobile,
-      password: this.data.password,
-      code:this.data.code,
-      wechatOpenId:app.globalData.data.result.wechateId,
-      merchantId: app.globalData.data.result.shopInfoDTO.merchantId
-    }
     console.log(app.globalData.data.result)
     http(
-      api.baseUrl+"/memberAccount/bindMobileForMember",
-      form,
-      "post"
+      api.baseUrl + "/memberAccount/bindMobileForMember?sourceType=" + "APP" + "&memberSource=601&" + "mobile=" + this.data.mobile + "&password=" + this.data.password + "&code=" + this.data.code + "&wechatOpenId=" + app.globalData.data.result.wechateId + "&merchantId=" + app.globalData.data.result.shopInfoDTO.merchantId,
+   
     ).then(res => {
       console.log(res)
     })

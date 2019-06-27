@@ -6,9 +6,9 @@ function http(url, data, method) {
   return new Promise((resolve, reject) => {
     wx.request({
       url,
-      data: JSON.stringify(data),
-      method: method || 'get',
       params:data,
+      method: method || 'get',
+      // params: data,
       success: function (res) {//成功
         // if (res.data.result === 'error' || res['statusCode'] !== 200) {
         //   wx.showToast({
