@@ -7,6 +7,7 @@ Page({
    */
   data: {
         statusBarHeight:"",
+        phone:"17636643721",
         userInfo:{}
   },
 
@@ -30,7 +31,8 @@ Page({
   onShow: function () {
       this.setData({
           statusBarHeight: app.globalData.statusBarHeight,
-          userInfo: app.globalData.userInfo
+          userInfo: app.globalData.userInfo,
+          phone:this.data.phone
       })
   },
 

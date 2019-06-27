@@ -1,14 +1,33 @@
 <!--pages/my/my.wxml-->
-<wxs module="foo">
-function xing(str){
-    
+<!-- <wxs module="phone">
+/*
+var toHide = function(array) {
+  //var mphone = array.substring(0, 3) + '****' + array.substring(7);
+  return toString(array);
 }
- module.exports.xing = xing
-</wxs>
+module.exports.toHide = toHide;
+*/
+</wxs> -->
 <view class='my'>
     <view class='nav' style="padding-top:{{statusBarHeight}}px">
-        <image src="{{userInfo.avatarUrl}}" class='headerImg'></image>
+        <image src="{{userInfo.avatarUrl}}" class='headerImg' wx:if="{{userInfo}}"></image>
+        <image src="../../img/tag_home.png" class='headerImg'wx:else></image>
         <text class='userName'>{{userInfo.nickName}}</text>
-        <text class='phone'>17636643721</text>
+        <text class='phone'>{{phone}}</text>
+        <view class='list'>
+            <view class='list_one'>
+                <image src='../../image/ic_collect.png' class='list_img'></image>
+                <text>收藏</text>
+            </view>
+            <view class='list_one'>
+                <image src='../../image/ic_collect.png' class='list_img'></image>
+            </view>
+            <view class='list_one'>
+                <image src='../../image/ic_collect.png' class='list_img'></image>
+            </view>
+            <view class='list_one'>
+                <image src='../../image/ic_collect.png' class='list_img'></image>
+            </view>
+        </view>
     </view>
 </view>

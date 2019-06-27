@@ -1,4 +1,9 @@
 /* pages/my/my.wxss */
+.my{
+    height: 100vh;
+    width: 750rpx;
+    background: #f2f2f5
+}
 .nav{
     height: 658rpx;
     width: 750rpx;
@@ -6,6 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative
 }
 .headerImg{
     height: 150rpx;
@@ -23,4 +29,26 @@
     font-size: 27rpx;
     color: #c6fffb;
     margin-top: 27rpx;
+}
+.list{
+    width: 708rpx;
+    height: 224rpx;
+    background: #ffffff;
+    border-radius: 20rpx;
+    position: absolute;
+    bottom:-54rpx;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+.list_one{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.list_img{
+    height: 100rpx;
+    width: 100rpx
 }
