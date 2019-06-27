@@ -1,0 +1,34 @@
+.denglu{
+ 
+  font-size: 16rpx; 
+  width: 50%;
+  margin: 0 auto;
+   margin-top: 400rpx;
+}
+.input1{
+  width: 330rpx;
+  height:40rpx;
+  border:1px  solid #ccc;
+  padding-left:40rpx;
+  border-radius: 20rpx;
+}
+.yzm{
+  width: 115rpx;
+  height: 1.4rem;
+  line-height: 1.4rem;
+   font-size: 16rpx; 
+  border: 1px solid #ccc;
+  border-radius: 20rpx;
+  text-align: center
+}
+.denglu1{
+  display: flex;
+  margin-top: 33rpx;
+}
+.input2{
+  width: 256rpx;
+  height:40rpx;
+  border:1px  solid #ccc;
+  padding-left:40rpx;
+  border-radius: 20rpx;
+}

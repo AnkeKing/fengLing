@@ -1,5 +1,11 @@
 <!--index.wxml-->
 <view>
       <view style='height:{{Topha*2}}rpx' class='top'></view>
-      <top>1</top>
+      <view class="denglu">
+          <input class="input1" placeholder='请输入手机号'></input>
+          <view class="denglu1">
+              <input placeholder='请输入验证码' class="input2"></input><text class="yzm">获取验证码</text>
+          </view>
+        
+      </view>
 </view>
