@@ -1,0 +1,57 @@
+/* list/address/address.wxss */
+.address{
+    width: 750rpx;
+    height: 100vh;
+    background: #f2f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.nav{
+    height: 105rpx;
+    width: 750rpx;
+    background: #f84134;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35rpx;
+    color: #fefefe;
+    font-weight: 400;
+    position: relative
+}
+.leftImg{
+    height: 35rpx;
+    width: 30rpx;
+    padding: 20rpx;
+    position: absolute;
+    left: 34rpx;
+    transform: translateX(-50%)
+}
+.con{
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 225rpx
+}
+.addressImg{
+    height: 97rpx;
+    width: 97rpx;
+}
+.conText{
+    font-size: 28rpx;
+    color: #161617;
+    margin-top: 60rpx
+}
+.newAddress{
+    width: 750rpx;
+    height: 87rpx;
+    background: #f84134;
+    border-radius: 0;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0
+}
+.newAddress::after{
+    border: none
+}

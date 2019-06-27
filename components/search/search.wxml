@@ -1,0 +1,8 @@
+<!--components/search/search.wxml-->
+<view class='search'>
+    <view class='search_con'>
+        <image src='../../image/ic_search.png' class='searchImg'></image>
+        <input class='searchInput'placeholder="搜索商品" placeholder-class='placeholder'></input>
+    </view>
+    <button class='btn'>编辑</button>
+</view>

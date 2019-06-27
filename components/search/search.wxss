@@ -1,0 +1,43 @@
+/* components/search/search.wxss */
+.search{
+    width: 750rpx;
+    padding: 14rpx 0rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f5
+}
+.search_con{
+    width: 585rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10rpx 
+}
+.searchImg{
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 20rpx
+}
+.searchInput{
+    width: 517rpx;
+    font-size: 28rpx;
+    padding: 10rpx 0rpx
+}
+.placeholder{
+    font-size: 28rpx;
+    color: #cecece
+}
+.btn{
+    background: transparent;
+    font-size: 28rpx;
+    color: #ff2426;
+    margin-left: 45rpx;
+    margin-right: 0;
+    padding: 0;
+
+}
+button::after {
+  border: none;
+}

@@ -1,0 +1,12 @@
+<!--list/regularlist/regularlist.wxml-->
+<view class='rgularlist'>
+    <view class='nav'style="padding-top:{{statusBarHeight}}px">
+        <image src='../../image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
+        我的收藏
+    </view>
+    <search></search>
+    <view class='con'>
+        <image src='../../image/ic_search_no_data.png' class='search_no_data'></image>
+        <text class='con_text'>抱歉！您还没有常购商品</text>
+    </view>
+</view>

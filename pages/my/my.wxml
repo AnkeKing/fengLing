@@ -10,24 +10,37 @@ module.exports.toHide = toHide;
 </wxs> -->
 <view class='my'>
     <view class='nav' style="padding-top:{{statusBarHeight}}px">
-        <image src="{{userInfo.avatarUrl}}" class='headerImg' wx:if="{{userInfo}}"></image>
-        <image src="../../img/tag_home.png" class='headerImg'wx:else></image>
-        <text class='userName'>{{userInfo.nickName}}</text>
+        <block wx:if="{{userInfo}}">
+            <image src="{{userInfo.avatarUrl}}" class='headerImg' ></image>
+            <text class='userName'>{{userInfo.nickName}}</text>
+        </block>
+        <block wx:else>
+            <image src="../../img/tag_home.png" class='headerImg'></image>
+            <text class='userName' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">点击授权</text>
+        </block>
         <text class='phone'>{{phone}}</text>
         <view class='list'>
-            <view class='list_one'>
+            <view class='list_one' bindtap='collect'>
                 <image src='../../image/ic_collect.png' class='list_img'></image>
-                <text>收藏</text>
+                <text class='list_one_text'>收藏</text>
+            </view>
+            <view class='list_one'bindtap='regularlist'>
+                <image src='../../image/ic_always_buy.png' class='list_img'></image>
+                <text class='list_one_text'>常购清单</text>
+            </view>
+            <view class='list_one' bindtap='address'>
+                <image src='../../image/ic_my_address.png' class='list_img'></image>
+                <text class='list_one_text'>收货地址</text>
             </view>
             <view class='list_one'>
-                <image src='../../image/ic_collect.png' class='list_img'></image>
-            </view>
-            <view class='list_one'>
-                <image src='../../image/ic_collect.png' class='list_img'></image>
-            </view>
-            <view class='list_one'>
-                <image src='../../image/ic_collect.png' class='list_img'></image>
+                <image src='../../image/ic_phone.png' class='list_img'></image>
+                <text class='list_one_text'>绑定手机</text>
             </view>
         </view>
+        
+    </view>
+    <view class='phone_button' bindtap='phone_button'>
+        <image src='../../image/ic_my_phone.png' class="phone_buttonImg"></image>
+        <text class='phone_button_text'>400-666-0246</text>
     </view>
 </view>
