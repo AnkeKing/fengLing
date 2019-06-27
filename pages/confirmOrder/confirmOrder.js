@@ -1,99 +1,93 @@
 // pages/confirmOrder/confirmOrder.js
-var http = require("../../http/index.js")
-var api = require("../../http/groupBying_config")
+var http = require("../../http/index.js");
+var api = require("../../http/groupBying_config");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    routeInfo: {
-      startLat: 0.0,    //起点经度 选填
-      startLng: 0.0,    //起点纬度 选填
-      startName: "未获取到起点",   // 起点名称 选填
-      endLat: 0.0,    // 终点经度必传
-      endLng: 0.0,  //终点纬度 必传
-      endName: "未获取到终点",  //终点名称 必传
-      mode: "car"  //算路方式 选填
-    },
-    storeLocation: "西藏拉萨市城关区吉日街道办事处江苏路36号",
-    key: "6DJBZ-5IZ6P-2UEDN-VL3DL-WEDHZ-SMBXV"
+    markers: [{
+      iconPath: "../../img/ic_group_location.png",
+      id: 0,
+      latitude:29.6463,
+      longitude:91.14695,
+      width: 55,
+      height: 72
+    }],
+    polyline: [{
+      points: [{
+        longitude: 29.6463,
+        latitude: 91.14695
+      }, {
+        longitude: 29.6463,
+        latitude: 91.14695
+      }],
+      color: "#FF0000DD",
+      width: 2,
+      dottedLine: true
+    }],
+    nickName:"",
+    phone:""
   },
-
+  regionchange(e) {
+    console.log(e.type)
+  },
+  markertap(e) {
+    console.log(e.markerId)
+  },
+  controltap(e) {
+    console.log(e.controlId)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _page = this;
-    console.log(options);
-    var QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
-    var qqmapsdk;
-    var that = this // 实例化API核心类 
-    qqmapsdk = new QQMapWX({
-      key: 'C2XBZ-FIGWD-76B4E-H3GJV-FGCME-Z3FJS' //这是你申请的key值 
-    });
-    wx.getLocation({
-      type: 'wgs84', //默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02' 
-      success: function (res) {
-        console.log(res)
-        qqmapsdk.reverseGeocoder({
-          location: {
-            latitude: res.latitude, longitude: res.longitude
-          },
-          success: function (addressRes) {
-            var address = addressRes.result.address_component.city //返回的结果 
-            console.log(address)
-            that.setData({ address: address })
-            console.log(that);
-          }
+    
+    var that=this;
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res){
+        // success
+        console.log(res.data)
+        that.setData({
+          nickName:JSON.parse(res.data).nickName,
+          phone:"15210795092"
         })
       },
     })
-
-
-
-
-
-    http(api.storeLocation + "address=" + this.data.storeLocation + "&key=" + this.data.key).then(res => {
-      console.log("...", res.data.result.location.lat);
-      console.log("...", res)
-      // _page.setData({
-      //   routeInfo: {
-      //     startLat: parseFloat(res.data.result.location.lat),    //起点经度 选填
-      //     startLng: parseFloat(res.data.result.location.lng),    //起点纬度 选填
-      //     startName: options.get_address,   // 起点名称 选填
-      //     endLat: parseFloat(0),    // 终点经度必传
-      //     endLng: parseFloat(0),  //终点纬度 必传
-      //     endName: options.give_address,  //终点名称 必传
-      //     mode: "car"  //算路式 选填
-      //   }
-      // })
-      // wx.getLocation({
-      //   type: 'wgs84', //默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02' 
-      //   success: function (res) {
-      //     console.log("，，，",res)
-      //     qqmapsdk.reverseGeocoder({
-      //       location: {
-      //         latitude: res.latitude,
-      //         longitude: res.longitude
-      //       },
-      //       success: function (addressRes) {
-      //         var address = addressRes.result.address_component.city //返回的结果
-      //         console.log(address)
-      //         that.setData({
-      //           address: address
-      //         })
-      //         console.log(that)
-      //       }
-      //     })
-      //   },
-      // })
-
-    })
-
-
+    wx.login({
+      success: res => {
+        if(res.code){
+            console.log("kkkk",res.code)
+        }
+    }
+})
+    this.getLocation();
   },
-
+  getLocation(){
+    var that = this;
+    wx.showLoading({ title: "定位中", mask: true });
+    wx.getLocation({
+      type: 'gcj02', altitude: true,//高精度定位 //定位成功，更新定位结果 
+      success: function (res) {
+        var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy
+        that.setData({
+          longitude: longitude, latitude: latitude,
+          speed: speed, accuracy: accuracy,
+        })
+      }, //定位失败回调 
+      fail: function () { 
+        wx.showToast({ title: "定位失败", icon: "none" }) 
+      },
+      complete: function () { //隐藏定位中信息进度 
+        wx.hideLoading()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -106,6 +100,7 @@ Page({
    */
   onShow: function () {
     let plugin = requirePlugin("myPlugin");
+    
   },
 
   /**

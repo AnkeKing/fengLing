@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/groupBying/groupBying",
     "pages/confirmOrder/confirmOrder",
     "pages/groupByingDetail/groupByingDetail",
-    "pages/groupBying/groupBying",
+    
     "pages/index/index",
     "pages/logs/logs",
     "pages/shopping/shopping",

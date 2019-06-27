@@ -38,6 +38,7 @@ page{
     box-sizing: border-box;
     display: flex;
     position: relative;
+    background: #ffffff;
 }
 .shop-box::after{
     position: absolute;
@@ -74,7 +75,7 @@ page{
 .shop-handle-box{
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
 }
 .shop-btn-box{
     display: flex;
