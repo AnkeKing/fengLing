@@ -1,40 +1,48 @@
 <!--pages/groupBying/groupBying.wxml-->
-<view class="main-box">
-    <view class="time-box"catchtap="toDetail">
-        <text class="title">社区团购</text>
-        <text class="stop-time">截团时间：{{currentDate.day}}天{{currentDate.hou}}时{{currentDate.min}}分{{currentDate.sec}}秒</text>
-    </view>
-    <view class="shop-box"catchtap="toDetail">
-        <view class="shop-li">
-            <image src="https://hbimg.huabanimg.com/3305fb45b0c146317c46de8c3ce8f88f81acd366e1cf6-pfofWv_fw658" class="shop-img" />
-            <view class="red-shade">
-                <text class="price">￥8.99</text>
+<nav title="社区团购" color="linear-gradient(to right, #FF7500 , #EB3900)"></nav>
+<view class="scoll-box"style="margin-top:{{martop}}px">
+    <view class="main-box">
+        <view class="time-box" catchtap="toDetail">
+            <text class="title">社区团购</text>
+            <text
+                class="stop-time">截团时间：{{currentDate.day}}天{{currentDate.hou}}时{{currentDate.min}}分{{currentDate.sec}}秒</text>
+        </view>
+        <view class="shop-box" catchtap="toDetail">
+            <view class="shop-li">
+                <image src="https://hbimg.huabanimg.com/3305fb45b0c146317c46de8c3ce8f88f81acd366e1cf6-pfofWv_fw658"
+                    class="shop-img" />
+                <view class="red-shade">
+                    <text class="price">￥8.99</text>
+                </view>
+            </view>
+            <view class="shop-li">
+                <image src="https://hbimg.huabanimg.com/1631e87bfcc0e8d06323e4e9dc112bbe18a909a61db29d-csL1Kv_fw658"
+                    class="shop-img" />
+                <view class="red-shade">
+                    <text class="price">￥8.99</text>
+                </view>
+            </view>
+            <view class="shop-li">
+                <image src="https://hbimg.huabanimg.com/412b28af7fd3e4cfbe6a722cc9c3e957401ee6f32462e-2eRGL1_fw658"
+                    class="shop-img" />
+                <view class="red-shade">
+                    <text class="price">￥8.99</text>
+                </view>
+            </view>
+            <view class="shop-li">
+                <image src="https://hbimg.huabanimg.com/3502a66d50c6e0c89312e8991c1057e024416b2c84dfe-Hnugkj_fw658"
+                    class="shop-img" />
+                <view class="red-shade">
+                    <text class="price">￥8.99</text>
+                </view>
             </view>
         </view>
-        <view class="shop-li">
-            <image src="https://hbimg.huabanimg.com/1631e87bfcc0e8d06323e4e9dc112bbe18a909a61db29d-csL1Kv_fw658" class="shop-img" />
-            <view class="red-shade">
-                <text class="price">￥8.99</text>
-            </view>
-        </view>
-        <view class="shop-li">
-            <image src="https://hbimg.huabanimg.com/412b28af7fd3e4cfbe6a722cc9c3e957401ee6f32462e-2eRGL1_fw658" class="shop-img" />
-            <view class="red-shade">
-                <text class="price">￥8.99</text>
-            </view>
-        </view>
-        <view class="shop-li">
-            <image src="https://hbimg.huabanimg.com/3502a66d50c6e0c89312e8991c1057e024416b2c84dfe-Hnugkj_fw658" class="shop-img" />
-            <view class="red-shade">
-                <text class="price">￥8.99</text>
-            </view>
-        </view>
-    </view>
-    <view class="person-count">
-        <text class="count">共0人参团</text>
-        <button class="share-btn"open-type="share">
+        <view class="person-count">
+            <text class="count">共0人参团</text>
+            <button class="share-btn" open-type="share">
                 <text class="btn-txt">分享活动</text>
-                <image class="btn-img" src="../../img/share.png"/>
-        </button>
+                <image class="btn-img" src="../../img/share.png" />
+            </button>
+        </view>
     </view>
 </view>

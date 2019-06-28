@@ -6,16 +6,17 @@ Page({
    */
   data: {
     dateObj:{},
-    shopCount:0
+    shopCount:0,
+    martop:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.setData({
-    //   dateObj:options.dateObj
-    // })
+    this.setData({
+      martop:getApp().globalData.statusBarHeight+getApp().globalData.jiaonan.height+18
+    })
   },
   add(){
     let count=this.data.shopCount;

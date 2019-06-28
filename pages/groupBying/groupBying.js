@@ -7,13 +7,17 @@ Page({
   data: {
     stopDate: "2019/07/21 05:21:21",
     openDate: "2019/06/19 07:27:27",
-    currentDate: {}
+    currentDate: {},
+    martop:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      martop:getApp().globalData.statusBarHeight+getApp().globalData.jiaonan.height+18
+    })
     wx.showShareMenu({
       withShareTicket: true
     })

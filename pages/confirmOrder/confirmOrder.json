@@ -1,9 +1,5 @@
 {
   "usingComponents": {
     "map-route": "plugin://myPlugin/mapRoute"
-  },
-  "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#FF3531",
-  "navigationBarTitleText": "确认订单",
-  "navigationBarTextStyle": "white"
+  }
 }

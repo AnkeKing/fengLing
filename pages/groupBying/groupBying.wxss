@@ -1,9 +1,11 @@
 /* pages/groupBying/groupBying.wxss */
 page{
+    background: #F2F1F6;
+}
+.scoll-box{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #F2F1F6;
 }
 .main-box{
     width: 94%;

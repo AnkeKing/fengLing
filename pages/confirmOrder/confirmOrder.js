@@ -28,7 +28,8 @@ Page({
       dottedLine: true
     }],
     nickName: "",
-    phone: ""
+    phone: "",
+    martop:0
   },
   regionchange(e) {
     console.log(e.type)
@@ -43,17 +44,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http(
-      api.storeGroupBuyList,
-      "params",
-       {
-        storeId: 56200,
-        pageIndex: 1,
-        pageSize: 1
-      },
-      "post"
-    ).then(res => {
-      console.log("tuangou", res)
+    // http(
+    //   api.storeGroupBuyList,
+    //   "params",
+    //    {
+    //     storeId: 56200,
+    //     pageIndex: 1,
+    //     pageSize: 1
+    //   },
+    //   "post"
+    // ).then(res => {
+    //   console.log("tuangou", res)
+    // })
+    this.setData({
+      martop:getApp().globalData.statusBarHeight+getApp().globalData.jiaonan.height+18
     })
     var that = this;
     wx.getStorage({
@@ -66,13 +70,6 @@ Page({
           phone: "15210795092"
         })
       },
-    })
-    wx.login({
-      success: res => {
-        if (res.code) {
-          console.log("kkkk", res.code)
-        }
-      }
     })
     this.getLocation();
   },
@@ -99,6 +96,7 @@ Page({
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
