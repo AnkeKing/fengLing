@@ -1,4 +1,6 @@
 // pages/groupBying/groupBying.js
+var http = require("../../http/index.js");
+var api = require("../../http/groupBying_config");
 Page({
 
   /**
@@ -7,21 +9,35 @@ Page({
   data: {
     stopDate: "2019/07/21 05:21:21",
     openDate: "2019/06/19 07:27:27",
-    currentDate: {},
-    martop:0
+    allDateArr: [],
+    martop: 0,
+    result: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      martop:getApp().globalData.statusBarHeight+getApp().globalData.jiaonan.height+18
-    })
     wx.showShareMenu({
       withShareTicket: true
     })
     this.countDown();
+    http(
+      api.storeGroupBuyList,
+      "params",
+      {
+        storeId: 56200,
+        pageIndex: 1,
+        pageSize: 5
+      },
+      "POST"
+    ).then(res => {
+      console.log("tuangou", res)
+      this.setData({
+        martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18,
+        result: res.data.result
+      })
+    })
   },
   //小于10的格式化函数
   timeFormat(param) {
@@ -29,24 +45,28 @@ Page({
   },
   //倒计时
   countDown() {
-    let stopTime = new Date(this.data.stopDate).getTime()-new Date().getTime();
-    let obj = null;
-    if (stopTime > 0) {// 如果活动未结束，对时间进行处理
-      let time = stopTime / 1000; // 获取天、时、分、秒 
-      let day = parseInt(time / (60 * 60 * 24));
-      let hou = parseInt(time % (60 * 60 * 24) / 3600);
-      let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
-      let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
-      obj = {
-        day: this.timeFormat(day), hou: this.timeFormat(hou),
-        min: this.timeFormat(min), sec: this.timeFormat(sec)
+    for (var t in this.data.result) {//开团时间：this.data.result[t].teamBuyStartTime
+      let stopTime = this.data.result[t].teamBuyEndTime - new Date().getTime();
+      let obj = null;
+      if (stopTime > 0) {// 如果活动未结束，对时间进行处理
+        let time = stopTime / 1000; // 获取天、时、分、秒 
+        let day = parseInt(time / (60 * 60 * 24));
+        let hou = parseInt(time % (60 * 60 * 24) / 3600);
+        let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+        let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+        obj = {
+          day: this.timeFormat(day), hou: this.timeFormat(hou),
+          min: this.timeFormat(min), sec: this.timeFormat(sec)
+        }
+      } else {//活动已结束，全部设置为'00' 
+        obj = { day: '00', hou: '00', min: '00', sec: '00' }
       }
-    } else {//活动已结束，全部设置为'00' 
-      obj = { day: '00', hou: '00', min: '00', sec: '00' }
+      let arr = this.data.allDateArr;
+      arr[t] = obj;
+      this.setData({
+        allDateArr: arr
+      })
     }
-    this.setData({
-      currentDate: obj
-    })
     setTimeout(this.countDown, 1000);
   },
   /**
@@ -70,11 +90,13 @@ Page({
       }
     }
   },
-  toDetail(){
-    wx.navigateTo({url: '../groupByingDetail/groupByingDetail?dateObj='+{
-      stopDate: "2019/07/21 05:21:21",
-      openDate: "2019/06/19 07:27:27"
-    }})
+  toDetail() {
+    wx.navigateTo({
+      url: '../groupByingDetail/groupByingDetail?dateObj=' + {
+        stopDate: "2019/07/21 05:21:21",
+        openDate: "2019/06/19 07:27:27"
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

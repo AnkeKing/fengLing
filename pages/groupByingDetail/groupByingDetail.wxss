@@ -2,6 +2,8 @@
 page{
     display: flex;
     flex-direction: column;
+    background: #F6F1F7;
+    padding-bottom: 88rpx;
 }
 .detail-box{
     width: 100vw;
@@ -10,6 +12,7 @@ page{
     position: relative;
     display: flex;
     flex-direction: column;
+    background: #ffffff;
 }
 .detail-box::after{
     position: absolute;
@@ -65,6 +68,8 @@ page{
 .shop-title{
     font-size: 32rpx;
     color: #333333;
+    /* width: 260rpx;
+    height: 20rpx; */
 }
 .shop-orgin-price{
     font-size: 26rpx;

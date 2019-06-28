@@ -7,14 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    markers: [{
-      iconPath: "../../img/ic_group_location.png",
-      id: 0,
-      latitude: 29.6463,
-      longitude: 91.14695,
-      width: 55,
-      height: 72
-    }],
+    markers: [],
     polyline: [{
       points: [{
         longitude: 29.6463,
@@ -29,7 +22,10 @@ Page({
     }],
     nickName: "",
     phone: "",
-    martop:0
+    martop: 0,
+    goodsArr:[],
+    buildOrder_result:null,
+    goodsList:null
   },
   regionchange(e) {
     console.log(e.type)
@@ -44,20 +40,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // http(
-    //   api.storeGroupBuyList,
-    //   "params",
-    //    {
-    //     storeId: 56200,
-    //     pageIndex: 1,
-    //     pageSize: 1
-    //   },
-    //   "post"
-    // ).then(res => {
-    //   console.log("tuangou", res)
-    // })
     this.setData({
-      martop:getApp().globalData.statusBarHeight+getApp().globalData.jiaonan.height+18
+      martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18,
+      goodsArr:JSON.parse(options.goodsArr)
     })
     var that = this;
     wx.getStorage({
@@ -72,6 +57,92 @@ Page({
       },
     })
     this.getLocation();
+    http(
+      api.storeGroupBuyDetail,
+      "data",
+      {
+        groupBuyId: 30,
+        groupBuyLeaderId: 15,
+        memberId: 589,
+        shopId: 18,
+        storeId: 56200,
+      },
+      "POST"
+    ).then(res => {
+      let goodsList=[];
+      for (var s in res.data.result.goodsList) {
+        for (var g in that.data.goodsArr) {
+          if(res.data.result.goodsList[s].skuId==g){
+            res.data.result.goodsList[s].shopNum=that.data.goodsArr[g];
+            goodsList.push(res.data.result.goodsList[s])
+          }
+        }
+      }
+      this.setData({
+        goodsList: goodsList
+      })
+    })
+
+    http(//团购清单
+      api.buildOrder,
+      "data",
+      {
+        groupBuyGoods: that.data.goodsArr,
+        groupBuyId: "30",
+        groupBuyLeaderId: "15",
+        memberId: 589,
+        merchantId: "403",
+        shopId: 18,
+        storeId: "56200"
+      },
+      "POST"
+    ).then(res => {
+      console.log("团购清单", res);
+
+      that.setData({
+        buildOrder_result:res.data.result,
+        markers:[
+          {
+            iconPath: "../../img/ic_group_location.png",
+            id: 0,
+            latitude: res.data.result.lngAndlatMap.latitude,
+            longitude: res.data.result.lngAndlatMap.longitude,
+            width: 55,
+            height: 72
+          }
+        ]
+      })
+    })
+    http(//去购买
+      api.createOrder,
+      "data",
+      {
+        address: "",
+        addressId: "",
+        detailAddress: "",
+        consignee: "123123 ",
+        phoneNumber: "17600276890",
+        deliveryMode: "1",
+        groupBuyGoods:that.data.goodsArr,
+        groupBuyId: "30",
+        groupBuyLeaderId: "15",
+        ip: "",
+        latitude: 29.65204647110405,
+        longitude: 91.15353927507525,
+        memberId: 589,
+        merchantId: "403",
+        openId: "ougv30NhkXp6wyYeLYTOYLz1uh6k",
+        remark: "",
+        shopId: 18,
+        storeId: "56200"
+      },
+      "POST"
+    ).then(res => {
+      console.log("去购买", res);
+    })
+
+
+    console.log("参数：", JSON.parse(options.goodsArr));
   },
   getLocation() {
     var that = this;

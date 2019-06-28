@@ -1,4 +1,5 @@
 <!-- pages/confirmOrder/confirmOrder.wxml -->
+<wxs module="price" src="../../utils/public.wxs"></wxs>
 <nav title="确认订单" color="#FF3531"></nav>
 <view class="scoll-box"style="margin-top:{{martop}}px">
     <view class="delivery-type">
@@ -21,28 +22,28 @@
     <view class="public-box store-title-box">
         <text class="store-title">西藏拉萨门店</text>
     </view>
-    <view class="shop-box">
-        <image class="shop-img" src="https://hbimg.huabanimg.com/7e41e3158ee4c04140b45ba5ed20ee1ad13f7018b70e5-LVuEKz_fw658" />
+    <view class="shop-box"wx:for="{{goodsList}}"wx:key="index">
+        <image class="shop-img" src="{{item.goodsImages}}" />
         <view class="shop-detail">
-            <text class="shop-title">爸爸的包包衣服</text>
-            <text class="shop-orgin-price">￥7.00</text>
+            <text class="shop-title">{{item.goodsName}}</text>
+            <text class="shop-orgin-price">￥{{price.doublePrice(item.marketPrice)}}</text>
             <view class="shop-handle-box">
                 <view class="shop-price-box">
                     <text class="shop-price-small">￥</text>
-                    <text class="shop-price">600</text>
-                    <text class="shop-price-small">.00</text>
+                    <text class="shop-price">{{price.doubleArr(item.teamPrice)[0]}}</text>
+                    <text class="shop-price-small">.{{price.doubleArr(item.teamPrice)[1]}}</text>
                 </view>
-                <text class="shop-count">x9</text>
+                <text class="shop-count">x{{item.shopNum}}</text>
             </view>
         </view>
     </view>
     <view class="public-box">
         <text class="gray-txt">商品金额</text>
-        <text class="black-txt">￥42.00</text>
+        <text class="black-txt">￥{{buildOrder_result.originalPrice}}</text>
     </view>
     <view class="public-box">
         <text class="gray-txt">优惠金额</text>
-        <text class="black-txt">￥3.50</text>
+        <text class="black-txt">￥{{buildOrder_result.discountMoney}}</text>
     </view>
     <view class="public-box">
         <text class="gray-txt">发票</text>
@@ -55,7 +56,7 @@
     <view class="submit-box">
         <view class="price-count-box">
             <text class="price-black-txt">合计 :</text>
-            <text class="price-red-txt">￥38.50</text>
+            <text class="price-red-txt">￥{{buildOrder_result.groupBuyTotalAmount}}</text>
         </view>
         <button class="to-submit-btn">提交订单</button>
     </view>

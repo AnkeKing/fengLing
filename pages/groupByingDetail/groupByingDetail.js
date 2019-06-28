@@ -1,13 +1,17 @@
 // pages/groupByingDetail/groupByingDetail.js
+var http = require("../../http/index.js");
+var api = require("../../http/groupBying_config");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dateObj:{},
-    shopCount:0,
-    martop:0
+    dateObj: {},
+    shopCount: 0,
+    martop: 0,
+    result: null,
+    goodsList: null
   },
 
   /**
@@ -15,25 +19,102 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      martop:getApp().globalData.statusBarHeight+getApp().globalData.jiaonan.height+18
+      martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18
+    })
+    http(//订单详情
+      api.storeGroupBuyDetail,
+      "data",
+      {
+        groupBuyId: 30,
+        groupBuyLeaderId: 15,
+        memberId: 589,
+        shopId: 18,
+        storeId: 56200,
+      },
+      "POST"
+    ).then(res => {
+      console.log("详情", res);
+      for (var s in res.data.result.goodsList) {
+        res.data.result.goodsList[s].shopNum = 0;
+      }
+      this.setData({
+        martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18,
+        result: res.data.result,
+        goodsList: res.data.result.goodsList
+      })
+      console.log("商品", this.data.goodsList);
+    })
+    http(//团购订单记录
+      api.groupBuyRecordOrder,
+      "data",
+      {
+        currentPage: 1,
+        groupBuyLeaderId: 15,
+        pageSize: 10,
+        shopId: 18,
+        storeId: 56200
+      },
+      "POST"
+    ).then(res => {
+      console.log("团购订单记录", res)
+      // this.setData({
+      //   martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18,
+      //   result: res.data.result
+      // })
     })
   },
-  add(){
-    let count=this.data.shopCount;
-    count++;
+  add(event) {
+    let index = event.currentTarget.dataset.currentindex;
+    let goodsList = this.data.goodsList;
+    goodsList[index].shopNum++;
     this.setData({
-      shopCount:count
+      goodsList: goodsList
     })
   },
-  sub(){
-    let count=this.data.shopCount;
-    count--;
+  sub(event) {
+    let index = event.currentTarget.dataset.currentindex;
+    let goodsList = this.data.goodsList;
+    if (goodsList[index].shopNum <= 0) {
+      goodsList[index].shopNum = 0;
+    } else {
+      goodsList[index].shopNum--;
+    }
     this.setData({
-      shopCount:count
+      goodsList: goodsList
     })
   },
-  toBying(){
-    wx.navigateTo({url: '../confirmOrder/confirmOrder'})
+  toBying() {
+    let count = 0;
+    for (var s in this.data.goodsList) {
+      count += this.data.goodsList[s].shopNum * this.data.goodsList[s].teamPrice;
+    }
+    console.log("count",count)
+    if (count <= 0) {
+      wx.showToast({
+        title: '请选择商品',
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
+    } else if (count < 25) {
+      wx.showToast({
+        title: '团购商品金额不满25元',
+        icon: 'succes',
+        duration: 1000,
+        mask: true
+      })
+    } else {
+      let goodsArr={}
+      for (var s in this.data.goodsList) {
+        if(this.data.goodsList[s].shopNum>0){
+          goodsArr[this.data.goodsList[s].skuId]=this.data.goodsList[s].shopNum;
+        }
+      }
+      console.log("goodsArr",goodsArr);
+      wx.navigateTo({ url: '../confirmOrder/confirmOrder?goodsArr='+JSON.stringify(goodsArr) })
+    }
+
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

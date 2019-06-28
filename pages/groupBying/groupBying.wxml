@@ -1,39 +1,18 @@
 <!--pages/groupBying/groupBying.wxml-->
 <nav title="社区团购" color="linear-gradient(to right, #FF7500 , #EB3900)"></nav>
 <view class="scoll-box"style="margin-top:{{martop}}px">
-    <view class="main-box">
+    <view class="main-box"wx:for="{{result}}"wx:key="index">
         <view class="time-box" catchtap="toDetail">
-            <text class="title">社区团购</text>
+            <text class="title">{{item.teamName}}</text>
             <text
-                class="stop-time">截团时间：{{currentDate.day}}天{{currentDate.hou}}时{{currentDate.min}}分{{currentDate.sec}}秒</text>
+                class="stop-time">截团时间：{{allDateArr[index].day}}天{{allDateArr[index].hou}}时{{allDateArr[index].min}}分{{allDateArr[index].sec}}秒</text>
         </view>
         <view class="shop-box" catchtap="toDetail">
-            <view class="shop-li">
-                <image src="https://hbimg.huabanimg.com/3305fb45b0c146317c46de8c3ce8f88f81acd366e1cf6-pfofWv_fw658"
+            <view class="shop-li"wx:for="{{item.goodsList}}"wx:key="index">
+                <image src="{{item.goodsImages}}"
                     class="shop-img" />
                 <view class="red-shade">
-                    <text class="price">￥8.99</text>
-                </view>
-            </view>
-            <view class="shop-li">
-                <image src="https://hbimg.huabanimg.com/1631e87bfcc0e8d06323e4e9dc112bbe18a909a61db29d-csL1Kv_fw658"
-                    class="shop-img" />
-                <view class="red-shade">
-                    <text class="price">￥8.99</text>
-                </view>
-            </view>
-            <view class="shop-li">
-                <image src="https://hbimg.huabanimg.com/412b28af7fd3e4cfbe6a722cc9c3e957401ee6f32462e-2eRGL1_fw658"
-                    class="shop-img" />
-                <view class="red-shade">
-                    <text class="price">￥8.99</text>
-                </view>
-            </view>
-            <view class="shop-li">
-                <image src="https://hbimg.huabanimg.com/3502a66d50c6e0c89312e8991c1057e024416b2c84dfe-Hnugkj_fw658"
-                    class="shop-img" />
-                <view class="red-shade">
-                    <text class="price">￥8.99</text>
+                    <text class="price">￥{{item.teamPrice}}</text>
                 </view>
             </view>
         </view>
