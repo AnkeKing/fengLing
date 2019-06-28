@@ -55,7 +55,8 @@ App({
   globalData: {
     userInfo: null,
     statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'],
-    data: null
+    data: null,
+    jiaonan: wx.getMenuButtonBoundingClientRect()
   }
 })
 
