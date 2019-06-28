@@ -6,7 +6,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        statusBarHeight: app.globalData.statusBarHeight
+        statusBarHeight: app.globalData.statusBarHeight,
+        addressName:'点击选择地址',
+        color:"#cdcdcd",
+        sex: -1,//1 男  2  女
     },
 
     /**
@@ -29,9 +32,28 @@ Page({
     onShow: function () {
 
     },
+    select(){
+        var that=this;
+        wx.chooseLocation({
+            success(res){
+                console.log(res.name)
+                that.setData({
+                    addressName:res.name,
+                    color: "#333333"
+                })
+            }
+        })
+    },
     // 返回上一级
     backtrack() {
         wx.navigateBack({ changed: true });
+    },
+    // 性别
+    clickSexButton: function (options) {
+        let sexId = options.currentTarget.dataset.sexid;
+        this.setData({
+            sex: sexId
+        })
     },
     /**
      * 生命周期函数--监听页面隐藏

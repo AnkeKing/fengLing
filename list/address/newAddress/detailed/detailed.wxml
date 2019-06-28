@@ -1,9 +1,0 @@
-<!--list/address/newAddress/detailed/detailed.wxml-->
-<view class='detailed'>
-    <view class='nav'style="padding-top:{{statusBarHeight}}px">
-        <image src='../../../../image/ic_left_gray.png' class='leftImg' bindtap='backtrack'></image>
-        <text class='nav_text'>位置</text>
-        <image src='../../../../image/ic_search.png' class='search'></image>
-        <button class='nav_btn'>完成</button>
-    </view>
-</view>

@@ -5,8 +5,32 @@
         我的收藏
     </view>
     <search></search>
-    <view class='con'>
+    <view class='con' wx:if="{{a}}">
         <image src='../../image/ic_search_no_data.png' class='search_no_data'></image>
         <text class='con_text'>抱歉！您还没有收藏商品</text>
+    </view>
+    <view class='list'wx:else>
+        <view class='item_one'>
+            <image src='../../image/ic_search_no_data.png' class='commodityImg'></image>
+            <view class='listZhong'>
+                <view class='self_operated'>自营</view>
+                <text class='commodityName'>抱歉！您还没有收藏商品</text>
+            </view>
+            <view class='price'>￥99.00</view>
+            <view class='addCart'>
+                <image src='../../image/ic_white_cart.png' class='car'></image>
+            </view>
+        </view>
+        <view class='item_one'>
+            <image src='../../image/ic_search_no_data.png' class='commodityImg'></image>
+            <view class='listZhong'>
+                <view class='self_operated'>自营</view>
+                <text class='commodityName'>抱歉！您还没有收藏商品</text>
+            </view>
+            <view class='price'>￥99.00</view>
+            <view class='addCart'>
+                <image src='../../image/ic_white_cart.png' class='car'></image>
+            </view>
+        </view>
     </view>
 </view>

@@ -55,7 +55,7 @@
 }
 .placeholder{
     font-size: 28rpx;
-    color: #cdcdcd;
+    color: #cccccc
 }
 .one_right_bottom{
     width: 180rpx;
@@ -63,13 +63,17 @@
     display: flex;
     justify-content: space-between
 }
-.one_right_bottom>button{
+.one_right_bottom>view{
     width: 81rpx;
     font-size: 22rpx;
     color: #151515;
-    margin: 0;
-    padding: 0
+    height: 44rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5rpx;
 }
+
 .address_con{
     display: flex;
     align-items: center;
@@ -81,7 +85,12 @@
 }
 .address_con_input{
     flex: 1;
-    margin-left: 16rpx
+    margin-left: 16rpx;
+    font-size: 28rpx;
+    color: #cdcdcd;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
 }
 .address_con_right{
     height: 28rpx;
