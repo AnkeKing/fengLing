@@ -1,4 +1,4 @@
-封装wx.request()说明：
+﻿封装wx.request()说明：
 
 
 一、在page中引入：
@@ -6,29 +6,45 @@
     const http = require('../../http/index.js');
 
 二、调用：
-   --- http参数（url, data, method）
+   --- http参数（url,type, data, method）  ！注意参数顺序
        url : 必传参   多个接口有重复相同的url字符可在config.js中提取为baseUrl
+
+       type: 必传参  两种类型："data"、"params"
+
        method :可不传 不传默认为get 
+
        data :可不传 传参格式：
                     {
                        "width": 280,
                        "path": "pages/movies/movies"
                     }
+       
     例子：
 
-     1.get请求
-        http(api.in_theaters).then(res => { 
-            console.log(res)
-        })
-     2.post请求
-        let form = {
-          "width": 280,
-          "path": "pages/movies/movies"
-        }
+     1.data数据格式：
         http(
-          "https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token="+ this.data.access_token,
-          form,     
-          "post"
-        ).then(res=>{
+          api.in_theaters,
+          form,
+          "请求方式",
+          "data"
+        ).then(res => { 
             console.log(res)
         })
+     2.params url后拼串格式
+
+       # 适用于需要手动拼接的传参格式：
+          如：api.baseUrl+"?access_token="+ this.data.access_token,
+
+       # 实际操作：
+          let form = {
+            "access_token": this.data.access_token
+          }
+      
+          http(
+            api.baseUrl,
+            form,     
+            "请求方式",
+            "params"
+          ).then(res=>{
+              console.log(res)
+          })
