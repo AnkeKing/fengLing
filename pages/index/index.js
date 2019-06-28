@@ -22,13 +22,15 @@ Page({
     })
   },
   onLoad: function () {
-    
+    // 手机自带信息高度
     this.setData({
       Topha: app.globalData.statusBarHeight
     })
+    // 胶南高度
     this.setData({
-      jiaonan: wx.getMenuButtonBoundingClientRect()
+      jiaonan: app.globalData.jiaonan
     })
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

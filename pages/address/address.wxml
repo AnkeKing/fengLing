@@ -1,5 +1,27 @@
 <!--pages/address/address.wxml-->
-<view class='topt'>
-    <view style="height:{{Topha*2}}rpx"></view>
-    <view style='margin-top:{{jiaonan.top}}rpx' class="title"> aa <text >选择收货地址</text>              <text></text></view>
+<view class='in'>
+    <view class='topt'>
+        <view style="height:{{Topha}}px"></view>
+        <view style='height:{{jiaonan.height}}px;padding-top:{{jiaonan.top-Topha}}px' class="title"> 
+          <image src='../../image/ic_left_white.png' class='img1' ></image><text >选择收货地址</text>             
+          <text class='kong'></text>
+        </view>
+        <view class="tab">
+           <text class='{{deliverr?"tab1":""}}' bindtap='deliver'>送货上门</text><text class='{{pickk?"tab1":""}}' bindtap='pick'>到店自提</text>
+        </view>
+    </view>
+    <view class='con'>
+        <view class='con_1'>
+            <image src='../../img/定位.png' class="dw"></image><text class='dz'>哈喽i</text> <image src='../../image/ic-more-down.png' class='xx'></image>
+            <input class='sousuo' placeholder='搜索小区/写字楼/学校' placeholder-class='place'></input>
+            <image class="sstb" src="../../img/搜索.png"></image>
+        </view>
+        <view class='con_2'>
+            <text>当前位置</text>
+            <view class=' '>
+                <text>{{address}}</text>
+            </view>
+        </view>
+    </view>
+   
 </view>

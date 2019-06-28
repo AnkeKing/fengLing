@@ -1,14 +1,34 @@
 const app=getApp()
+const QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     Topha:null,
-    jiaonan:null
+    jiaonan:null,
+    deliverr:false,
+    pickk: true,
+      address:null
   },
-
+//   送货上门,到店自提切换
+    deliver(){//送货上门
+        console.log("a")
+        this.setData({
+            deliverr: true
+        })
+        this.setData({
+            pickk: false
+        })
+    },
+    pick(){//到店自提
+        this.setData({
+            deliverr: false
+        })
+        this.setData({
+            pickk: true
+        })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -17,12 +37,46 @@ Page({
       Topha: app.globalData.statusBarHeight
     })
     this.setData({
-      jiaonan: wx.getMenuButtonBoundingClientRect()
+      jiaonan: app.globalData.jiaonan
     })
-    console.log(app.globalData.statusBarHeight)
-    console.log(wx.getMenuButtonBoundingClientRect())
+    let thit=this
+     wx.getLocation({
+         type:"gjc02",
+         success:function(res){
+             console.log(res.latitude, res.longitude)
+             thit.getAddress(res.latitude, res.longitude)
+         },
+        fail:function(err){
+            console.log(err)
+        }
+     })
+    
   },
+    getAddress(latitude, longitude) {
+        // 生成 QQMapWX 实例
+        console.log(latitude, longitude)
+        let qqmapsdk = new QQMapWX({
+            key: 'X2SBZ-FPLCD-I7E46-P5D43-T3O3Z-ANBBX'
+        })
+        // reverseGeocoder 为 QQMapWX 解析 经纬度的方法
+        let thit = this
+        qqmapsdk.reverseGeocoder({
+            location: { latitude, longitude },
+            success(res) {
+                console.log('success', res.result.address)
+                thit.setData({
+                    address: res.result.address
+                })
+            },
+            fail:function(res){
+                console.log(res)
+            }
+        })
+    
+    },
 
+    
+    
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
