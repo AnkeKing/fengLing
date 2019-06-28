@@ -27,6 +27,10 @@
     font-weight: 500;
     color: #c6fffb;
     margin-top: 30rpx;
+    background: transparent;
+}
+button::after{
+    border: none
 }
 .phone{
     font-size: 27rpx;

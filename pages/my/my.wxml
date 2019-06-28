@@ -15,8 +15,8 @@ module.exports.toHide = toHide;
             <text class='userName'>{{userInfo.nickName}}</text>
         </block>
         <block wx:else>
-            <image src="../../img/tag_home.png" class='headerImg'></image>
-            <text class='userName' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">点击授权</text>
+            <image src="../../image/ic_header_default.png" class='headerImg'></image>
+            <button class='userName' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">点击授权</button>
         </block>
         <text class='phone'>{{phone}}</text>
         <view class='list'>
