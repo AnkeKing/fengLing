@@ -1,5 +1,5 @@
-const baseUrl="http://t.yushu.im/v2/movie/"
+const baseUrl="https://web-gateway.hivescm.com com/ms-web"
 
 module.exports={
-    storeLocation:"https://apis.map.qq.com/ws/geocoder/v1/?"
+    storeGroupBuyList:baseUrl+"/groupBuy/app/getStoreGroupBuyList"
 }

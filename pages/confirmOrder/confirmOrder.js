@@ -10,8 +10,8 @@ Page({
     markers: [{
       iconPath: "../../img/ic_group_location.png",
       id: 0,
-      latitude:29.6463,
-      longitude:91.14695,
+      latitude: 29.6463,
+      longitude: 91.14695,
       width: 55,
       height: 72
     }],
@@ -27,8 +27,8 @@ Page({
       width: 2,
       dottedLine: true
     }],
-    nickName:"",
-    phone:""
+    nickName: "",
+    phone: ""
   },
   regionchange(e) {
     console.log(e.type)
@@ -43,29 +43,40 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    var that=this;
+    http(
+      api.storeGroupBuyList,
+      "params",
+       {
+        storeId: 56200,
+        pageIndex: 1,
+        pageSize: 1
+      },
+      "post"
+    ).then(res => {
+      console.log("tuangou", res)
+    })
+    var that = this;
     wx.getStorage({
       key: 'userInfo',
-      success: function(res){
+      success: function (res) {
         // success
         console.log(res.data)
         that.setData({
-          nickName:JSON.parse(res.data).nickName,
-          phone:"15210795092"
+          nickName: JSON.parse(res.data).nickName,
+          phone: "15210795092"
         })
       },
     })
     wx.login({
       success: res => {
-        if(res.code){
-            console.log("kkkk",res.code)
+        if (res.code) {
+          console.log("kkkk", res.code)
         }
-    }
-})
+      }
+    })
     this.getLocation();
   },
-  getLocation(){
+  getLocation() {
     var that = this;
     wx.showLoading({ title: "定位中", mask: true });
     wx.getLocation({
@@ -80,8 +91,8 @@ Page({
           speed: speed, accuracy: accuracy,
         })
       }, //定位失败回调 
-      fail: function () { 
-        wx.showToast({ title: "定位失败", icon: "none" }) 
+      fail: function () {
+        wx.showToast({ title: "定位失败", icon: "none" })
       },
       complete: function () { //隐藏定位中信息进度 
         wx.hideLoading()
@@ -100,7 +111,7 @@ Page({
    */
   onShow: function () {
     let plugin = requirePlugin("myPlugin");
-    
+
   },
 
   /**
