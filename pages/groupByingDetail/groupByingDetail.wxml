@@ -33,3 +33,4 @@
     </view>
 </view>
 <button class="to-bying-btn" bindtap="toBying">立即购买</button>
+<warning warnTitle="{{warnTitle}}"warnBool="{{warnBool}}"></warning>

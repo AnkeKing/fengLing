@@ -1,0 +1,6 @@
+<!--components/warning/warning.wxml-->
+
+<view class="warning-box"wx:if="{{warnBool}}">
+    <view class="warning">{{warnTitle}}</view>
+</view>
+

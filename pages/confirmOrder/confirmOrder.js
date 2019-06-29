@@ -23,9 +23,10 @@ Page({
     nickName: "",
     phone: "",
     martop: 0,
-    goodsArr:[],
-    buildOrder_result:null,
-    goodsList:null
+    goodsArr: [],
+    buildOrder_result: null,
+    goodsList: null,
+    createOrder_result:null
   },
   regionchange(e) {
     console.log(e.type)
@@ -42,7 +43,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18,
-      goodsArr:JSON.parse(options.goodsArr)
+      goodsArr: JSON.parse(options.goodsArr)
     })
     var that = this;
     wx.getStorage({
@@ -57,7 +58,7 @@ Page({
       },
     })
     this.getLocation();
-    http(
+    http(//获取商品清单
       api.storeGroupBuyDetail,
       "data",
       {
@@ -65,15 +66,15 @@ Page({
         groupBuyLeaderId: 15,
         memberId: 589,
         shopId: 18,
-        storeId: 56200,
+        storeId: 56200
       },
       "POST"
     ).then(res => {
-      let goodsList=[];
+      let goodsList = [];
       for (var s in res.data.result.goodsList) {
         for (var g in that.data.goodsArr) {
-          if(res.data.result.goodsList[s].skuId==g){
-            res.data.result.goodsList[s].shopNum=that.data.goodsArr[g];
+          if (res.data.result.goodsList[s].skuId == g) {
+            res.data.result.goodsList[s].shopNum = that.data.goodsArr[g];
             goodsList.push(res.data.result.goodsList[s])
           }
         }
@@ -100,8 +101,8 @@ Page({
       console.log("团购清单", res);
 
       that.setData({
-        buildOrder_result:res.data.result,
-        markers:[
+        buildOrder_result: res.data.result,
+        markers: [
           {
             iconPath: "../../img/ic_group_location.png",
             id: 0,
@@ -123,7 +124,7 @@ Page({
         consignee: "123123 ",
         phoneNumber: "17600276890",
         deliveryMode: "1",
-        groupBuyGoods:that.data.goodsArr,
+        groupBuyGoods: that.data.goodsArr,
         groupBuyId: "30",
         groupBuyLeaderId: "15",
         ip: "",
@@ -138,11 +139,12 @@ Page({
       },
       "POST"
     ).then(res => {
+      that.setData({
+        createOrder_result:res.data.result
+      })
       console.log("去购买", res);
     })
 
-
-    console.log("参数：", JSON.parse(options.goodsArr));
   },
   getLocation() {
     var that = this;
@@ -167,7 +169,21 @@ Page({
       }
     })
   },
-
+  toSubmit() {
+    http(//去购买
+      api.createOrder,
+      "data",
+      {
+        ip: "2",
+        openId: "ougv30NhkXp6wyYeLYTOYLz1uh6k",
+        orderNo: this.data.createOrder_result,
+        userNumber: "2"
+      },
+      "POST"
+    ).then(res => {
+      console.log("支付", res);
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

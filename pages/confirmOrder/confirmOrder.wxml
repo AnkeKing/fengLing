@@ -58,6 +58,6 @@
             <text class="price-black-txt">合计 :</text>
             <text class="price-red-txt">￥{{buildOrder_result.groupBuyTotalAmount}}</text>
         </view>
-        <button class="to-submit-btn">提交订单</button>
+        <button class="to-submit-btn"bindtap="toSubmit">提交订单</button>
     </view>
 </view>

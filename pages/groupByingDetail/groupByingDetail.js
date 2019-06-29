@@ -1,6 +1,7 @@
 // pages/groupByingDetail/groupByingDetail.js
 var http = require("../../http/index.js");
 var api = require("../../http/groupBying_config");
+var app=getApp();
 Page({
 
   /**
@@ -11,7 +12,9 @@ Page({
     shopCount: 0,
     martop: 0,
     result: null,
-    goodsList: null
+    goodsList: null,
+    warnTitle:"",
+    warnBool:false
   },
 
   /**
@@ -84,24 +87,21 @@ Page({
     })
   },
   toBying() {
+    var that=this;
     let count = 0;
     for (var s in this.data.goodsList) {
       count += this.data.goodsList[s].shopNum * this.data.goodsList[s].teamPrice;
     }
     console.log("count",count)
     if (count <= 0) {
-      wx.showToast({
-        title: '请选择商品',
-        icon: 'succes',
-        duration: 1000,
-        mask: true
+      that.setData({
+        warnTitle:"请选择商品",
+        warnBool:true
       })
     } else if (count < 25) {
-      wx.showToast({
-        title: '团购商品金额不满25元',
-        icon: 'succes',
-        duration: 1000,
-        mask: true
+      that.setData({
+        warnTitle:"团购商品金额不满25元",
+        warnBool:true
       })
     } else {
       let goodsArr={}
@@ -114,6 +114,11 @@ Page({
       wx.navigateTo({ url: '../confirmOrder/confirmOrder?goodsArr='+JSON.stringify(goodsArr) })
     }
 
+    setTimeout(function(){
+      that.setData({
+        warnBool:false
+      })
+    },1000)
 
   },
   /**
