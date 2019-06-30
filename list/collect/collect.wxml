@@ -4,31 +4,28 @@
         <image src='../../image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
         我的收藏
     </view>
-    <search></search>
-    <view class='con' wx:if="{{a}}">
+    <view class='search'>
+        <view class='search_con'>
+            <image src='../../image/ic_search.png' class='searchImg'></image>
+            <input class='searchInput'placeholder="搜索商品" placeholder-class='placeholder'bindinput="bindKeyInput"></input>
+        </view>
+        <button class='btn'>编辑</button>
+    </view>
+    <view class='con' wx:if="{{result.length==0}}">
         <image src='../../image/ic_search_no_data.png' class='search_no_data'></image>
         <text class='con_text'>抱歉！您还没有收藏商品</text>
     </view>
     <view class='list'wx:else>
-        <view class='item_one'>
-            <image src='../../image/ic_search_no_data.png' class='commodityImg'></image>
+        <view class='item_one' wx:for="{{result}}" wx:key="index">
+            <image src='{{item.goodsMasterMap}}' class='commodityImg'></image>
             <view class='listZhong'>
                 <view class='self_operated'>自营</view>
-                <text class='commodityName'>抱歉！您还没有收藏商品</text>
+                <text class='commodityName'>{{item.goodsName}}</text>
             </view>
-            <view class='price'>￥99.00</view>
-            <view class='addCart'>
-                <image src='../../image/ic_white_cart.png' class='car'></image>
+            <view class='price'>
+            ￥{{item.shopPrice}}
             </view>
-        </view>
-        <view class='item_one'>
-            <image src='../../image/ic_search_no_data.png' class='commodityImg'></image>
-            <view class='listZhong'>
-                <view class='self_operated'>自营</view>
-                <text class='commodityName'>抱歉！您还没有收藏商品</text>
-            </view>
-            <view class='price'>￥99.00</view>
-            <view class='addCart'>
+             <view class='addCart'>
                 <image src='../../image/ic_white_cart.png' class='car'></image>
             </view>
         </view>
