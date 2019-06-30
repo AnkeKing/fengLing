@@ -1,6 +1,7 @@
  /* pages/home/home.wxss */
  .box{
    display:flex;
+   height:100vh;
    flex-direction: column;
  }
  .tit{
@@ -131,6 +132,7 @@ li{
  align-items: center;
  flex-direction: column;
  font-size:30rpx;
+ overflow-y:scroll;
 }
 
 .can-right{
@@ -211,6 +213,10 @@ position:relative;
   flex-direction: column;
 }
 .i{
+  display:block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size:35rpx;
 }
 .t{
@@ -302,6 +308,9 @@ color:#a5a5a5;
 }
 .show{
   display: block;
+  flex:1;
+  overflow:hidden;
+  overflow-y:scroll;
 }
 .hidden{
   display: none;
@@ -398,3 +407,6 @@ color:#a5a5a5;
   margin-top:20rpx;
   margin-bottom:49rpx;
 }
+.show::-webkit-scrollbar {
+  display: none;
+}    

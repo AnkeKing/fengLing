@@ -1,0 +1,35 @@
+/* pages/lk/lk.wxss */
+.red{
+  width:100%;
+  height:280rpx;
+  background-color:red;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.cen{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  height:70vh;
+  background-color:#cccccc;
+}
+.last{
+  width:100%;
+  height:120rpx;
+  background-color:red;
+}
+.one{
+  width:100%;
+  height:156rpx;
+  background-color:white;
+  display:flex;
+  align-items: center;
+}
+.text{
+margin-left:40rpx;
+}
+.input{
+  margin-left:40rpx;
+}

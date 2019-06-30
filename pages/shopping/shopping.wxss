@@ -1,1 +1,244 @@
 /* pages/shopping/shopping.wxss */
+.box{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.shang{
+width:100%;
+height:251rpx;
+background-color:#0a0b1d;
+position:absolute;
+ top:0;
+
+}
+.zhong{
+width:100%;
+/* height:1001rpx; */
+/* overflow-y: scroll; */
+overflow: auto;
+ position:absolute; 
+ top:251rpx;
+  bottom:88rpx;
+  background-color:#f2f1f6;
+}
+.xia{
+  width:100%;
+  height:88rpx;
+  background-image:linear-gradient(60deg, #f95230 50%,#f73f33 50%); 
+  position:absolute;
+  bottom:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:32rpx;
+}
+.tit{
+  width:554rpx;
+  height:68rpx;
+  /* border:1rpx solid red; */
+  color:white;
+  margin-top:55rpx;
+  font-size:44rpx;
+}
+.text{
+  margin-left:279rpx;
+   font-size:34rpx;
+}
+.t-o{
+  width:222rpx;
+  height:64rpx;
+  /* background-image:linear-gradient(60deg, #f95230 50%,#f73f33 50%);  */
+  border-radius:35rpx;
+   position:absolute;
+  font-size:30rpx;
+  top:0;
+  left:148rpx;
+  z-index:99;
+  text-align:center;
+  line-height:64rpx;
+  color:white;
+  background-color:#444557;
+  opacity:0.8;
+}
+.t-t{
+  width:182rpx;
+  height:64rpx;
+  background-color:#444557;
+  opacity:1.2;
+  border-radius:35rpx;
+  position:absolute;
+  top:0;
+  left:330rpx;
+  line-height:64rpx;
+  font-size:30rpx;
+   color:white;
+   padding-left:85rpx;
+}
+.tit-t{
+  width:100%;
+  height:67rpx;
+  /* border:1rpx solid red; */
+  margin-top:40rpx;
+  display:flex;
+  position:relative;
+}
+
+.w-t{
+  color:white;
+  margin-left:85rpx;
+   font-size:30rpx;
+}
+.c-o{
+  width:100%;
+  height:88rpx;
+  background-color: white;
+  margin-bottom:5rpx;
+  display:flex;
+  align-items: center;
+  position:relative;
+}
+.c-t{
+  width:100%;
+  height:136rpx;
+  background-color: white;
+  margin-bottom:20rpx;
+}
+.c-r{
+  width:100%;
+  height:155rpx;
+  background-color: white;
+  margin-bottom:18rpx;
+}
+.img{
+  width:35rpx;
+  height:40rpx;
+  vertical-align:middle;
+  margin-left:30rpx;
+}
+.c-t{
+   width:88rpx;
+   height:88rpx;
+   line-height:100rpx;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space:nowrap;
+   font-size:30rpx;
+   margin-left:10rpx;
+}
+.img-o{
+  width:28rpx;
+  height:20rpx;
+  vertical-align:middle;
+   margin-left:10rpx;
+}
+.c-e{
+  width:100%;
+  height:80rpx;
+  background-color: white;
+  color:#999999;
+  display:flex;
+  align-items: center;
+  font-size:26rpx;
+  /* padding-left:40rpx; */
+}
+.input{
+  width:507rpx;
+  height:59rpx;
+  border:1rpx solid #bcbcbc;
+  border-radius:35rpx;
+  font-size:30rpx;
+  text-indent:70rpx;
+  margin-left:28rpx;
+}
+.phClass{
+  color: #bfbfbf;
+}
+.img1{
+  width:35rpx;
+  height:40rpx;
+  position:absolute;
+  top:25rpx;
+  left:250rpx;
+}
+.dang{
+  font-size:33rpx;
+  color:#b1b1b1;
+  margin-left:41rpx;
+}
+.wei{
+  width:100%;
+  height:86rpx;
+  /* border:1rpx solid red;*/
+  margin-top:20rpx;
+  display:flex;
+}
+.weizhi{
+  width:515rpx;
+  height:86rpx;
+  /* border:1rpx solid red; */
+   margin-left:41rpx;
+  font-size:27rpx;
+  /* margin-top:15rpx; */
+  /* line-height:86rpx; */
+}
+.w-r{
+   width:122rpx;
+  height:86rpx;
+  /* border:1rpx solid red; */
+  margin-left:30rpx;
+  display:flex;
+  align-items: center;
+   font-size:30rpx;
+   justify-content: center;
+}
+.img2{
+  width:34rpx;
+  height:36rpx;
+  margin-right:10rpx;
+}
+
+
+/* pages/about/about.wxss */
+.about_page{
+  margin: 0 10px;
+}
+.swiper-tab{
+    width: 100%;
+    /* border-bottom: 2rpx solid #ccc; */
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    color: #ccc;
+    font-size: 16px;
+}
+.swiper-tab-item{
+    width: 30%; 
+    color:#434343;
+}
+.active{
+    background-image:linear-gradient(60deg, #f95230 50%,#f73f33 50%); 
+    z-index:99;
+}
+.juzhong{
+  margin: 0 auto;
+}
+.domain{
+  background-color: #fff;
+  height: 100%;
+  margin:0 10px;
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+.my{
+  margin-left:40rpx;
+}

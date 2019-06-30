@@ -6,7 +6,8 @@ function http(url, data, method) {
   return new Promise((resolve, reject) => {
     wx.request({
       url,
-      data: JSON.stringify(data),
+      data,
+      // data: JSON.stringify(data),
       method: method || 'get',
       params:data,
       success: function (res) {//成功

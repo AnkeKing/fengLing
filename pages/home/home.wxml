@@ -6,7 +6,7 @@
             <text class="co">北京科技职业学院(八...</text>
         </view>
         <view class="right">
-            <image src="../../img/ic_search_gary.png" class="img"></image>
+            <image src="../../img/home_03.png" class="img"></image>
         </view>
     </view>
     <view class="bottom">
@@ -32,32 +32,25 @@
     <view class="canten">
       <view class="can-left">
       <!-- 竖向的tab -->
-          <view class="tab {{Tab==0?'tex':''}}" data-current="0" bindtap="ckb">
-             衣服
+          <view class="tab {{Tab==index?'tex':''}}" data-current="{{index}}" bindtap="ckb" wx:for="{{fenlei}}" >
+               {{item.categoryName}}
           </view>
-           <view class="tab {{Tab==1?'tex':''}}" data-current="1" bindtap="ckb">
-             推荐
-          </view>
-           <view class="tab {{Tab==2?'tex':''}}" data-current="2" bindtap="ckb">
-             日化
-          </view>
-           
           <!-- ssss -->
       </view>
        <view class="can-right">
-         <view class = "{{Tab == 0 ? 'show':'hidden'}}">
-         <view class="can-r">
+         <view class = "{{Tab == 0 ? 'show':'hidden'}}"  >
+         <view class="can-r" wx:for="{{jiushui}}">
            <view class="f">
-            <image src="../../img/cc.jpg" class="ewm"></image>
+            <image src="{{item.goodsPics}}" class="ewm"></image>
            </view>
            <view class="tw">
               <view class="tw-left">
-                <text class="i">西安门1</text>
+                <text class="i">{{item.goodsName}}</text>
                 <text class="t">1</text>
                 <text class="r">销量0个</text>
               </view>
               <view class="tw-right">
-                 <text class="da">￥1.30</text>
+                 <text class="da">￥{{item.shopPrice}}</text>
                  <text class="g">1个起订</text>
               </view>
            </view>
@@ -94,9 +87,9 @@
        </view>
       <!-- 33333333 -->
       <view class = "{{Tab == 2 ? 'show':'hidden'}}" >
-         <view class="can-r">
+         <view class="can-r" wx:for="{{meishi}}">
            <view class="f">
-            <image src="../../img/cc.jpg" class="ewm"></image>
+            <image src="{{item.goodsPics}}" class="ewm"></image>
            </view>
            <view class="tw">
               <view class="tw-left">
@@ -105,8 +98,8 @@
                 <text class="r">销量0个</text>
               </view>
               <view class="tw-right">
-                 <text class="da">￥1.30</text>
-                 <text class="g">1个起订</text>
+                 <text class="da">￥{{item.shopPrice}}</text>
+                 <text class="g">{{item.zeroConvert}}</text>
               </view>
            </view>
            <view class="thr">
