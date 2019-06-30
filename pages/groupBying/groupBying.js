@@ -18,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
     wx.showShareMenu({
       withShareTicket: true
     })
@@ -33,10 +34,22 @@ Page({
       "POST"
     ).then(res => {
       console.log("tuangou", res)
-      this.setData({
+      that.setData({
         martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18,
         result: res.data.result
       })
+    })
+    console.log("?????",api)
+    http(//首页
+      "https://web-gateway.newbeescm.com/ms-web/shopGoodsCategory/homeCategoryList",
+      "params",
+      {
+        shopId: 18,
+        storeId: 56200
+       },
+      "POST"
+    ).then(res => {
+      console.log("enenenenene", res);
     })
   },
   //小于10的格式化函数
