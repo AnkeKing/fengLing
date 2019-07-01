@@ -77,9 +77,20 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+    wx.request({
+      url: "https://web-gateway.newbeescm.com/ms-web/shopGoodsCategory/homeCategoryList?shopId=18&storeId=1558",
+      method: "post",
+      success: function (res) {//成功
+        console.log("====",res)
+      }
+    })
     http(
-      api.baseUrl + "/shopGoodsCategory/homeCategoryList?shopId=18&storeId=1558",
-      {},
+      api.baseUrl + "/shopGoodsCategory/homeCategoryList",
+      "params",
+      {
+         shopId:18,
+         storeId:56200
+       },
       "post",
     ).then(res => {
       that.setData({
@@ -90,6 +101,7 @@ Page({
     }),
       http(
       api.baseUrl +"/shopGoods/getGoodsPageList",
+      "data",
        {
         "status": "1",
         "shopId": 18,
@@ -112,6 +124,7 @@ Page({
       }),
       http(
         api.baseUrl + "/shopGoods/getGoodsPageList",
+     "data",
         {
           "status": "1",
           "shopId": 18,
