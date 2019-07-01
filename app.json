@@ -1,11 +1,13 @@
 {
   "pages": [
-        "pages/shopping/shopping",
+       
         "pages/index/index",
         "pages/logs/logs",
-        
+        "pages/shopping/shopping",
         "pages/home/home",
         "pages/order/order",
+       "pages/acknowledgement/acknowledgement",
+        "pages/indentDetail/indentDetail",
         "pages/my/my"
   ],
   "window": {

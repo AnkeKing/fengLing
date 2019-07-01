@@ -1,0 +1,81 @@
+<!--pages/indentDetail/indentDetail.wxml-->
+<!-- <text>pages/indentDetail/indentDetail.wxml</text> -->
+<view class="pages">
+    <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
+        <image src="../../img/ic_left_white.png" class="image"></image>
+        <text>订单详情</text>
+    </view>
+    <!-- 待付款 -->
+    <view class="backgd">
+        <view class="payment">
+            <image src="../../img/ic-wait-white.png" class="image2"></image>
+            <view class="dai">待付款</view>
+        </view>
+        <view class="settimer">
+            <view class="timer">剩余时间:{{countDownNum}}</view>
+            <view class="auto">自动取消</view>
+        </view>
+    </view>
+
+    <!-- 门店信息 -->
+    <view class="store">
+        <view class="address">
+            <view class="display">
+                <image src="../../img/ic-receiveGoodLocation.png" class="receive"></image>
+                <image src='../../img/ic_self_lifting.png' class="self"></image>
+                <view class="xizang">西藏拉萨门店</view>
+            </view>
+            <view class="time">营业时间: 09:00-21:00</view>
+            <view class="addressDetail">西藏拉萨市城关区吉日街道办事处江苏路36号</view>
+        </view>
+        <view class="person">
+            <image src="../../img/ic-shopping-normal.png" class="image3"></image>
+            <view class="ponper">提货人:</view>
+            <view class="name">许荷敏</view>
+            <view class="phone">18435747910</view>
+        </view>
+    </view>
+
+    <!-- 自营商品 -->
+    <view class="self-support">
+        <view class="commodity-box">
+            <image src="../../img/ic_self.png" class="image4"></image>
+            <view class="store1">自营商品</view>
+        </view>
+        <view class="detail">
+            <view class="details">
+                <image src="../../img/ic_self.png" class="image5"></image>
+                <view class="title-box">
+                    <image src="../../img/ic_sale_self.png" class="image6"></image>
+                    <view class="title">嘚瑟范围放声大哭黄金时代开放男快结束了D基础上劳动法金额win存数量DNFID你家咯飞机</view>
+                    <view class="jian">件</view>
+                    <view class="price-box">
+                        <view class="price">￥99.00</view>
+                        <view class="num">x1</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 订单信息 -->
+    <view class="order-information">
+        <view class="bianhao-box">
+            <view class="bianhao">订单编号:</view>
+            <view class="tele">280045102733324288</view>
+            <view class="border">复制</view>
+        </view>
+        <view class="timer1">下单时间: 2019-6-27 14:34:27</view>
+        <view class="timer1">商品金额: ￥99.00</view>
+        <view class="timer1">配送费: ￥0.00</view>
+        <view class="jiaqian-box">
+            <view class="yingfu">应付金额: </view>
+            <view class="price-yingfu">￥99.00</view>
+        </view>
+    </view>
+
+    <!-- 底部  -->
+    <view class="tapbar">
+        <view class="cancel">取消订单</view>
+        <view class="immediately">立即付款</view>
+    </view>
+</view>

@@ -1,15 +1,60 @@
 <!--pages/shopping/shopping.wxml-->
 <!-- <text>pages/shopping/shopping.wxml</text> -->
 <view class="pages">
+    <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
+        <text>购物车</text>
+    </view>
     <view class="content">
         <view class="commodity">
             <view class="self-support">自营商品</view>
             <view class="times">预计一小时可达</view>
         </view>
-        <view>
-            <image src=""></image>
+        <view class="store">
+            <image src="../../img/ic_checked.png" class="picture"></image>
+            <text class="address">西藏拉萨门店</text>
         </view>
 
+        <scroll-view scroll-y="{{isScroll}}" style='height:{{windowHeight}}px'>
+            <block wx:key="item" wx:for="{{data}}">
+                <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx">
 
+                    <view class="commodity-detail">
+                        <view class="center">
+                            <image src="../../img/ic_checked.png" class="photo"></image>
+                            <image src="../../img/Group.png" class="logo"></image>
+                            <view class="name">
+                                <view class="titlee">唯美斯2018秋冬长袖T袖女半身高领纯棉黑色圆领修身打底衫韩班班班班把那班班</view>
+                                <view class="jian">件</view>
+                                <view class="qian">
+                                    <view class="price">￥ 99.00</view>
+                                    <view class="btn">
+                                        <view class="minus">-</view>
+                                        <view class="num">1</view>
+                                        <view class="add">+</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+
+                    <!-- <view class="content">{{item.content}}</view> -->
+                    <view class="remove" bindtap="delItem">删除 </view>
+                </view>
+            </block>
+        </scroll-view>
+
+        <view class="dispatching">配送费1元</view>
+        <view class="check">
+            <image src="../../img/ic_checked.png" class="photo jj"></image>
+            <view class='checked'>全选</view>
+            <view class="summation">
+                合计:
+                <view class="pric">￥99.00</view>
+            </view>
+            <view class="button" bindtap="acknowledgement">
+                结算
+                <view>(1)</view>
+            </view>       
+        </view>
     </view>
 </view>
