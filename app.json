@@ -71,4 +71,5 @@
         "warning": "./components/warning/warning"
     },
     "sitemapLocation": "sitemap.json"
+
 }
