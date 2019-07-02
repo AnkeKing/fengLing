@@ -86,6 +86,8 @@ Page({
     this.setData({
       jiaonan: app.globalData.jiaonan
     })
+      console.log(app.globalData.statusBarHeight)
+      console.log(app.globalData.jiaonan.top)
      wx.getLocation({
          type:"gjc02",
          success:function(res){
