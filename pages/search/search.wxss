@@ -1,0 +1,125 @@
+/* pages/search/search.wxss */
+.topp{
+  height: 100vh;
+  overflow: hidden;
+  background: #f2f1f6
+}
+.top{
+  background: #f8512f
+}
+.top1{
+   background: #f8512f;
+  padding-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 34rpx
+}
+.img1{
+  width: 25rpx;
+  height: 30rpx;
+  padding-left: 36rpx;
+}
+.kong{
+  margin-right: 50rpx;
+}
+.view-title{
+ display:flex;
+height:88rpx;
+justify-content:space-between;
+align-items:center;
+padding-left:28rpx;
+padding-right:28rpx;
+background-color:white;
+border-bottom:1rpx solid #f2f1f6;
+box-sizing:border-box;
+
+}
+.view-title-search{
+    display:flex;
+flex:1;
+height:60rpx;
+border-radius:40rpx;
+align-items:center;
+padding-left:20rpx;
+border:2rpx solid #ccc
+}
+.input-search{
+    padding-left:20rpx;
+    font-size:28rpx;
+    color:#333;
+    flex:1
+}
+.hot_search{
+    background: white;
+    box-shadow:inset 0px -1px 1px -1px #c8c7cc; 
+     padding-bottom: 14rpx;
+}
+.hot_search_text{
+    padding-left: 20rpx;
+    font-size: 25rpx;
+}
+.history {
+    width:100%;
+    background:#fff;
+    position:relative;
+}
+.twoChild{
+    width:100%;
+    padding-left:8rpx;
+    padding-right:30rpx;
+    box-sizing:border-box;
+    display:flex;
+    flex-wrap:wrap
+}
+.twoChild text{
+    padding:10rpx 22rpx;
+    box-sizing:border-box;
+    border-radius:24rpx;
+    font-size:24rpx;
+    color:#666666;
+    background:#f2f1f6;
+    margin-left:22rpx;
+    margin-top:29rpx;
+
+}
+.ic-style-30{
+    width:30rpx;
+    height:30rpx
+}
+.text-search-btn{
+    margin-left:25rpx;
+}
+.red{
+    color:#F83737
+}
+.clear{
+    width:100%;
+    height:186rpx;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.history .clear view image{
+    width:24rpx;
+    height:24rpx;
+    display:block;
+}
+.history .clear view{
+    width:320rpx;
+    height:64rpx;
+    border:2rpx solid #979797;
+    border-radius:200rpx;
+    box-sizing:border-box;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.history .clear view text{
+    font-size:24rpx;
+    color:#333333;
+    padding-left:15rpx;
+    box-sizing:border-box;
+}

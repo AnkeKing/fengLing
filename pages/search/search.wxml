@@ -1,0 +1,38 @@
+<!--pages/search/search.wxml-->
+<view class="topp">
+    <view style='height:{{Topha}}px' class='top'></view>
+    <!--自定义导航栏 和右上角胶南位置一样 -->
+    <view style='height:{{jiaonan.height}}px;padding-top:{{jiaonan.top-Topha}}px' class='top1'>
+        <image src='../../image/ic_left_white.png' class='img1'></image>
+        <text>搜索</text>
+        <text class='kong'></text>
+    </view>
+    <view class='view-title'>
+        <view class='view-title-search'>
+            <image style='width:30rpx;height:30rpx;' src='../../image/ic_search_gary.png' mode='widthFix'></image>
+            <input class="input-search" placeholder='搜索商品' placeholder-style='color:#ccc;' type="text" maxlength="20" bindinput="onInputText" bindblur="lossFocusSearch" value='{{keywords}}' />
+            <image wx:if='{{keywords.length>0}}' class='ic-style-30' style='margin-left:20rpx;margin-right:20rpx' src='../../image/ic-search-clear.png' bindtap='clearInput'></image>
+        </view>
+        <text class='text-search-btn red' wx:if='{{search}}' bindtap='toSearch'>搜索</text>
+    </view>
+
+    <view class="hot_search">
+        <text class='hot_search_text'>热门搜索</text>
+    </view>
+    <view class='history'>
+        <view class='oneChild'>
+            <text class="hot_search_text">历史搜索</text>
+        </view>
+        <view class='twoChild'>
+            <!-- 历史记录 -->
+            <text>aa</text>
+            <text>aa</text>
+        </view>
+        <view class='clear'>
+            <view>
+                <image src='../../image/ic_del.png' ></image>
+                <text>清空历史搜索</text>
+            </view>
+        </view>
+    </view>
+</view>

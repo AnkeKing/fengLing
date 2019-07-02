@@ -1,0 +1,161 @@
+/* pages/address/address.wxss */
+.in{
+  height: 100vh;
+  background:#f2f1f6
+}
+.topt{
+  background: black;
+  color: white;
+  height: 245rpx;
+}
+.title{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.img1{
+  width: 25rpx;
+  height: 30rpx;
+  padding-left: 36rpx;
+}
+.kong{
+  width: 93rpx;
+}
+.tab{
+    width: 443rpx;
+    height: 65rpx;
+    background: #414350;
+    border-radius: 45rpx;
+    margin: 0 auto;
+    display: flex;
+    line-height: 65rpx;
+    font-size: 32rpx;
+    margin-top: 50rpx;
+}
+.tab text{
+   width: 50%;
+   text-align: center;
+}
+.tab1{
+    background: #f63937;
+    border-radius: 45rpx;
+}
+.con_1{
+    display: flex;
+    align-items: center;
+    height: 90rpx;
+     box-shadow:inset 0px -1px 1px -1px #c8c7cc;
+     position: relative;
+     background: white
+}
+.dw{
+    width: 30rpx;
+    height: 32rpx;
+    margin-left: 30rpx;
+    margin-right: 17rpx;
+}
+.xx{
+    width: 19rpx;
+    height: 13rpx;
+    margin-right: 38rpx
+}
+.sousuo{
+    width: 450rpx;
+    height: 10rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 45rpx;
+    padding-left: 50rpx; 
+    margin-right: 45rpx;
+    font-size: 25rpx
+}
+.place{
+    font-size: 25rpx
+}
+.dz{
+    width: 88rpx;
+    font-size: 32rpx;
+    height:49rpx;
+}
+.sstb{
+    position: absolute;
+    top: 30rpx;
+    left: 231rpx;
+    width: 32rpx;
+    height: 32rpx;
+}
+.con_2{
+ padding-left: 15rpx;
+ padding-right:15rpx;
+ background: white
+}
+.view-location-content{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    margin-top:20rpx;
+    justify-content:space-between;
+
+}
+.view-location-button{
+    width:18%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#333;
+    font-size:28rpx;
+}
+
+
+.name{
+    width:75%;
+    font-size:28rpx;
+
+}
+.view-my-address-title{
+    height:80rpx;
+    font-size:24rpx;
+    color:#999;
+    margin-top:20rpx;
+    background-color:white;
+    line-height:80rpx;
+    padding-left:30rpx;
+}
+
+.view-no-address{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding-top:200rpx;
+
+}
+.view-no-image{
+    width:122rpx;
+    height:122rpx;
+    border-radius:61rpx;
+    margin-bottom:40rpx;
+    background-color:#f2bebe;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.view-add-address{
+    position:fixed;
+    width:100%;
+    height:88rpx;
+    bottom:0;
+    font-size:36rpx;
+    color:white;
+    background-image:linear-gradient(90deg, #F85B2E 0%, #F83736 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:6;
+}
+.ic-style-30{
+    position: absolute;
+    width:30rpx;
+    height:30rpx;
+    right: 65rpx;
+    top: 30rpx
+}

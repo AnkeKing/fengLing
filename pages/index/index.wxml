@@ -1,13 +1,19 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto" bindtap='aa'>{{motto}}</text>
-  </view>
+<view class='topp'>
+<!-- 手机自带 信息栏高度-->
+      <view style='height:{{Topha}}px' class='top'></view>
+      <!--自定义导航栏 和右上角胶南位置一样 -->
+      <view style='height:{{jiaonan.height}}px;padding-top:{{jiaonan.top-Topha}}px' class='top1'>
+       <image src='../../image/ic_left_white.png' class='img1' ></image> <text>绑定手机</text> <text class='kong'></text>
+      </view>
+      <view class='con'>
+          <input class='input1' placeholder='请输入手机号' value='' bindinput="mobile" type="number"></input> 
+          <image src='../../image/icon_gray_phone.png' class='con_img1'></image>
+          <input class='input1' placeholder='请输入验证码'></input>
+          <image src="../../image/icon_gray_code.png" class='con_img1 con_img2'></image>
+          <text class="con_yzm" bindtap='huoqu'>获取验证码</text>
+          <input class='input1' placeholder='请输入密码' bindinput="password"></input> 
+          <image src="../../image/icon_gray_password.png"class='con_img1 con_img3' ></image>
+          <button class='btn'  bindtap='queren'>确认</button>
+      </view>
 </view>

@@ -1,21 +1,64 @@
-/**index.wxss**/
-.userinfo {
+.topp{
+  height: 100vh;
+  overflow: hidden
+}
+.top{
+  background: #f8512f
+}
+.top1{
+   background: #f8512f;
+  padding-bottom: 20rpx;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  color: white;
+  font-size: 34rpx
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.img1{
+  width: 25rpx;
+  height: 30rpx;
+  padding-left: 36rpx;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.kong{
+  margin-right: 50rpx;
 }
-
-.usermotto {
-  margin-top: 200px;
+.con{
+  width: 670rpx;
+  margin: 240rpx auto;
+  position: relative
+}
+.input1{
+  width: 570rpx;
+  height: 45rpx;
+  padding: 20rpx 0 20rpx 88rpx;
+ box-shadow:inset 0px -1px 1px -1px #c8c7cc; 
+}
+.con_img1{
+  width: 30rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 26rpx;
+  left:31rpx;
+}
+.con_img2{
+  top: 120rpx;
+ left:33rpx;
+}
+.con_yzm{
+  position: absolute;
+  font-size: 28rpx;
+  color: #ccc;
+  top: 110rpx;
+  right: 22rpx;
+  z-index: 999;
+  padding: 10rpx;
+}
+.con_img3{
+  top: 210rpx;
+  left: 33rpx;
+}
+.btn{
+  color: white;
+  background: red;
+  margin-top: 70rpx;
 }
