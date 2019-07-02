@@ -1,0 +1,27 @@
+<!--pages/groupBying/groupBying.wxml-->
+<nav title="社区团购" color="linear-gradient(to right, #FF7500 , #EB3900)"></nav>
+<view class="scoll-box"style="margin-top:{{martop}}px">
+    <view class="main-box"wx:for="{{result}}"wx:key="index">
+        <view class="time-box" catchtap="toDetail">
+            <text class="title">{{item.teamName}}</text>
+            <text
+                class="stop-time">截团时间：{{allDateArr[index].day}}天{{allDateArr[index].hou}}时{{allDateArr[index].min}}分{{allDateArr[index].sec}}秒</text>
+        </view>
+        <view class="shop-box" catchtap="toDetail">
+            <view class="shop-li"wx:for="{{item.goodsList}}"wx:key="index">
+                <image src="{{item.goodsImages}}"
+                    class="shop-img" />
+                <view class="red-shade">
+                    <text class="price">￥{{item.teamPrice}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="person-count">
+            <text class="count">共0人参团</text>
+            <button class="share-btn" open-type="share">
+                <text class="btn-txt">分享活动</text>
+                <image class="btn-img" src="../../img/share.png" />
+            </button>
+        </view>
+    </view>
+</view>

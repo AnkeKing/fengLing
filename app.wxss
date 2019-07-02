@@ -8,3 +8,13 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+.overflow-txt{
+  display: -webkit-box; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  word-wrap: break-word; 
+  white-space: normal !important; 
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+
+}

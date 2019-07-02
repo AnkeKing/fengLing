@@ -3,6 +3,9 @@
     "pages/home/home",
     "pages/shopping/shopping",
     "pages/lk/lk",
+    "pages/groupBying/groupBying",
+    "pages/groupByingDetail/groupByingDetail",
+    "pages/confirmOrder/confirmOrder",
     "pages/index/index",
     "pages/logs/logs",
     "pages/order/order",
@@ -17,7 +20,7 @@
         "list/regularlist/regularlist",
         "list/address/address",
         "list/address/newAddress/newAddress",
-        "list/bindphone/bindphone",
+        "list/bindphone/bindphone"
 
   ],
   "window": {
@@ -57,11 +60,21 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.6",
+      "provider": "wx5bc2ac602a747594"
+    }
+  },
   "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
 
     }
-  }
+  },
+  "usingComponents": {
+    "nav": "./components/nav/nav",
+    "warning":"./components/warning/warning"
+  },
+  "sitemapLocation": "sitemap.json"
 }
