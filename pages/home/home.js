@@ -76,29 +76,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
-    wx.request({
-      url: "https://web-gateway.newbeescm.com/ms-web/shopGoodsCategory/homeCategoryList?shopId=18&storeId=1558",
-      method: "post",
-      success: function (res) {//成功
-        console.log("====",res)
-      }
-    })
-    http(
-      api.baseUrl + "/shopGoodsCategory/homeCategoryList",
+     var that=this;
+    http(//首页
+      "https://web-gateway.newbeescm.com/ms-web/shopGoodsCategory/homeCategoryList",
       "params",
       {
-         shopId:18,
-         storeId:56200
-       },
-      "post",
+        shopId: 18,
+        storeId: 56200
+      },
+      "POST"
     ).then(res => {
+      console.log("enenenenene", res);
       that.setData({
-        fenlei:res.data.result,
+        fenlei: res.data.result,
       })
-      console.log(res);
-      console.log(that.data.fenlei)
-    }),
+    })
+
       http(
       api.baseUrl +"/shopGoods/getGoodsPageList",
       "data",
