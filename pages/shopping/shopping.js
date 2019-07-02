@@ -1,5 +1,7 @@
 // pages/shopping/shopping.js
 const app= getApp()
+const http = require('../../http/index.js')
+const api = require('../../http/config.js')
 Page({
 
   /**
@@ -11,6 +13,7 @@ Page({
         isScroll: true,
         windowHeight: 0,
         data: [{ content: "1", right: 0 }, { content: "2", right: 0 }, { content: "3", right: 0 }, { content: "4", right: 0 }, { content: "5", right: 0 }, { content: "6", right: 0 }, { content: "7", right: 0 }, { content: "8", right: 0 }, { content: "9", right: 0 }, { content: "10", right: 0 }],
+        port:null,
     },
 
   /**
@@ -25,7 +28,20 @@ Page({
                 });
             }
         });
-        //   console.log(app.globalData.statusBarHeight)
+
+        let can={
+            customerId: 589, shopId: 18, storeId: 56200, teminal: 2
+        }
+
+        http(api.baseUrl + "/orderShoppingCart/getShoppingCartGroup", "data", can ,"post" ).then(res=>{
+           console.log(res)
+            this.setData({
+                port: res.data.result.selfOperatedCart.goodsCarQueryList
+                
+            })
+            console.log(this.data.port)
+            
+        })
     },
 
     acknowledgement(){
@@ -88,7 +104,13 @@ Page({
     },
 
     delItem: function (e) {
-
+        console.log(e)
+        var index = e.currentTarget.dataset.index;
+        var data = this.data.data;
+        data.splice(index,1)
+        this.setData({
+            data:data
+        })
     },
 
 
