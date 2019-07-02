@@ -1,5 +1,5 @@
 // pages/home/home.js
-const app=getApp();
+const app = getApp();
 const api = require("../../http/config.js");
 const http = require('../../http/index.js');
 Page({
@@ -8,18 +8,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTab:0,
-    Tab:0,
-    fenlei:null,
-    jiushui:null,
-    meishi:null,
-  //  困在全局直接在全局取
-      statusBarHeight: app.globalData.statusBarHeight,
-  }, 
+    currentTab: 0,
+    Tab: 0,
+    fenlei: null,
+    jiushui: null,
+    meishi: null,
+    //  困在全局直接在全局取
+    statusBarHeight: app.globalData.statusBarHeight,
+  },
 
   // map
- 
-// tab点击事件
+
+  // tab点击事件
   clickTab: function (e) {
     var that = this;
     if (this.data.currentTab === e.target.dataset.current) {
@@ -45,13 +45,16 @@ Page({
     })
   },
   // 打电话
- callme:function(){
+  callme: function () {
     wx.makePhoneCall({
-      phoneNumber:"17600181028",
+      phoneNumber: "17600181028",
     })
- },
-// http
-// 竖向点击事件
+  },
+  toGroupBying() {
+    wx.navigateTo({url: '../groupBying/groupBying',})
+  },
+  // http
+  // 竖向点击事件
   ckb: function (e) {
     var that = this;
     if (this.data.Tab === e.target.dataset.current) {
@@ -76,7 +79,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     var that=this;
+    var that = this;
     http(//首页
       "https://web-gateway.newbeescm.com/ms-web/shopGoodsCategory/homeCategoryList",
       "params",
@@ -92,10 +95,10 @@ Page({
       })
     })
 
-      http(
-      api.baseUrl +"/shopGoods/getGoodsPageList",
+    http(
+      api.baseUrl + "/shopGoods/getGoodsPageList",
       "data",
-       {
+      {
         "status": "1",
         "shopId": 18,
         "storeId": 1558,
@@ -106,18 +109,18 @@ Page({
         "customerId": 589,
         "currentPage": 0,
         "pageSize": 15
-        },
-        "post",
-      ).then(res => {
-        that.setData({
-          jiushui: res.data.result.items,
-        })
-        console.log(res);
-        console.log(that.data.jiushui)
-      }),
+      },
+      "post",
+    ).then(res => {
+      that.setData({
+        jiushui: res.data.result.items,
+      })
+      console.log(res);
+      console.log(that.data.jiushui)
+    }),
       http(
         api.baseUrl + "/shopGoods/getGoodsPageList",
-     "data",
+        "data",
         {
           "status": "1",
           "shopId": 18,
@@ -135,11 +138,11 @@ Page({
         that.setData({
           meishi: res.data.result.items,
         })
-        console.log("没事",res);
+        console.log("没事", res);
         console.log(that.data.meishi);
       })
   },
-  
+
 
 
 
