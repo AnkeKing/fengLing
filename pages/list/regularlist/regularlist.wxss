@@ -1,0 +1,154 @@
+/* pages/list/regularlist/regularlist.wxss */
+.regularlist{
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;align-items: center
+}
+.nav{
+    height: 105rpx;
+    width: 750rpx;
+    background: #f84134;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35rpx;
+    color: #fefefe;
+    font-weight: 400;
+    position: relative
+}
+.leftImg{
+    height: 35rpx;
+    width: 30rpx;
+    padding: 20rpx;
+    position: absolute;
+    left: 34rpx;
+    transform: translateX(-50%)
+}
+.search{
+    width: 750rpx;
+    padding: 14rpx 0rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2f5
+}
+.search_con{
+    width: 585rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10rpx 
+}
+.searchImg{
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 20rpx
+}
+.searchInput{
+    width: 517rpx;
+    font-size: 28rpx;
+    padding: 10rpx 0rpx
+}
+.placeholder{
+    font-size: 28rpx;
+    color: #cecece
+}
+.btn{
+    background: transparent;
+    font-size: 28rpx;
+    color: #ff2426;
+    margin-left: 45rpx;
+    margin-right: 0;
+    padding: 0;
+
+}
+button::after {
+  border: none;
+}
+.con{
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 225rpx
+}
+.search_no_data{
+    height: 150rpx;
+    width: 180rpx
+}
+.con_text{
+    font-size: 24rpx;
+    color: #868686;
+    margin-top: 60rpx
+}
+.list{
+    width: 750rpx;
+    box-sizing: border-box;
+    padding: 0rpx 22rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap
+}
+.item_one{
+    width: 342rpx;
+    border: 2rpx solid #f1f1f2;
+    margin-bottom: 20rpx;
+    position: relative
+}
+.commodityImg{
+    width: 342rpx;
+    height: 340rpx;
+    background: red
+}
+.listZhong{
+    width: 342rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 17rpx 0rpx 38rpx;
+}
+.self_operated{
+    height: 23rpx;
+    width: 50rpx;
+    border-radius: 23rpx;
+    background: #f73934;
+    font-size: 15rpx;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.commodityName{
+    flex: 1;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    font-size: 28rpx;
+    color: #313131;
+    margin-left: 8rpx
+}
+.price{
+    color: #fb1d1a;
+    font-size: 24rpx;
+    font-weight: 700;
+    margin-bottom: 24rpx;
+    margin-left: 20rpx
+}
+.addCart{
+    height: 70rpx;
+    width: 70rpx;
+    border-radius: 50%;
+    background: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 10rpx;
+    right: 23rpx
+}
+.car{
+    height: 32rpx;
+    width: 32rpx
+}

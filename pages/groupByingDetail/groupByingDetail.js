@@ -1,7 +1,7 @@
 // pages/groupByingDetail/groupByingDetail.js
 var http = require("../../http/index.js");
 var api = require("../../http/groupBying_config");
-var app=getApp();
+var app = getApp();
 Page({
 
   /**
@@ -13,8 +13,8 @@ Page({
     martop: 0,
     result: null,
     goodsList: null,
-    warnTitle:"",
-    warnBool:false
+    warnTitle: "",
+    warnBool: false
   },
 
   /**
@@ -87,38 +87,71 @@ Page({
     })
   },
   toBying() {
-    var that=this;
+    var that = this;
     let count = 0;
     for (var s in this.data.goodsList) {
       count += this.data.goodsList[s].shopNum * this.data.goodsList[s].teamPrice;
     }
-    console.log("count",count)
+    console.log("count", count)
     if (count <= 0) {
       that.setData({
-        warnTitle:"请选择商品",
-        warnBool:true
+        warnTitle: "请选择商品",
+        warnBool: true
       })
     } else if (count < 25) {
       that.setData({
-        warnTitle:"团购商品金额不满25元",
-        warnBool:true
+        warnTitle: "团购商品金额不满25元",
+        warnBool: true
       })
     } else {
-      let goodsArr={}
+      let goodsArr = {}
       for (var s in this.data.goodsList) {
-        if(this.data.goodsList[s].shopNum>0){
-          goodsArr[this.data.goodsList[s].skuId]=this.data.goodsList[s].shopNum;
+        if (this.data.goodsList[s].shopNum > 0) {
+          goodsArr[this.data.goodsList[s].skuId] = this.data.goodsList[s].shopNum;
         }
       }
-      console.log("goodsArr",goodsArr);
-      wx.navigateTo({ url: '../confirmOrder/confirmOrder?goodsArr='+JSON.stringify(goodsArr) })
+      http(//去购买
+        api.createOrder,
+        "data",
+        {
+          address: "",
+          addressId: "",
+          detailAddress: "",
+          consignee: "123123 ",
+          phoneNumber: "17600276890",
+          deliveryMode: "1",
+          groupBuyGoods: goodsArr,
+          groupBuyId: "30",
+          groupBuyLeaderId: "15",
+          ip: "",
+          latitude: 29.65204647110405,
+          longitude: 91.15353927507525,
+          memberId: 589,
+          merchantId: "403",
+          openId: "ougv30NhkXp6wyYeLYTOYLz1uh6k",
+          remark: "",
+          shopId: 18,
+          storeId: "56200"
+        },
+        "POST"
+      ).then(res => {
+        if (res.data.status.statusCode === 1501040) {
+          that.setData({
+            warnTitle: res.data.status.statusReason,
+            warnBool: true
+          })
+        } else {
+          wx.navigateTo({ url: '../confirmOrder/confirmOrder?goodsArr=' + JSON.stringify(goodsArr) })
+        }
+      })
+
     }
 
-    setTimeout(function(){
+    setTimeout(function () {
       that.setData({
-        warnBool:false
+        warnBool: false
       })
-    },1000)
+    }, 1000)
 
   },
   /**
