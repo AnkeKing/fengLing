@@ -24,12 +24,11 @@
 	"libVersion": "2.7.2",
 	"appid": "wxc9012829c8590135",
 	"projectname": "fl",
+	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -44,46 +43,43 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
 					"name": "地址",
 					"pathName": "pages/address/address",
-
-			"current": 3,
-			"list": [
-				{
-					"id": -1,
-					"name": "订单",
-					"pathName": "pages/order/order",
 					"query": "",
 					"scene": null
 				},
 				{
-
-					"id": -1,
-					"name": "确认订单",
-					"pathName": "pages/acknowledgement/acknowledgement",
+					"id": 1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "订单详情",
-					"pathName": "pages/indentDetail/indentDetail",
+					"name": "地址",
+					"pathName": "pages/address/address",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "购物车",
+					"name": "9",
 					"pathName": "pages/shopping/shopping",
-                    "query": "",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "9",
+					"pathName": "pages/shopping/shopping",
 					"scene": null
 				}
 			]
