@@ -24,7 +24,7 @@
   },
   "tabBar": {
     "color": "#cccccc",
-    "selectedColor": "#1f4ba5",
+    "selectedColor": "#f6572c",
     "list": [
       {
         "pagePath": "pages/home/home",
