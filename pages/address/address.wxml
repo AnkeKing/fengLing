@@ -3,7 +3,7 @@
     <view class='topt'>
         <view style="height:{{Topha}}px"></view>
         <view style='height:{{jiaonan.height}}px;padding-top:{{jiaonan.top-Topha}}px' class="title"> 
-          <image src='../../image/ic_left_white.png' class='img1' ></image><text >选择收货地址</text>             
+          <image src='../../image/ic_left_white.png' class='img1' bindtap='goBack'></image><text >选择收货地址</text>             
           <text class='kong'></text>
         </view>
         <view class="tab">

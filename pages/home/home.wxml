@@ -3,10 +3,10 @@
   <view class="tit" style="padding-top:{{statusBarHeight}}px">
     <view class="top">
         <view class="left">
-            <text class="co">北京科技职业学院(八...</text>
+            <text class="co" bindtap='aa'>北京科技职业学院(八...</text>
         </view>
         <view class="right">
-            <image src="../../img/home_03.png" class="img"></image>
+            <image src="../../img/home_03.png" class="img" bindtap='search'></image>
         </view>
     </view>
     <view class="bottom">

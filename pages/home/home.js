@@ -62,7 +62,16 @@ Page({
       })
     }
   },
-
+    aa(){
+       wx.navigateTo({
+           url: '../address/address',
+       })
+    },
+    search(){
+        wx.navigateTo({
+            url: '../search/search',
+        })
+    },
 
 
 
