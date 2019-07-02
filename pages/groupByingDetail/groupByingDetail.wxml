@@ -1,0 +1,36 @@
+<!-- pages/groupByingDetail/groupByingDetail.wxml -->
+<nav title="社区团购" color="linear-gradient(to right, #FF7500 , #EB3900)"></nav>
+<wxs module="price" src="../../utils/public.wxs"></wxs>
+<view class="scoll-box"style="margin-top:{{martop}}px">
+    <view class="detail-box">
+        <text class="title">{{result.teamName}}</text>
+        <!-- <text class="txt">截团时间:{{dateObj.stopDate}}</text>
+    <text class="txt">开团时间:{{dateObj.openDate}}</text> -->
+        <text class="txt">截团时间 : {{result.teamBuyStartTimeStr}}</text>
+        <text class="txt">开团时间 : {{result.actualStartTimeStr}}</text>
+        <text class="txt">取货方式 : 自提</text>
+    </view>
+    <view class="shop-box"wx:for="{{goodsList}}"wx:key="index">
+        <image class="shop-img"
+            src="{{item.goodsImages}}" />
+        <view class="shop-detail">
+            
+            <text class="shop-title overflow-txt">{{item.goodsName}}</text>
+            <text class="shop-orgin-price">￥{{price.doublePrice(item.marketPrice)}}</text>
+            <view class="shop-handle-box">
+                <view class="shop-price-box">
+                    <text class="shop-price-small">￥</text>
+                    <text class="shop-price">{{price.doubleArr(item.teamPrice)[0]}}</text>
+                    <text class="shop-price-small">.{{price.doubleArr(item.teamPrice)[1]}}</text>
+                </view>
+                <view class="shop-btn-box">
+                    <image class="shop-btn" src="../../img/ic_sub_cart.png" bindtap="sub" data-currentindex="{{index}}" wx:if="{{item.shopNum>0}}" />
+                    <text class="shop-count" wx:if="{{item.shopNum>0}}">{{item.shopNum}}</text>
+                    <image class="shop-btn" src="../../img/ic_add_cart.png" bindtap="add"data-currentindex="{{index}}" />
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<button class="to-bying-btn" bindtap="toBying">立即购买</button>
+<warning warnTitle="{{warnTitle}}"warnBool="{{warnBool}}"></warning>

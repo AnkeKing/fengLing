@@ -1,5 +1,5 @@
 const app=getApp()
-const QQMapWX = require('../../utils/qqmap-wx-jssdk.min.js');
+const QQMapWX = require('../../utils/qqmap-wx-jssdk.js');
 const api = require("../../http/config.js");
 const http = require('../../http/index.js');
 //获取城市列表
