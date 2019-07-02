@@ -84,6 +84,12 @@
 					"name": "购物车",
 					"pathName": "pages/shopping/shopping",
                     "query": "",
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "list/collect/collect",
 					"scene": null
 				}
 			]
