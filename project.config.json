@@ -9,7 +9,6 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-
 		"coverView": true,
 		"autoAudits": false,
 		"checkInvalidKey": true,
@@ -55,21 +54,36 @@
 					"id": -1,
 					"name": "地址",
 					"pathName": "pages/address/address",
+
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/order/order",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 1,
-					"name": "搜索",
-					"pathName": "pages/search/search",
+
+					"id": -1,
+					"name": "确认订单",
+					"pathName": "pages/acknowledgement/acknowledgement",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "地址",
-					"pathName": "pages/address/address",
+					"name": "订单详情",
+					"pathName": "pages/indentDetail/indentDetail",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/shopping/shopping",
+                    "query": "",
 					"scene": null
 				}
 			]

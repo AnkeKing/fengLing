@@ -1,3 +1,4 @@
+
 <!-- pages/shopping/shopping.wxml -->
 <!-- <view class="box">
 <!-- 上面 -->
@@ -51,3 +52,63 @@
   <!-- 底部 -->
   <!-- <view class="xia" bindtap="lk">新增地址</view>
 </view> --> -->
+<!--pages/shopping/shopping.wxml-->
+<!-- <text>pages/shopping/shopping.wxml</text> -->
+<view class="pages">
+    <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
+        <text>购物车</text>
+    </view>
+    <view class="content" wx:for="{{port}}" wx:key="index">
+        <view class="commodity">
+            <view class="self-support">自营商品</view>
+            <view class="times">预计一小时可达</view>
+        </view>
+        <view class="store">
+            <image src="../../img/ic_checked.png" class="picture"></image>
+            <text class="address">{{item.dealerName}}</text>
+        </view>
+
+        <scroll-view scroll-y="{{isScroll}}" >
+            <block wx:key="item" wx:for="{{item.goodsList}}">
+                <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx">
+                    <view class="commodity-detail">
+                        <view class="center">
+                            <image src="../../img/ic_checked.png" class="photo"></image>
+                            <image src="{{item.goodsPics}}" class="logo"></image>
+                            <view class="name">
+                                <view class="titlee">{{item.goodsName}}</view>
+                                <view class="jian">{{item.measurementUnit}}</view>
+                                <view class="qian">
+                                    <view class="price">￥ {{item.shopPrice}}</view>
+                                    <view class="btn">
+                                        <view class="minus">-</view>
+                                        <view class="num">{{item.quantity}}</view>
+                                        <view class="add">+</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+
+                    <!-- <view class="content">{{item.content}}</view> -->
+                    <view class="remove" bindtap="delItem">删除 </view>
+                </view>
+            </block>
+        </scroll-view>
+
+        <view class="dispatching">配送费1元</view>
+        <view class="check">
+            <image src="../../img/ic_checked.png" class="photo jj"></image>
+            <view class='checked'>全选</view>
+            <view class="summation">
+                合计:
+                <view class="pric">￥99.00</view>
+            </view>
+            <view class="button" bindtap="acknowledgement">
+                结算
+                <view>(1)</view>
+            </view>       
+        </view>
+    </view>
+</view>
+

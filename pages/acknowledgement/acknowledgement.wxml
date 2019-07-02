@@ -1,0 +1,80 @@
+<!--pages/acknowledgement/acknowledgement.wxml-->
+<!-- <text>pages/acknowledgement/acknowledgement.wxml</text> -->
+<view class="pages">
+    <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
+        <image src="../../img/ic_left_white.png" class="ic_left"></image>
+        <text>确认订单</text>
+    </view>
+    <view class="content">
+        <view class="dispatching">
+            <view class="way">配送方式</view>
+            <view class="nav bc_white">
+                <view class="{{selected?'red':'default'}}" bindtap="selected">送货上门</view>
+                <view class="{{selected1?'red':'default'}}" bindtap="selected1">到店自提</view>
+            </view>
+        </view>
+        <view class="tap-content">
+            <view class="{{selected?'show':'hidden'}}">
+                <view class="time">配送时间 : 09:10-19:15</view>
+                <view class="address" bindtap="list">+ 添加收货地址</view>
+            </view>
+            <view class="{{selected1?'show':'hidden'}}">
+                <view class="store">
+                    <view class="store-xizang">西藏拉萨门店</view>
+                    <view class="time1">营业时间: 09:00-21:00</view>
+                    <view class="address1">西藏拉萨市城关区吉日街道办事处江苏路36号</view>
+                </view>
+                <view class="box">
+                    <view class="person">提货人</view>
+                    <input placeholder="请输入提货人姓名" class="input"></input>
+                </view>
+                <view class="box jianju">
+                    <view class="person">自提电话</view>
+                    <input placeholder="请输入提货人电话" class="input"></input>
+                </view>
+            </view>
+            <view class="self-support">
+                <view class="commodity-box">
+                    <image src="../../img/ic_self.png" class="image"></image>
+                    <view class="store1">自营商品</view>
+                </view>
+                <view class="detail">
+                    <view class="details">
+                        <image src="../../img/ic_self.png" class="image2"></image>
+                        <view class="title-box">
+                            <image src="../../img/ic_sale_self.png" class="image3"></image>
+                            <view class="title">嘚瑟范围放声大哭黄金时代开放男快结束了D基础上劳动法金额win存数量DNFID你家咯飞机</view>
+                            <view class="jian">件</view>
+                            <view class="price-box">
+                                <view class="price">￥99.00</view>
+                                <view class="num">x1</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="money">
+                <view class="money-jine">商品金额</view>
+                <view class="num2 color">￥99.00</view>
+            </view>
+            <view class="money">
+                <view class="money-jine">配送费</view>
+                <view class="num2">￥0.00</view>
+            </view>
+            <view class="money">
+                <view class="money-jine">发票</view>
+                <view class="num2">暂不支持发票</view>
+            </view>
+            <view class="money">
+                <view class="money-jine">订单备注</view>
+                <view class="num2">选填</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="footer">
+        <view class="heji">合计:</view>
+        <view class="total">￥1.01</view>
+        <view class="btn">提交订单</view>
+    </view>
+</view>

@@ -1,4 +1,4 @@
-// pages/order/order.js
+// pages/acknowledgement/acknowledgement.js
 const app = getApp()
 Page({
 
@@ -6,12 +6,28 @@ Page({
      * 页面的初始数据
      */
     data: {
-        statusBarHeight: app.globalData.statusBarHeight
+        statusBarHeight: app.globalData.statusBarHeight,
+        selected: true,
+        selected1: false
     },
 
-    indentDetail(){
+    selected: function (e) {
+        this.setData({
+            selected1: false,
+            selected: true
+        })
+    },
+    selected1: function (e) {
+        this.setData({
+            selected: false,
+            selected1: true
+        })
+    },
+
+
+    list(){
         wx.navigateTo({
-            url: '../indentDetail/indentDetail',
+            url: 'list/address/address',
         })
     },
 
@@ -19,7 +35,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        var that = this;
+        wx.getSystemInfo({
+            success: function (res) {
+                that.setData({
+                    windowHeight: res.windowHeight
+                });
+            }
+        });
     },
 
     /**

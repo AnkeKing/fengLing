@@ -1,1 +1,171 @@
 /* pages/order/order.wxss */
+.custom{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 90rpx;
+    line-height:90rpx;
+    background: #f7592c;
+    z-index: 999;
+    text-align:center;
+}
+.custom text{
+    color: #fff;
+    font-size: 34rpx;
+    font-weight: 500;
+    max-width: 280rpx;
+}
+.content{
+    width:100%;
+    height:100vh;
+    margin-top:134rpx;
+    background-color:#f2f1f6;
+}
+.order{
+    width:100%;
+    height:auto;
+}
+.serial-number{
+    width:100%;
+    height:75rpx;
+    display:flex;
+    align-items: center;
+    background-color:#fff;
+}
+.image{
+    width:34rpx;
+    height:38rpx;
+    margin-left:26rpx;
+}
+.number{
+    font-size:30rpx;
+    margin-left:16rpx;
+}
+.obligation{
+    font-size:30rpx;
+    margin-left:230rpx;
+    color:#f7592c;
+}
+.self-support{
+    width:100%;
+    height:200rpx;
+    background-color:#fafafa;
+}
+.detail{
+    height:200rpx;
+    width:100%; 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.details{
+    width:680rpx;
+    height:200rpx;
+    display:flex;
+    align-items: center;
+}
+.image2{
+    width:150rpx;
+    height:150rpx;
+}
+.title-box{
+    width:480rpx;
+    height:150rpx;
+    margin-left:40rpx;
+}
+.title{
+    width:460rpx;
+    height:60rpx;
+    font-size:28rpx;
+    line-height:30rpx;
+    text-overflow: ellipsis; /* 超出省略号*/
+    overflow: hidden;
+    display:-webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-indent: 60rpx;    /*首行缩进60rpx*/
+	text-align: left;
+}
+.jian{
+    font-size:28rpx;
+    margin-top:5rpx;
+}
+.price-box{
+    width:420rpx;
+    display:flex;
+    margin-top:20rpx;
+    justify-content: space-between;
+}
+.price{
+    font-size:30rpx;
+    color:#f55235;
+}
+.num{
+    font-size:24rpx;
+}
+.image3{
+    width:50rpx;
+    height:24rpx;
+    position:absolute;
+    margin-top:6rpx;
+    /* top:4rpx; */
+}
+.money{
+    width:100%;
+    height:88rpx;
+    background-color:#fff;
+    border-bottom:1rpx solid #f2f2f2;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.money-jine{
+    font-size:30rpx;
+    margin-left:26rpx;
+    color:#959595;
+}
+.num2{
+    font-size:30rpx;
+    margin-right:26rpx;
+}
+.color{
+    color:#f6572c;
+}
+.color2{
+    color:#ccc;
+}
+.dindan{
+    width:100%;
+    height:170rpx;
+    background-color:#fff;
+    padding-top:30rpx;
+}
+.indent{
+    display:flex;
+}
+.general{
+    font-size:26rpx;
+    color:#9d9d9d;
+    margin-left:423rpx;
+}
+.goods{
+    font-size:26rpx;
+    margin-left:10rpx;
+    color:#9d9d9d;
+}
+.price2{
+    font-size:26rpx;
+    margin-left:20rpx;
+}
+.btn{
+    width:160rpx;
+    height:50rpx;
+    line-height:50rpx;
+    text-align:center;
+    border:1rpx solid #f6572c;
+    color:#f6572c;
+    border-radius: 3rpx;  
+    margin-top:44rpx;
+    margin-left:544rpx;                                                                                                               
+}
