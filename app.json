@@ -17,7 +17,7 @@
         "list/regularlist/regularlist",
         "list/address/address",
         "list/address/newAddress/newAddress",
-        "list/bindphone/bindphone",
+        "list/bindphone/bindphone"
 
   ],
   "window": {
