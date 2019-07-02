@@ -11,7 +11,10 @@ Page({
         statusBarHeight:"",
         a:false,
         result:[],
-        inputValue:""
+        inputValue:"",
+        btnText:"编辑",
+        checked:false,
+        check:false
     },
 
     /**
@@ -72,12 +75,28 @@ Page({
     backtrack(){
         wx.navigateBack({ changed: true }); 
     },
+    // 监听input框的value值
     bindKeyInput: function (e) {
         // console.log(e.detail.value)
         this.setData({
             inputValue: e.detail.value
         });
         this.http1()
+    },
+    // 点击编辑按钮
+    btn:function(){
+        if(this.data.btnText=="编辑"){
+            this.setData({
+                btnText: "完成",
+                checked:true
+            })
+        } else if (this.data.btnText == "完成"){
+            this.setData({
+                btnText: "编辑",
+                checked: false
+            })
+        }
+        
     },
     /**
      * 生命周期函数--监听页面隐藏

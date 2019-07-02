@@ -10,7 +10,10 @@ Page({
     data: {
         statusBarHeight: "",
         inputValue:"",
-        result:[]
+        result: [],
+        btnText: "编辑",
+        checked: false,
+        check: false
     },
 
     /**
@@ -75,6 +78,21 @@ Page({
             inputValue: e.detail.value
         });
         this.http1()
+    },
+    // 点击编辑按钮
+    btn: function () {
+        if (this.data.btnText == "编辑") {
+            this.setData({
+                btnText: "完成",
+                checked: true
+            })
+        } else if (this.data.btnText == "完成") {
+            this.setData({
+                btnText: "编辑",
+                checked: false
+            })
+        }
+
     },
     /**
      * 生命周期函数--监听页面隐藏

@@ -94,7 +94,7 @@ button::after {
 .item_one{
     width: 342rpx;
     border: 2rpx solid #f1f1f2;
-    margin-bottom: 20rpx;
+    margin-top: 20rpx;
     position: relative
 }
 .commodityImg{
@@ -151,4 +151,51 @@ button::after {
 .car{
     height: 32rpx;
     width: 32rpx
+}
+.checked{
+    height: 35rpx;
+    width: 35rpx;
+    position: absolute;
+    top: 18rpx;
+    right: 30rpx;
+    background: #ffffff;
+    border-radius: 50%
+}
+.bottom{
+    height: 96rpx;
+    width: 750rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.bottom-left{
+    height: 96rpx;
+    width: 564rpx;
+    display: flex;
+    align-items: center;
+    padding-left: 18rpx;
+    box-sizing: border-box; 
+}
+.left_check{
+    height: 44rpx;
+    width: 44rpx;
+    margin-right: 12rpx
+}
+.allCheck{
+    font-size: 28rpx;
+    color: #000000;
+}
+.bottom_btn{
+    height: 96rpx;
+    width: 186rpx;
+    background: #f73936;
+    border-radius: 0;
+    font-size: 28rpx;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
