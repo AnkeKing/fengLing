@@ -6,7 +6,8 @@
     "pages/home/home",
     "pages/order/order",
     "pages/my/my",
-    "pages/address/address"
+    "pages/address/address",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

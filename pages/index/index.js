@@ -85,7 +85,7 @@ Page({
       shopId: app.globalData.data.result.shopInfoDTO.id,
       messageType:'BIND_WECHAT_PHONE'
     }
-    http('https://pre-web-gateway.newbeescm.com/ms-web/u/sendMessage?mobile=' + this.data.mobile + " & shopId=" + app.globalData.data.result.shopInfoDTO.id + "&messageType=BIND_WECHAT_PHONE").then(res=>{
+    http('https://pre-web-gateway.newbeescm.com/ms-web/u/sendMessage?mobile=' + this.data.mobile + " & shopId=" + app.globalData.userdata.result.shopInfoDTO.id + "&messageType=BIND_WECHAT_PHONE").then(res=>{
       console.log(res.data.attachment.code)
       this.setData({
         code:res.data.attachment.code

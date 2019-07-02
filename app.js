@@ -7,7 +7,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    var that=this
     // 登录
     wx.login({
       success: res => {
@@ -16,15 +16,35 @@ App({
           //发起网络请求
           http("https://web-gateway.newbeescm.com/ms-web/weCat/auth/403/" + res.code + "?version=2&type=1"
           ).then(res => {
-
             this.globalData.data = res.data
             console.log(this.globalData.data)
+              console.log(res.data.status)
+                  if (res.data.status.statusCode == 0) { 
+                      var data = res.data.result;
+                      this.globalData.data = data;
+                      wx.setStorage({
+                          key: 'userData',
+                          data: JSON.stringify(data),
+                          success: function (res) {
+                             
+                          }
+                      })
+                      if (data.memberId) {
+                          this.globalData.header = {
+                              token: data.user.token,
+                              userId: data.user.id,
+                          }
+                      }
+                  } else {
+                      this.globalData.userData = '';
+                  }
           })
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
     })
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -34,7 +54,6 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -50,7 +69,8 @@ App({
     userInfo: null,
     statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'],
     data: null,
-    jiaonan: wx.getMenuButtonBoundingClientRect()
+    jiaonan: wx.getMenuButtonBoundingClientRect(),
+    header:null
   }
 })
 

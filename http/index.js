@@ -38,7 +38,7 @@ function http(url, type, data, method) {
 }
 function jointParams(data){//拼接params参数
   let strForm = JSON.stringify(data);
-  let lastAttr = strForm.substring(strForm.lastIndexOf(",") + 1, strForm.lastIndexOf(":"));
+  let lastAttr = strForm.substring(strForm.lastIndexOf(",") + 2, strForm.lastIndexOf(":")-1);
   let urlStr = "";
   for (f in data) {
     if (lastAttr == f) {
