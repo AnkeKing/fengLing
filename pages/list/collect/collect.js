@@ -1,29 +1,31 @@
 
-// list/collect/collect.js
-const app=getApp()
-const api = require("../../http/config.js");
-const http = require('../../http/index.js');
+const app = getApp()
+const api = require("../../../http/config.js");
+const http = require('../../../http/index.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        statusBarHeight:"",
-        a:false,
-        result:[],
-        inputValue:""
+        statusBarHeight: "",
+        a: false,
+        result: [],
+        inputValue: "",
+        btnText: "编辑",
+        checked: false,
+        check: false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        
+
         this.http1()
-        
+
     },
-    http1(){
+    http1() {
         let li = {
             memberId: 589,
             shopId: 18,
@@ -68,11 +70,12 @@ Page({
             statusBarHeight: app.globalData.statusBarHeight
         });
     },
-    
+
     // 返回上一级
-    backtrack(){
-        wx.navigateBack({ changed: true }); 
+    backtrack() {
+        wx.navigateBack({ changed: true });
     },
+    // 监听input框的value值
     bindKeyInput: function (e) {
         // console.log(e.detail.value)
         this.setData({
@@ -80,13 +83,28 @@ Page({
         });
         this.http1()
     },
+    // 点击编辑按钮
+    btn: function () {
+        if (this.data.btnText == "编辑") {
+            this.setData({
+                btnText: "完成",
+                checked: true
+            })
+        } else if (this.data.btnText == "完成") {
+            this.setData({
+                btnText: "编辑",
+                checked: false
+            })
+        }
+
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
 
     },
-    
+
     /**
      * 生命周期函数--监听页面卸载
      */

@@ -10,7 +10,8 @@ Page({
     data: {
         statusBarHeight: "",
         inputValue: "",
-        result: []
+        result: [],
+        btnText:"编辑"
     },
 
     /**
@@ -39,6 +40,21 @@ Page({
     // 返回上一级
     backtrack() {
         wx.navigateBack({ changed: true });
+    },
+    // 点击编辑按钮
+    btn: function () {
+        if (this.data.btnText == "编辑") {
+            this.setData({
+                btnText: "完成",
+                checked: true
+            })
+        } else if (this.data.btnText == "完成") {
+            this.setData({
+                btnText: "编辑",
+                checked: false
+            })
+        }
+
     },
     http1() {
         let li = {

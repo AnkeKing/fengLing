@@ -14,9 +14,11 @@
         "pages/search/search",
         "pages/acknowledgement/acknowledgement",
         "pages/indentDetail/indentDetail",
-        "pages/collect/collect",
         "pages/list/bindphone/bindphone",
-        "pages/list/regularlist/regularlist"
+        "pages/list/regularlist/regularlist",
+        "pages/list/collect/collect",
+        "pages/list/address/address",
+        "pages/list/address/newAddress/newAddress"
     ],
     "window": {
         "backgroundTextStyle": "light",

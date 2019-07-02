@@ -1,19 +1,18 @@
-
-<!--list/collect/collect.wxml-->
+<!--pages/list/collect/collect.wxml-->
 <view class='collect'>
     <view class='nav'style="padding-top:{{statusBarHeight}}px">
-        <image src='../../image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
+        <image src='/image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
         我的收藏
     </view>
     <view class='search'>
         <view class='search_con'>
-            <image src='../../image/ic_search.png' class='searchImg'></image>
+            <image src='/image/ic_search.png' class='searchImg'></image>
             <input class='searchInput'placeholder="搜索商品" placeholder-class='placeholder'bindinput="bindKeyInput"></input>
         </view>
-        <button class='btn'>编辑</button>
+        <button class='btn'bindtap="btn">{{btnText}}</button>
     </view>
     <view class='con' wx:if="{{result.length==0}}">
-        <image src='../../image/ic_search_no_data.png' class='search_no_data'></image>
+        <image src='/image/ic_search_no_data.png' class='search_no_data'></image>
         <text class='con_text'>抱歉！您还没有收藏商品</text>
     </view>
     <view class='list'wx:else>
@@ -27,8 +26,18 @@
             ￥{{item.shopPrice}}
             </view>
              <view class='addCart'>
-                <image src='../../image/ic_white_cart.png' class='car'></image>
+                <image src='/image/ic_white_cart.png' class='car'></image>
             </view>
+             <image src="{{item.asc?'/image/ic_checked.png':'/image/ic_check_defult.png'}}" class='checked' wx:if="{{checked}}"></image>
         </view>
     </view>
+    <view class='bottom'wx:if="{{checked}}">
+        <view class='bottom-left'>
+            <image src='/image/ic_check_defult.png' class="left_check"></image>
+            <text class='allCheck'>全选</text>
+        </view>
+        <button class='bottom_btn'>取消收藏</button>
+    </view>
 </view>
+
+

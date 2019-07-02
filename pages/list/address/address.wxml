@@ -1,0 +1,12 @@
+<!--pages/list/address/address.wxml-->
+<view class='address'>
+    <view class='nav'style="padding-top:{{statusBarHeight}}px">
+        <image src='/image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
+        收货地址
+    </view>
+    <view class='con'>
+        <image src='/image/ic_no_address.png' class='addressImg'></image>
+        <text class='conText'>您还没有收货地址哦，赶快创建一个吧~</text>
+    </view>
+    <button class='newAddress' bindtap='newAddress'>新增地址</button>
+</view>

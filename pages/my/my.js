@@ -72,7 +72,7 @@ Page({
     // 跳到收藏页
     collect(){
         wx.navigateTo({
-            url: '/pages/collect/collect',
+            url: '/pages/list/collect/collect',
         })
     },
     // 跳到常购清单页
@@ -84,7 +84,7 @@ Page({
     // 跳到收货地址页
     address(){
         wx.navigateTo({
-            url: '../../list/address/address',
+            url: '/pages/list/address/address',
         })
     },
     // 跳到绑定手机页
