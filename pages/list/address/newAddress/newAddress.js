@@ -1,5 +1,5 @@
-// list/address/newAddress/newAddress.js
-const app=getApp()
+// pages/list/address/newAddress/newAddress.js
+const app = getApp()
 Page({
 
     /**
@@ -7,8 +7,8 @@ Page({
      */
     data: {
         statusBarHeight: app.globalData.statusBarHeight,
-        addressName:'点击选择地址',
-        color:"#cdcdcd",
+        addressName: '点击选择地址',
+        color: "#cdcdcd",
         sex: -1,//1 男  2  女
     },
 
@@ -32,13 +32,13 @@ Page({
     onShow: function () {
 
     },
-    select(){
-        var that=this;
+    select() {
+        var that = this;
         wx.chooseLocation({
-            success(res){
+            success(res) {
                 console.log(res.name)
                 that.setData({
-                    addressName:res.name,
+                    addressName: res.name,
                     color: "#333333"
                 })
             }

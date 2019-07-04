@@ -12,6 +12,7 @@ Page({
     allDateArr: [],
     martop: 0,
     result: null,
+    nickName:""
   },
 
   /**
@@ -38,6 +39,15 @@ Page({
         martop: getApp().globalData.statusBarHeight + getApp().globalData.jiaonan.height + 18,
         result: res.data.result
       })
+    })
+    wx.getStorage({
+      key: 'userInfo',
+      success: function (res) {
+        that.setData({
+          nickName: JSON.parse(res.data).nickName,
+        })
+        console.log("赋值",that.data.nickName)
+      },
     })
   },
   //小于10的格式化函数
@@ -74,15 +84,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
+    var that=this;
     let sendinfo = {
-      num: 1, nickName: getApp().globalData.userInfo.nickName,
+      num: 1, nickName: that.data.nickName,
     }
-    console.log(getApp().globalData.userInfo);
-    console.log("分享返回", res);
     let str = JSON.stringify(sendinfo);
     return {
-      title: "可爱的" + sendinfo.nickName + '向你分享了小程序',
-      path: '/page/user?sendinfo=' + sendinfo,
+      title: "可爱的" + that.data.nickName + '向你分享了小程序',
+      path: '/page/user?sendinfo=' + str,
       imageUrl: "https://hbimg.huabanimg.com/589dfa8a22c324f01a749d9e5d5b6fb0f389470e231f6-KMXCiK_fw658",
       success: function (res) {
         // 转发成功 

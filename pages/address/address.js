@@ -10,6 +10,7 @@ var getCityList = function (that) {
     http(api.baseUrl + "/shopInfoController/shopCoverageRange", "params",ff, "get").then(res => {
         if (res.data.status.statusCode == 0) {
             if (res.data.result.length > 0) {
+                console.log("城市列表", res.data.result)
                 var locCity = that.data.locCity ? that.data.locCity : res.data.result[0].item[0].name;
                 that.setData({
                     locCity: locCity,
@@ -43,11 +44,14 @@ Page({
       lat:null,
       lng:null,
       locationCityName:null,
-      userData:null
+      userData:null,
+      receiverAddress:[],//收货地址,
+      search_list:[],//搜索城市列表
+      city:null,
+      locCity:""
   },
 //   送货上门,到店自提切换
     deliver(){//送货上门
-        console.log("a")
         this.setData({
             deliverr: true
         })
@@ -67,8 +71,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      console.log(options.city)
+      this.setData({
+          locCity: options.city
+      })
       let thit = this
- 
       wx.getStorage({
           key: 'userData',
           success: function (res) {
@@ -115,15 +122,46 @@ Page({
              clearInterval(thit.interval);
          }
      })
+     let ha={
+         memberId: 589,
+         pageNum: 1,
+         pageSiz: 100,
+         memberSource: 601
+     }
+      http(api.baseUrl+"/newMemberAddress/getListByMemberId","params",ha,"get").then(res=>{
+          console.log("获取收货地址", res.data.result.addressList)
+          if (res.data.status.statusCode==0){
+                this.setData({
+                    receiverAddress:res.data.result.addressList
+                })
+          }else{
+              receiverAddress:[]
+          }
+     })
   },
+    dz(e){
+        wx.navigateTo({
+            url: '../cityList/cityList',
+        })
+        console.log(e.currentTarget.dataset.city)
+        wx.setStorage({
+            key: 'city',
+            data: e.currentTarget.dataset.city,
+        })
+    },
     bindKeyInput: function (e) {
         var keywords = e.detail.value
         console.log(keywords)
         this.setData({
             keywords: keywords
         })
-        http(api.baseUrl + "/location/vagueArea?kw="+keywords+"&region=").then(res=>{
-            console.log(res)
+        http(api.baseUrl + "/location/vagueArea?kw="+keywords+"&region="+this.data.locCity).then(res=>{
+            if (res.data.status.statusCode==0){
+                    console.log("搜索城市列表",res.data.result.result)
+                    this.setData({
+                        search_list:res.data.result.result
+                    })
+            }
         })
         if (keywords != "") {
             this.setData({
@@ -142,17 +180,32 @@ Page({
     },
   //新增收货地址
     jumpNewAddress(){
-            console.log("a")
+           wx.navigateTo({
+               url: '/pages/list/address/newAddress/newAddress',
+           })
+    },
+    district(e){
+        console.log(e.currentTarget.dataset.district)
+        wx.setStorage({
+            key: 'district',
+            data: e.currentTarget.dataset.district,
+        })
+        wx.switchTab({
+            url: '../home/home',
+        })
     },
     // 刷新按钮
     getLocation(){
         console.log("刷新")
     },
+    goBack(){
+        wx.navigateBack({})
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+     
   },
 
   /**

@@ -24,11 +24,10 @@
 	"libVersion": "2.7.2",
 	"appid": "wxc9012829c8590135",
 	"projectname": "fl",
-	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"scripts": {},
+	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -45,20 +44,20 @@
 			"list": []
 		},
 		"game": {
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
 					"name": "地址",
 					"pathName": "pages/address/address",
-					"query": "",
-					"scene": null
+					"query": ""
 				},
 				{
-					"id": 1,
+					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/search/search",
 					"query": "",
@@ -66,36 +65,22 @@
 				},
 				{
 					"id": -1,
-					"name": "地址",
-					"pathName": "pages/address/address",
+					"name": "清单",
+					"pathName": "pages/list/regularlist/regularlist",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "9",
-					"pathName": "pages/shopping/shopping",
+					"name": "22",
+					"pathName": "pages/cityList/cityList",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "9",
-					"pathName": "pages/shopping/shopping",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单",
-					"pathName": "pages/order/order",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "订单详情",
-					"pathName": "pages/indentDetail/indentDetail",
+					"name": "111",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]

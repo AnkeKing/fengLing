@@ -1,7 +1,7 @@
-<!--list/address/newAddress/newAddress.wxml-->
+<!--pages/list/address/newAddress/newAddress.wxml-->
 <view class='newAddress'>
     <view class='nav' style="padding-top:{{statusBarHeight}}px">
-        <image src='../../../image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
+        <image src='/image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
         新增收货地址
     </view>
     <view class='con'>
@@ -35,9 +35,9 @@
                 详细地址
             </view>
             <view class='one_right address_con' bindtap='select'>
-                <image src='../../../image/ic_loction.png' class='address_con_img'></image>
+                <image src='/image/ic_loction.png' class='address_con_img'></image>
                 <view class='address_con_input' style='color:{{color}}'>{{addressName}}</view>
-                <image src='../../../image/ic-next-left_gary.png' class='address_con_right'></image>
+                <image src='/image/ic-next-left_gary.png' class='address_con_right'></image>
             </view>
         </view>
         <view class='one'>

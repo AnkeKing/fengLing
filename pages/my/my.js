@@ -72,25 +72,25 @@ Page({
     // 跳到收藏页
     collect(){
         wx.navigateTo({
-            url: '../../list/collect/collect',
+            url: '/pages/list/collect/collect',
         })
     },
     // 跳到常购清单页
     regularlist(){
         wx.navigateTo({
-            url: '../../list/regularlist/regularlist',
+            url: '/pages/list/regularlist/regularlist',
         })
     },
     // 跳到收货地址页
     address(){
         wx.navigateTo({
-            url: '../../list/address/address',
+            url: '/pages/list/address/address',
         })
     },
     // 跳到绑定手机页
     bindphone(){
         wx.navigateTo({
-            url: '../../list/bindphone/bindphone',
+            url: '/pages/list/bindphone/bindphone',
         })
     },
     phone_button: function() {

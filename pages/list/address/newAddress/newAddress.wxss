@@ -1,4 +1,4 @@
-/* list/address/newAddress/newAddress.wxss */
+/* pages/list/address/newAddress/newAddress.wxss */
 .newAddress{
     width: 750rpx;
     height: 100vh;

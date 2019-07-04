@@ -1,5 +1,5 @@
-// list/address/address.js
-const app=getApp()
+// pages/list/address/address.js
+const app = getApp()
 Page({
 
     /**
@@ -34,7 +34,7 @@ Page({
         wx.navigateBack({ changed: true });
     },
     // 跳到新添加地址页面
-    newAddress(){
+    newAddress() {
         wx.navigateTo({
             url: './newAddress/newAddress',
         })
