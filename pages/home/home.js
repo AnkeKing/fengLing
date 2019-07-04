@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    mm:"请定位位置",
     currentTab: 0,
     Tab: 0,
     fenlei: null,
@@ -165,7 +166,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+     var that=this
+       wx.getStorage({
+       key: 'district',
+       success: function(res) {
+         console.log(res);
+         that.setData({
+           mm:res.data
+         })
+       },
+     })
   },
 
   /**
