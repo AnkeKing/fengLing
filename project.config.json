@@ -86,8 +86,8 @@
 				},
 				{
 					"id": -1,
-					"name": "购物车",
-					"pathName": "pages/shopping/shopping",
+					"name": "111",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]
