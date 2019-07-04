@@ -1,2 +1,40 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<!-- <text>pages/order/order.wxml</text> -->
+<view class="pages"> 
+    <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
+        <text>订单</text>
+    </view>
+    <view class="content">
+        <view class="order">
+            <view class="serial-number">
+                <image src="../../img/ic_order_num.png" class="image"></image> 
+                <view class="number">订单编号:123456800987</view>
+                <view class="obligation">待付款</view>
+            </view>
+            <view class="self-support">
+                <view class="detail" bindtap="indentDetail">
+                    <view class="details">
+                        <image src="../../img/ic_self.png" class="image2"></image>
+                        <view class="title-box">
+                            <image src="../../img/ic_sale_self.png" class="image3"></image>
+                            <view class="title">嘚瑟范围放声大哭黄金时代开放男快结束了D基础上劳动法金额win存数量DNFID你家咯飞机</view>
+                            <view class="jian">件</view>
+                            <view class="price-box">
+                                <view class="price">￥99.00</view>
+                                <view class="num">x1</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="dindan">
+                <view class="indent">
+                    <view class="general">共1件</view>
+                    <view class="goods">订单金额: </view>
+                    <view class="price2">￥99.00</view>
+                </view>
+                <view class="btn">删除订单</view>
+            </view>
+        </view>
+    </view>
+</view>

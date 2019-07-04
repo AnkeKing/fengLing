@@ -1,1 +1,86 @@
 /* pages/my/my.wxss */
+.my{
+    height: 100vh;
+    width: 750rpx;
+    background: #f2f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav{
+    height: 658rpx;
+    width: 750rpx;
+    background: #f94c36;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative
+}
+.headerImg{
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+    margin-top: 117rpx
+}
+.userName{
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #c6fffb;
+    margin-top: 30rpx;
+    background: transparent;
+}
+button::after{
+    border: none
+}
+.phone{
+    font-size: 27rpx;
+    color: #c6fffb;
+    margin-top: 27rpx;
+}
+.list{
+    width: 708rpx;
+    box-sizing: border-box;
+    padding: 63rpx 77rpx 62rpx;
+    background: #ffffff;
+    border-radius: 20rpx;
+    position: absolute;
+    bottom:-54rpx;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+.list_one{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.list_img{
+    height: 50rpx;
+    width: 50rpx
+}
+.list_one_text{
+    font-size: 25rpx;
+    color: #2f2f2f;
+    margin-top: 15rpx
+}
+.phone_button{
+    width: 708rpx;
+    background: #ffffff;
+    border-radius: 20rpx;
+    margin-top: 110rpx;
+    padding: 27rpx 0rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.phone_buttonImg{
+    height: 36rpx;
+    width: 36rpx;
+    padding-right: 18rpx
+}
+.phone_button_text{
+    font-size: 28rpx;
+    color: #1b1b1b;
+}

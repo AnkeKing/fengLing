@@ -1,4 +1,4 @@
-﻿封装wx.request()说明：
+封装wx.request()说明：
 
 
 一、在page中引入：

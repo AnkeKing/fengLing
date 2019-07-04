@@ -22,7 +22,7 @@
   padding-left: 36rpx;
 }
 .kong{
-  margin-right: 50rpx;
+  margin-right: 111rpx;
 }
 .view-title{
  display:flex;

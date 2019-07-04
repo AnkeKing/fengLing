@@ -1,0 +1,83 @@
+/* list/bindphone/bindphone.wxss */
+.bindphone{
+    width: 750rpx;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.nav{
+    height: 105rpx;
+    width: 750rpx;
+    background: #f84134;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35rpx;
+    color: #fefefe;
+    font-weight: 400;
+    position: relative
+}
+.leftImg{
+    height: 35rpx;
+    width: 30rpx;
+    padding: 20rpx;
+    position: absolute;
+    left: 34rpx;
+    transform: translateX(-50%)
+}
+.con{
+    width: 750rpx;
+    padding: 0rpx 15rpx;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+.one{
+    width: 100%;
+    padding: 26rpx 0rpx 23rpx;
+    border-bottom: 2rpx solid #f0f0f3;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.one_phone{
+    height: 40rpx;
+    width: 31rpx;
+    margin: 0rpx 30rpx;
+}
+.one_text{
+    flex: 1;
+    color: #444444;
+    font-size: 30rpx
+}
+.address_placeholder{
+    color:#c8c8c8;
+    font-size:28rpx
+}
+.address_input{
+    flex: 1
+}
+.verificationCode{
+    width: 140rpx;
+    color: #bcbcbc;
+    font-size: 28rpx;
+    margin:0;
+    padding: 0;
+    background: transparent;
+    margin-right: 30rpx;
+    line-height: 1.5
+}
+.verificationCode::after{
+    border: none
+}
+.confirm_btn{
+    width: 698rpx;
+    background: #ec9a99;
+    color: #ffffff;
+    font-size: 34rpx;
+    margin-top: 78rpx;
+}
+.confirm_btn::after{
+    border: none
+}

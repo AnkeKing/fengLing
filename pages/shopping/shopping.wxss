@@ -1,4 +1,5 @@
 /* pages/shopping/shopping.wxss */
+
 .box{
   width:100%;
   height:100%;
@@ -241,4 +242,220 @@ overflow: auto;
 }
 .my{
   margin-left:40rpx;
+}
+.custom{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 90rpx;
+  line-height:90rpx;
+  text-align:center;
+  background: #f8562f;
+  z-index: 999;
+}
+.custom text{
+    color: #fff;
+    font-size: 34rpx;
+    font-weight: 500;
+    max-width: 280rpx;
+}
+.empty_custom{
+    height: 45px;
+    width: 100%;
+}
+.content{
+    width:100%;
+    height:100vh;
+    margin-top:130rpx;
+    margin-bottom:20rpx;
+    background-color:#f2f1f6;
+}
+.commodity{
+    width:100%;
+    height:80rpx;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1rpx solid #f2f2f2;
+    background-color:#fff;
+}
+.self-support{
+    font-size:30rpx;
+    margin-left:30rpx;
+}
+.times{
+    font-size:26rpx;
+    color:#f2563d;
+    margin-right:30rpx;
+}
+.store{
+    width:100%;
+    height:80rpx;
+    background-color:#fafafa;
+    display: flex;
+    align-items: center;
+    border-bottom:1rpx solid #f2f2f2;
+}
+.picture{
+    width:34rpx;
+    height:34rpx;
+    margin-left:26rpx;
+}
+.address{
+    font-size:30rpx;
+    margin-left:20rpx;
+}
+.order-item {
+  height: 250rpx;
+  width: 100%;
+  display: flex;
+  position: relative;
+  border:1erpx solid red;
+}
+
+.remove{  
+  width: 160rpx;  
+  height: 100%;  
+  background-color: red; 
+  color: white; 
+  position: absolute;  
+  top: 0;  
+  right: -160rpx;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+}
+
+
+.commodity-detail{
+    width:100%;
+    height:250rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#fff;
+    border-bottom:1rpx solid #f2f2f2;
+}
+.center{
+    width:700rpx;
+    height:200rpx;
+    display:flex;
+    align-items: center;
+    margin-left:26rpx;
+}
+.photo{
+    width:34rpx;
+    height:34rpx;
+}
+.logo{
+    width:200rpx;
+    height:200rpx;
+    margin-left:20rpx;
+}
+.name{
+    width:420rpx;
+    height:200rpx;
+    margin-left:20rpx;
+}
+.titlee{
+    width:420rpx;
+    height:64rpx;
+    font-size:30rpx;
+    line-height:32rpx;
+    text-overflow: ellipsis; /* 超出省略号*/
+    overflow: hidden;
+    display:-webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.jian{
+    font-size:26rpx;
+    margin-top:5rpx;
+}
+.qian{
+    display:flex;
+    width:100%;
+    height:60rpx;
+    align-items: center;
+    margin-top:37rpx;
+}
+.price{
+    font-size:28rpx;
+    color:#db5943;
+}
+.btn{
+    width:210rpx;
+    height: 50rpx;
+    position:absolute;
+    top:170rpx;
+    left:500rpx;
+    display:flex;
+    align-items: center;
+}
+.minus{
+    width:50rpx;
+    height:50rpx;
+    line-height:50rpx;
+    text-align:center;
+    color:#bbbbbb;
+    border:1rpx solid #f0f0f0;
+}
+.num{
+    width:110rpx;
+    height:50rpx;
+    line-height:50rpx;
+    text-align:center;
+    border-top:1rpx solid #f0f0f0;
+    border-bottom:1rpx solid #f0f0f0;
+}
+.add{
+    width:50rpx;
+    height:50rpx;
+    border:1rpx solid #f0f0f0;
+    line-height:50rpx;
+    text-align:center;
+    color:#bbb;
+}
+.dispatching{
+    width:100%;
+    height:50rpx;
+    background-color:#fdf0ea;
+    font-size:28rpx;
+    line-height:50rpx;
+    text-align:center;
+    color:#d95918;
+}
+.check{
+    width:100%;
+    height:100rpx;
+    display:flex;
+    align-items: center;
+    background-color:#fff;
+    margin-bottom:15rpx;
+}
+.jj{
+    margin-left:26rpx;
+}
+.checked{
+    font-size:34rpx;
+    margin-left:15rpx;
+}
+.summation{
+    font-size:34rpx;
+    margin-left:30rpx;
+    display:flex;
+}
+.pric{
+    color:#d95918;
+}
+.button{
+    display:flex;
+    width:240rpx;
+    height:100rpx;
+    align-items: center;
+    justify-content: center;
+    background-color:#f6592c;
+    color:#fff;
+    margin-left:153rpx;
 }

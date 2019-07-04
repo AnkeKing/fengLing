@@ -1,0 +1,22 @@
+var price = {
+    doubleArr: function (value) {
+        var numArr=value.toString().split(".");
+        if(numArr.length>1){
+            return numArr
+        }else{
+            numArr.push(00)
+            return numArr
+        }
+    },
+    doublePrice: function (value) {
+        if(value.toString().indexOf(".")!=-1){
+            return value.toFixed(1)//此处1为保留1位小数
+        }else{
+            return value+".00"
+        }
+    },
+}
+module.exports = {
+    doubleArr: price.doubleArr,
+    doublePrice: price.doublePrice,
+}

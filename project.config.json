@@ -48,17 +48,16 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
 					"name": "地址",
 					"pathName": "pages/address/address",
-					"query": "",
-					"scene": null
+					"query": ""
 				},
 				{
-					"id": 1,
+					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/search/search",
 					"query": "",
@@ -66,16 +65,22 @@
 				},
 				{
 					"id": -1,
-					"name": "地址",
-					"pathName": "pages/address/address",
+					"name": "清单",
+					"pathName": "pages/list/regularlist/regularlist",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "1",
-					"pathName": "pages/home/home",
+					"name": "22",
+					"pathName": "pages/cityList/cityList",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]
