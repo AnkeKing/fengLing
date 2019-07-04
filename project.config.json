@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -67,6 +67,20 @@
 					"id": -1,
 					"name": "清单",
 					"pathName": "pages/list/regularlist/regularlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "22",
+					"pathName": "pages/cityList/cityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/index/index",
 					"scene": null
 				}
 			]

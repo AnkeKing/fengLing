@@ -3,7 +3,6 @@ const app = getApp();
 const api = require("../../http/config.js");
 const http = require('../../http/index.js');
 Page({
-
   /**
    * 页面的初始数据
    */

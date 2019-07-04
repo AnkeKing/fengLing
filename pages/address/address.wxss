@@ -46,7 +46,7 @@
     height: 90rpx;
      box-shadow:inset 0px -1px 1px -1px #c8c7cc;
      position: relative;
-     background: white
+     background: white;
 }
 .dw{
     width: 30rpx;
@@ -75,6 +75,9 @@
     width: 88rpx;
     font-size: 32rpx;
     height:49rpx;
+    text-overflow: ellipsis; /* 超出省略号*/
+    overflow: hidden;
+    display:-webkit-box;
 }
 .sstb{
     position: absolute;
@@ -86,7 +89,8 @@
 .con_2{
  padding-left: 15rpx;
  padding-right:15rpx;
- background: white
+ background: white;
+ box-shadow:inset 0px -1px 1px -1px #c8c7cc;
 }
 .view-location-content{
     width:100%;
@@ -109,13 +113,12 @@
 .name{
     width:75%;
     font-size:28rpx;
-
+    padding:10rpx 0
 }
 .view-my-address-title{
     height:80rpx;
     font-size:24rpx;
     color:#999;
-    margin-top:20rpx;
     background-color:white;
     line-height:80rpx;
     padding-left:30rpx;
@@ -158,4 +161,40 @@
     height:30rpx;
     right: 65rpx;
     top: 30rpx
+}
+.receiverAddress{
+    background: white;
+    font-size:28rpx;
+    padding:20rpx 0;
+     padding-left:30rpx;
+     box-shadow:inset 0px -1px 1px -1px #c8c7cc;
+     position: relative
+}
+.name1{
+    padding-right: 30rpx;
+    margin-left: 30rpx;
+    
+}
+.address_1{
+    color:#ccc;
+    font-size: 26rpx;
+    margin-top: 10rpx;
+}
+.ic_modifyAddress{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 63rpx;
+    top: 43rpx;
+    padding: 10rpx;
+}
+.search_list{
+    background: white;
+    position: absolute;
+    top: 92rpx;
+    width: 100%;
+}
+.search_list_1{
+    box-shadow:inset 0px -1px 1px -1px #c8c7cc;
+    padding: 15rpx 10rpx;
 }
