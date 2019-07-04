@@ -31,7 +31,7 @@
             <text style="font-size: 13px;color: #999;">当前位置</text>
             <view class='view-location-content'>
                 <text class="name" wx:if="{{address}}!=null">{{address}}</text>
-                <view class="view-location-button" bindtap='getLocation'>
+                <view class="view-location-button" bindtap='getLocationn'>
                     <image src='../../image/ic_refresh.png' style="width: 14px; height: 13px;"></image>
                     <text>刷新</text>
                 </view>
@@ -41,9 +41,17 @@
     </view>
     
     <!-- 自提门店 -->
-    <view wx:if='{{pickk}}'>
-        <view class="view-my-address-title">自提门店</view>
-        <scroll-view></scroll-view>
+    <view wx:if='{{pickk}}'  class="view-my-address-title">
+        <view class='ztmd'>自提门店</view>
+        <view class='view-title' bindtap='hhh'>
+            <text class='view-title-name'>{{storeList.storeName}}</text>
+            <text class='view-title-data'>营业时间: {{storeList.deliveryTimeBegin}}-{{storeList.deliveryTimeEnd}}</text>
+            <text>{{storeList.allAddress}}</text>
+            <view class='ddw'>
+                <image src='../../img/定位.png'></image>
+                <text>{{storeList.distance}}m</text>
+            </view> 
+        </view>
     </view>
     <!-- 送货上门 -->
     <view wx:if="{{deliverr}}">
