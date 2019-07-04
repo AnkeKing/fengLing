@@ -1,64 +1,11 @@
-
-<!-- pages/shopping/shopping.wxml -->
-<!-- <view class="box">
-<!-- 上面 -->
-  <!-- <view class="shang" style="padding-top:{{statusBarHeight}}px">
-      <view class="tit">
-          <text class="text">选择收货地址</text>
-      </view> -->
-      <!-- <view class="tit-t">
-          <view class="t-o">
-            <text class="o-o">送货上门</text>
-          </view>
-          <view class="t-t">
-             <text class="w-t">到店自提</text>
-          </view>
-      </view> -->
-<!-- tab -->
-      <!-- <view class="tit-t">
-      <view class="t-o {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">送货上门</view>
-      <view class="t-t {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">到店自提</view>
-     </view>
-
-  </view>
-  <!-- 中间 -->
-  <!-- <view class="zhong  {{currentTab == 0 ? 'show':'hidden'}}" >
-      <view class="c-o">
-        <image src="../../img/ic-get-location.png" class="img"></image>
-        <view  class="c-t">
-            诶岢网
-        </view>
-         <image src="../../img/ic-down-arr.png" class="img-o"></image>
-         <image src="../../img/ic_search_gary.png" class="img1"></image>
-         <input class="input" placeholder="搜索学校/小区楼/学校" placeholder-class="phClass"></input>
-      </view>
-      <view class="c-r">
-        <view class="dang">当前位置</view>
-         <view class="wei">
-           <view class="weizhi">北京科技职业学院(八达岭校区)内,北科京创八达岭产业园东北110米</view>
-           <view class="w-r">
-            <image src="../../image/ic_refresh.png" class="img2"></image>
-            <text class="shu">刷新</text>
-           </view>
-         </view>
-      </view>
-      <view class="c-e">
-        <text class="my">我的收货地址</text>
-      </view>
-  </view>
-  <view class="zhong  {{currentTab == 1? 'show':'hidden'}}" >
-    <view>11111</view>
-   </view> -->
-  <!-- 底部 -->
-  <!-- <view class="xia" bindtap="lk">新增地址</view>
-</view> --> -->
-<!--pages/shopping/shopping.wxml-->
-<!-- <text>pages/shopping/shopping.wxml</text> -->
 <view class="pages">
-    <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
-        <text>购物车</text>
+    <view class="position">
+        <view style="height:{{statusBarHeight}}px"></view>
+        <view class="custom flex_center" style="height:{{capsule}}px">
+            <text>购物车</text>
+        </view>
     </view>
-    <view class="content" wx:for="{{port}}" wx:key="index">
+    <view class="content" wx:for="{{port}}" wx:for-index="idx" wx:key="idx">
         <view class="commodity">
             <view class="self-support">自营商品</view>
             <view class="times">预计一小时可达</view>
@@ -68,34 +15,32 @@
             <text class="address">{{item.dealerName}}</text>
         </view>
 
-        <scroll-view scroll-y="{{isScroll}}" >
-            <block wx:key="item" wx:for="{{item.goodsList}}">
-                <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx">
-                    <view class="commodity-detail">
-                        <view class="center">
-                            <image src="../../img/ic_checked.png" class="photo"></image>
-                            <image src="{{item.goodsPics}}" class="logo"></image>
-                            <view class="name">
-                                <view class="titlee">{{item.goodsName}}</view>
-                                <view class="jian">{{item.measurementUnit}}</view>
-                                <view class="qian">
-                                    <view class="price">￥ {{item.shopPrice}}</view>
-                                    <view class="btn">
-                                        <view class="minus">-</view>
-                                        <view class="num">{{item.quantity}}</view>
-                                        <view class="add">+</view>
-                                    </view>
+        <view class="cont">
+            <!-- 列表 -->
+            <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
+                <!-- 滑动删除 -->
+                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
+                    <view class="display">
+                        <image src="../../img/ic_checked.png" class="checkImage"></image>
+                        <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}"></image>
+                        <view class="name">
+                            <view class="titleGoodsName">{{_item.goodsName}}</view>
+                            <view class="jian">{{_item.measurementUnit}}</view>
+                            <view class="qian">
+                                <view class="price">￥ {{_item.shopPrice}}</view>
+                                <view class="btn">
+                                    <view class="minus" bindtap="minus">-</view>
+                                    <view class="num">{{_item.quantity}}</view>
+                                    <view class="add" bindtap="add">+</view>
                                 </view>
                             </view>
                         </view>
                     </view>
-
-                    <!-- <view class="content">{{item.content}}</view> -->
-                    <view class="remove" bindtap="delItem">删除 </view>
                 </view>
-            </block>
-        </scroll-view>
-
+                <!-- 删除 -->
+                <view data-index="{{index}}" data-item="{{_item}}" bindtap="delItem" class="list_del del">删除</view>
+            </view>
+        </view>
         <view class="dispatching">配送费1元</view>
         <view class="check">
             <image src="../../img/ic_checked.png" class="photo jj"></image>
@@ -109,6 +54,10 @@
                 <view>(1)</view>
             </view>       
         </view>
+    </view>
+
+    <view class="kong">
+    
     </view>
 </view>
 

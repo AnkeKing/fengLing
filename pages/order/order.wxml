@@ -5,22 +5,22 @@
         <text>订单</text>
     </view>
     <view class="content">
-        <view class="order">
+        <view class="order" wx:for="{{list}}" wx:key="index">
             <view class="serial-number">
                 <image src="../../img/ic_order_num.png" class="image"></image> 
-                <view class="number">订单编号:123456800987</view>
+                <view class="number" >订单编号:{{item.orderNo}}</view>
                 <view class="obligation">待付款</view>
             </view>
-            <view class="self-support">
-                <view class="detail" bindtap="indentDetail">
+            <view class="self-support" wx:for="{{item.goodsDetail}}" wx:key="index">
+                <view class="detail" bindtap="indentDetail" data-order="{{item}}">
                     <view class="details">
-                        <image src="../../img/ic_self.png" class="image2"></image>
+                        <image src="{{item.goodsPics}}" class="image2"></image>
                         <view class="title-box">
                             <image src="../../img/ic_sale_self.png" class="image3"></image>
-                            <view class="title">嘚瑟范围放声大哭黄金时代开放男快结束了D基础上劳动法金额win存数量DNFID你家咯飞机</view>
-                            <view class="jian">件</view>
+                            <view class="title">{{item.goodsName}}</view>
+                            <view class="jian">{{item.measurementUnit}}</view>
                             <view class="price-box">
-                                <view class="price">￥99.00</view>
+                                <view class="price">￥{{item.goodsPrice}}</view>
                                 <view class="num">x1</view>
                             </view>
                         </view>
@@ -33,7 +33,7 @@
                     <view class="goods">订单金额: </view>
                     <view class="price2">￥99.00</view>
                 </view>
-                <view class="btn">删除订单</view>
+                <view class="btn" bindtap="delet" data-index="{{index}}">删除订单</view>
             </view>
         </view>
     </view>
