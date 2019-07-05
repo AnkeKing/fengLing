@@ -48,14 +48,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 8,
 			"list": [
 				{
-					"id": 0,
+					"id": -1,
 					"name": "地址",
-					"pathName": "pages/list/address/address",
-					"query": "",
-					"scene": null
+					"pathName": "pages/address/address",
+					"query": ""
 				},
 				{
 					"id": -1,
@@ -73,15 +72,43 @@
 				},
 				{
 					"id": -1,
-					"name": "shouye",
+					"name": "22",
+					"pathName": "pages/cityList/cityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "111",
 					"pathName": "pages/index/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "收藏",
-					"pathName": "pages/list/collect/collect",
+					"name": "111",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/list/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "商品详情",
+					"pathName": "pages/commodity/commodity",
 					"query": "",
 					"scene": null
 				}

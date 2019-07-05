@@ -44,13 +44,14 @@
 }
 .obligation{
     font-size:30rpx;
-    margin-left:230rpx;
+    margin-left:150rpx;
     color:#f7592c;
 }
 .self-support{
     width:100%;
     height:200rpx;
     background-color:#fafafa;
+    border-bottom:1rpx solid #f2f2f2;
 }
 .detail{
     height:200rpx;
@@ -92,7 +93,7 @@
     margin-top:5rpx;
 }
 .price-box{
-    width:420rpx;
+    width:480rpx;
     display:flex;
     margin-top:20rpx;
     justify-content: space-between;
@@ -147,7 +148,7 @@
 .general{
     font-size:26rpx;
     color:#9d9d9d;
-    margin-left:423rpx;
+    margin-left:410rpx;
 }
 .goods{
     font-size:26rpx;
@@ -159,13 +160,14 @@
     margin-left:20rpx;
 }
 .btn{
-    width:160rpx;
+    width:150rpx;
     height:50rpx;
     line-height:50rpx;
     text-align:center;
-    border:1rpx solid #f6572c;
-    color:#f6572c;
+    border:1rpx solid #999;
+    color:#666666;
     border-radius: 3rpx;  
     margin-top:44rpx;
-    margin-left:544rpx;                                                                                                               
+    margin-left:550rpx; 
+    font-size:28rpx;                                                                                                           
 }

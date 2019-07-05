@@ -1,0 +1,50 @@
+/* pages/cityList/cityList.wxss */
+.int{
+    height: 100vh;
+    background: #f2f3f5
+}
+.topt{
+ background: linear-gradient(to right, red , blue); /* 标准的语法 */
+  color: white;
+}
+.title{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding-bottom: 20rpx
+}
+.img1{
+  width: 25rpx;
+  height: 30rpx;
+  padding-left: 36rpx;
+}
+.kong{
+  width: 93rpx;
+}
+.city{
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx 30rpx 20rpx 30rpx;
+    background: white;
+    align-items: center
+}
+
+.dqcs{
+    font-size: 25rpx;
+    color: #ccc;
+    margin-left: 20rpx
+}
+.city_1{
+    display: flex;
+    flex-direction: column;
+}
+.city_key{
+    font-size: 25rpx;
+    padding: 25rpx 15rpx 15rpx 25rpx;
+    background: #f5f7f4
+}
+.city_name{
+      font-size: 25rpx;
+    background: #f2f1f6;
+    padding: 25rpx 15rpx 15rpx 25rpx;
+}

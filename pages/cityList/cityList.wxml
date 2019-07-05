@@ -1,0 +1,26 @@
+<!--pages/cityList/cityList.wxml-->
+<view class='int'>
+    <view class='topt'>
+        <view style="height:{{Topha}}px"></view>
+        <view style='height:{{jiaonan.height}}px;padding-top:8px' class="title">
+            <image src='../../image/ic_left_white.png' class='img1' bindtap='goBack'></image>
+            <text>选择收货地址</text>
+            <text class='kong'></text>
+        </view>
+    </view>
+    <view class=''>
+        <view class='city'>
+            <view class='vity_left'>
+                <text>北京市</text>
+                <text class='dqcs'>当前定位城市</text>
+            </view>
+            <view class='vity_right'>
+                <text>重新定位</text>
+            </view>
+        </view>
+    </view>
+    <view class='city_1' wx:for="{{city}}" wx:key="index">
+            <text class='city_key'>{{item.item[0].key}}</text>
+            <text class='city_name' data-city="{{item.item[0].name}}" bindtap='city'>{{item.item[0].name}}</text>
+    </view>
+</view>

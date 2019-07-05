@@ -19,7 +19,9 @@
         "pages/list/collect/collect",
         "pages/list/address/address",
         "pages/list/address/newAddress/newAddress",
-        "pages/list/address/editAddress/editAddress"
+        "pages/list/address/editAddress/editAddress",
+        "pages/cityList/cityList",
+        "pages/commodity/commodity"
     ],
     "window": {
         "backgroundTextStyle": "light",

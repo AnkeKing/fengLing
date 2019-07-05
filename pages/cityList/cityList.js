@@ -1,60 +1,45 @@
-// pages/search/search.js
-const app = getApp()
-const api = require("../../http/config.js");
-const http = require('../../http/index.js');
+// pages/cityList/cityList.js
+let app=getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        Topha: null,
-        jiaonan: null,
-        keywords:"",//input value值
-        search:false,
-        historySearch: [], //历史记录
-        arra:[]
+        city:[],
+        Topha:null,
+        jiaonan: null
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let thit=this
+       
+        this.setData({
+            city: wx.getStorageSync("city")
+        })
+        console.log(this.data.city)
         this.setData({
             Topha: app.globalData.statusBarHeight
         })
-        // 胶南高度
         this.setData({
-            jiaonan: app.globalData.jiaonan
+            jiaonan: app.globalData.statusBarHeight
         })
-        
     },
-    // 搜索按钮显示隐藏
-    onInputText: function (e) {
-        this.setData({
-            keywords: e.detail.value
-        })
-        if (e.detail.value.length > 0) {
-            this.setData({
-                search: true
-            })
-        } else {
-            this.setData({
-                search: false
-            })
-        }
-    },
-    toSearch: function (e) {
-    },
-    
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
     goBack() {
         wx.navigateBack({
         })
     },
+    city(e){
+        console.log(e.target.dataset.city)
+        wx.navigateTo({
+            url: '../address/address?city='+e.target.dataset.city,
+        })
+    },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
     onReady: function () {
 
     },
@@ -63,7 +48,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-      
+
     },
 
     /**
