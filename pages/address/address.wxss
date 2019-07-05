@@ -192,10 +192,14 @@
     position: absolute;
     top: 92rpx;
     width: 100%;
+    background: white;
+    z-index: 99999
 }
 .search_list_1{
     box-shadow:inset 0px -1px 1px -1px #c8c7cc;
     padding: 15rpx 10rpx;
+    background: white;
+    z-index: 99
 }
 .view-title{
     display: flex;

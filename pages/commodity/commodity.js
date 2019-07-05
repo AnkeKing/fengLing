@@ -1,7 +1,7 @@
-// pages/search/search.js
-const app = getApp()
+// pages/commodity/commodity.js
 const api = require("../../http/config.js");
 const http = require('../../http/index.js');
+let app = getApp()
 Page({
 
     /**
@@ -10,17 +10,13 @@ Page({
     data: {
         Topha: null,
         jiaonan: null,
-        keywords:"",//input value值
-        search:false,
-        historySearch: [], //历史记录
-        arra:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let thit=this
+        // 手机自带信息高度
         this.setData({
             Topha: app.globalData.statusBarHeight
         })
@@ -28,33 +24,20 @@ Page({
         this.setData({
             jiaonan: app.globalData.jiaonan
         })
-        
-    },
-    // 搜索按钮显示隐藏
-    onInputText: function (e) {
-        this.setData({
-            keywords: e.detail.value
-        })
-        if (e.detail.value.length > 0) {
-            this.setData({
-                search: true
-            })
-        } else {
-            this.setData({
-                search: false
-            })
+        let ff={
+            shopId: 18,
+            storeId: 56200,
+            goodsId: 2052635,
+            teminal: 2
         }
+        http(api.baseUrl + "/shopGoods/detail","params",ff,"get").then(res=>{
+            console.log(res.data.result)
+        })
     },
-    toSearch: function (e) {
-    },
-    
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    goBack() {
-        wx.navigateBack({
-        })
-    },
     onReady: function () {
 
     },
@@ -63,7 +46,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-      
+
     },
 
     /**
