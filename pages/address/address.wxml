@@ -14,7 +14,7 @@
     </view>
     <view class='con'>
         <view class='con_1'>
-            <image src='../../img/定位.png' class="dw"></image>
+            <image src='../../img/dw.png' class="dw"></image>
             <text class='dz' bindtap='dz' data-city="{{city}}">{{locCity}}</text>
             <image src='../../image/ic-more-down.png' class='xx'></image>
             <input class='sousuo' placeholder='搜索小区/写字楼/学校' placeholder-class='place' bindinput="bindKeyInput" bindfocus='bindSearchFocus' value='{{keywords}}'></input>
@@ -48,7 +48,7 @@
             <text class='view-title-data'>营业时间: {{storeList.deliveryTimeBegin}}-{{storeList.deliveryTimeEnd}}</text>
             <text>{{storeList.allAddress}}</text>
             <view class='ddw'>
-                <image src='../../img/定位.png'></image>
+                <image src='../../img/dw.png'></image>
                 <text>{{storeList.distance}}m</text>
             </view> 
         </view>

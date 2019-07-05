@@ -1,0 +1,33 @@
+<!--pages/commodity/commodity.wxml-->
+<!-- 手机自带 信息栏高度-->
+<view class='topp'>
+    <view>
+        <view style='height:{{Topha}}px' class='top'></view>
+        <!--自定义导航栏 和右上角胶南位置一样 -->
+        <view style='height:{{jiaonan.height}}px;padding-top:{{6}}px' class='top1'>
+            <image src='../../image/ic_left_white.png' class='img1'></image>
+            <text>商品详情</text>
+            <text class='kong'></text>
+        </view>
+    </view>
+    <view class='con'>
+        <!-- <block wx:for="{{imgUrls}}">
+            <swiper-item> -->
+                <image src="../../image/WechatIMG1.png" class="slide-image" class='img2' />
+            <!-- </swiper-item>
+        </block> -->
+        <view class="con_1">
+            <text class='text1'>西安门1</text>
+            <text class='text2'>规格 1</text>
+            <view class="con_2"> 
+                <text>库存998件</text> <text>销量0</text> <text>1个起订</text>
+            </view>
+        </view>
+        <view class='xxxx'>
+            <text class="spxq">-商品详情-</text>
+           
+        </view>
+    </view>
+    <view class='footer'>
+    </view>
+</view>
