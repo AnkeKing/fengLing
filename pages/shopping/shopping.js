@@ -25,7 +25,9 @@ Page({
         port:{
             shows: ''
         },
-        capsule:null, 
+        capsule:null,
+        picture:true ,
+        pictures:false
     },
 
 
@@ -47,13 +49,13 @@ Page({
         }
 
         let minus = {
-            customerId: "",
-            goodsId: "",
-            goodsType:"" ,
-            quantity: "",
-            shopId: "",
-            storeId: "",
-            teminal: 2
+            // customerId: "",
+            // goodsId: "",
+            // goodsType:"" ,
+            // quantity: "",
+            // shopId: "",
+            // storeId: "",
+            // teminal: 2
         }
         let cartQuantity = {
             memberId: 589,
@@ -62,20 +64,28 @@ Page({
             storeId: 56200
         }
 
-        http(api.order, "data", can ,"post" ).then(res=>{
-           console.log("购物车商品",res)
+        http(api.baseUrl + '/orderShoppingCart/getShoppingCartGroup', "data", can ,"post" ).then(res=>{
+            console.log("购物车商品", res)
             if (res.data.status.statusCode === 0){
                 this.setData({
+                    picture : true,
+                    pictures : false,
                     port: res.data.result.selfOperatedCart.goodsCarQueryList
                 })
+            }else{
+                this.setData({
+                    picture : false,
+                    pictures : true
+                })
             }
+            console.log(this.data.port)
         })
 
-        http(api.minus, "params", minus , "post").then(res=>{
+        http(api.baseUrl + '/orderShoppingCart/subtractShoppingCart', "params", minus , "post").then(res=>{
             console.log('购物车商品数量减',res)
         })
 
-        http(api.shoppingQuantity,'data',cartQuantity,'post').then(res=>{
+        http(api.baseUrl + '/orderShoppingCart/getShoppingCartQuantity','data',cartQuantity,'post').then(res=>{
             console.log('获取购物车商品数量',res)
         })
 
@@ -184,7 +194,7 @@ Page({
             storeId: 56200,
             teminal: 2
         }
-        http(api.delCartGoods,'data',data,'post')
+        http(api.baseUrl + '/orderShoppingCart/deleteShoppingCart','data',data,'post')
         .then(res => {
             if(res.data.status.statusCode === 0) {
                 this.onLoad();

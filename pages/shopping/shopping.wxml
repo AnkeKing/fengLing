@@ -5,7 +5,13 @@
             <text>购物车</text>
         </view>
     </view>
-    <view class="content" wx:for="{{port}}" wx:for-index="idx" wx:key="idx">
+    
+    <view class="kong" wx:if="{{port.length==0}}"  >
+        <image src="../../img/ic_no_cart.png" class="cartImage"></image>
+        <view class="text">您的购物车暂无商品</view>
+    </view>
+    
+    <view class="content" wx:for="{{port}}" wx:for-index="idx" wx:key="idx" >
         <view class="commodity">
             <view class="self-support">自营商品</view>
             <view class="times">预计一小时可达</view>
@@ -56,8 +62,5 @@
         </view>
     </view>
 
-    <view class="kong">
-    
-    </view>
 </view>
 
