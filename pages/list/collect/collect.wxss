@@ -187,6 +187,7 @@ button::after {
 .shopingcar{
     height: 90rpx;
     width: 90rpx;
+    background: #ffffff;
     border-radius: 50%;
     border: 2rpx solid #cecece;
     display: flex;
