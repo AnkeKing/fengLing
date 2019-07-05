@@ -48,13 +48,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "地址",
-					"pathName": "pages/address/address",
-					"query": ""
+					"pathName": "pages/list/address/address",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -67,6 +68,21 @@
 					"id": -1,
 					"name": "清单",
 					"pathName": "pages/list/regularlist/regularlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shouye",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏",
+					"pathName": "pages/list/collect/collect",
+					"query": "",
 					"scene": null
 				}
 			]

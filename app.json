@@ -18,7 +18,8 @@
         "pages/list/regularlist/regularlist",
         "pages/list/collect/collect",
         "pages/list/address/address",
-        "pages/list/address/newAddress/newAddress"
+        "pages/list/address/newAddress/newAddress",
+        "pages/list/address/editAddress/editAddress"
     ],
     "window": {
         "backgroundTextStyle": "light",
