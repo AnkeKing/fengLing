@@ -27,7 +27,7 @@ Page({
 
     list(){
         wx.navigateTo({
-            url: 'list/address/address',
+            url: '../list/address/newAddress/newAddress',
         })
     },
 

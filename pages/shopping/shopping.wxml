@@ -6,62 +6,123 @@
         </view>
     </view>
     
-    <view class="kong" wx:if="{{port.length==0}}">
+    <view class="kong" wx:if="{{port.length==0 && ports.length==0}}">
         <image src="../../img/ic_no_cart.png" class="cartImage"></image>
         <view class="text">您的购物车暂无商品</view>
     </view>
     
-    <view class="content" wx:for="{{port}}" wx:for-index="idx" wx:key="idx" >
-        <view class="commodity">
-            <view class="self-support">自营商品</view>
-            <view class="times">预计一小时可达</view>
-        </view>
-        <view class="store">
-            <image src="{{status? weixuan:xuanzhong }}" class="picture" bindtap="selectAll" data-selectAll="{{item.goodsList}}"></image>
-            <text class="address">{{item.dealerName}}</text>
-        </view>
+    <!-- 自营商品 -->
+    <view>
+        <view class="content" wx:for="{{port}}" wx:for-index="idx" wx:key="idx" >
+            <view class="commodity">
+                <view class="self-support">自营商品</view>
+                <view class="times">预计一小时可达</view>
+            </view>
+            <view class="store">
+                <image wx:if="{{item.checked}}" src="{{xuanzhong}}" class="picture" bindtap="AllSelect" data-status ="0" data-ids="{{item.allIds}}"></image>
+                <image wx:else src="{{weixuan}}" class="picture" bindtap="AllSelect" data-status="1" data-ids="{{item.allIds}}"></image>
+                <text class="address">{{item.dealerName}}</text>
+            </view>
 
-         <view class="cont">
-           
-            <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
-               
-                <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
-                    <view class="display">
-                        <image wx:if="{{_item.checkedState}}" src="{{xuanzhong}}" class="checkImage" bindtap="xuzhong" data-id="{{_item}}"></image>
-                        <image wx:else src="{{weixuan}}" bindtap="weixuan" data-id="{{_item}}" class="checkImage"></image>
-                        <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}"></image>
-                        <view class="name">
-                            <view class="titleGoodsName">{{_item.goodsName}}</view>
-                            <view class="jian">{{_item.measurementUnit}}</view>
-                            <view class="qian">
-                                <view class="price">￥{{_item.shopPrice}}</view>
-                                <view class="btn">
-                                    <view class="minus" bindtap="minus" data-minus="{{_item}}">-</view>
-                                    <view class="num">{{_item.quantity}}</view>
-                                    <view class="add" bindtap="add" data-add="{{_item}}">+</view>
+            <view class="cont">
+            
+                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
+                
+                    <view bindtouchstart="touchS"  bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
+                        <view class="display">
+                            <image wx:if="{{_item.checkedState}}" src="{{xuanzhong}}" class="checkImage" bindtap="xuanzhong" data-id="{{_item}}"></image>
+                            <image wx:else src="{{weixuan}}" bindtap="weixuan" data-id="{{_item}}" class="checkImage"></image>
+                            <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}"></image>
+                            <view class="name">
+                                <view class="titleGoodsName">{{_item.goodsName}}</view>
+                                <view class="jian">{{_item.measurementUnit}}</view>
+                                <view class="qian">
+                                    <view class="price">￥{{_item.shopPrice}}</view>
+                                    <view class="btn">
+                                        <view class="minus" bindtap="minus" data-minus="{{_item}}">-</view>
+                                        <view class="num">{{_item.quantity}}</view>
+                                        <view class="add" bindtap="add" data-add="{{_item}}">+</view>
+                                    </view>
                                 </view>
                             </view>
                         </view>
                     </view>
+                
+                    <view data-index="{{index}}" data-item="{{_item}}" bindtap="delItem" class="list_del del">删除</view>
+                </view> 
+            
+                <view class="dispatching">配送费1元</view>
+                <view class="check">
+                    <image wx:if="{{item.checked}}" src="{{xuanzhong}}" class="photo jj" bindtap="AllSelect" data-status ="0" data-ids="{{item.allIds}}"></image>
+                    <image wx:else src="{{weixuan}}" class="photo jj" bindtap="AllSelect" data-status="1" data-ids="{{item.allIds}}"></image>
+                    <view class='checked'>全选</view>
+                    <view class="summation">
+                        合计:
+                        <view class="pric">￥{{totalPrice}}</view>
+                    </view>
+                    <view class="button" bindtap="acknowledgement" data-port="{{item.goodsList}}">
+                        结算
+                    </view>       
                 </view>
-               
-                <view data-index="{{index}}" data-item="{{_item}}" bindtap="delItem" class="list_del del">删除</view>
-            </view> 
-        </view>
-        <view class="dispatching">配送费1元</view>
-        <view class="check">
-            <image src="{{status? weixuan:xuanzhong }}" class="photo jj" bindtap="selectAll" data-selectAll="{{item.goodsList}}"></image>
-            <view class='checked'>全选</view>
-            <view class="summation">
-                合计:
-                <view class="pric">￥{{totalPrice}}</view>
             </view>
-            <view class="button" bindtap="acknowledgement">
-                结算
-                <view>(1)</view>
-            </view>       
         </view>
     </view>
 
+    <!-- 云仓商品 -->
+    <view class="jianju">
+        <view class="cont" wx:for="{{ports}}" wx:for-index="idx" wx:key="idx" >
+            <view class="commodity">
+                <view class="self-support">云仓商品</view>
+                <view class="times">预计次日可达</view>
+            </view>
+            <view class="store">
+                <image wx:if="{{item.checked}}" src="{{xuanzhong}}" class="picture" bindtap="AllSelect" data-status ="0" data-ids="{{item.allIds}}"></image>
+                <image wx:else src="{{weixuan}}" class="picture" bindtap="AllSelect" data-status="1" data-ids="{{item.allIds}}"></image>
+                <text class="address">{{item.dealerName}}</text>
+            </view>
+
+            <view class="cont">
+            
+                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
+                
+                    <view bindtouchstart="touchS" bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
+                        <view class="display">
+                            <image wx:if="{{_item.checkedState}}" src="{{xuanzhong}}" class="checkImage" bindtap="xuanzhong" data-id="{{_item}}"></image>
+                            <image wx:else src="{{weixuan}}" bindtap="weixuan" data-id="{{_item}}" class="checkImage"></image>
+                            <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}"></image>
+                            <view class="name">
+                                <view class="titleGoodsName">{{_item.goodsName}}</view>
+                                <view class="jian">{{_item.measurementUnit}}</view>
+                                <view class="qian">
+                                    <view class="price">￥{{_item.shopPrice}}</view>
+                                    <view class="btn">
+                                        <view class="minus" bindtap="minus" data-minus="{{_item}}">-</view>
+                                        <view class="num">{{_item.quantity}}</view>
+                                        <view class="add" bindtap="add" data-add="{{_item}}">+</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                
+                    <view data-index="{{index}}" data-item="{{_item}}" bindtap="delItem" class="list_del del">删除</view>
+                </view> 
+            </view>
+            <view class="dispatching">99元起订，配送费1元</view>
+            <view class="check">
+                <image wx:if="{{item.checked}}" src="{{xuanzhong}}" class="photo jj" bindtap="AllSelect" data-status ="0" data-ids="{{item.allIds}}"></image>
+                <image wx:else src="{{weixuan}}" class="photo jj" bindtap="AllSelect" data-status="1" data-ids="{{item.allIds}}"></image>
+                <!-- <image src="{{status? weixuan:xuanzhong }}" class="photo jj" bindtap="selectAll" data-selectAll="{{item.goodsList}}"></image> -->
+                <view class='checked'>全选</view>
+                <view class="summation">
+                    合计:
+                    <view class="pric">￥{{totalsPrice}}</view>
+                </view>
+                <view class="button" bindtap="acknowledgement">
+                    结算
+                </view>       
+            </view>
+        </view>
+    </view>
 </view>
 
