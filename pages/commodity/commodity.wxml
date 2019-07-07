@@ -10,24 +10,39 @@
             <text class='kong'></text>
         </view>
     </view>
+
     <view class='con'>
-        <!-- <block wx:for="{{imgUrls}}">
-            <swiper-item> -->
-                <image src="../../image/WechatIMG1.png" class="slide-image" class='img2' />
-            <!-- </swiper-item>
-        </block> -->
+
+        <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+            <block wx:for="{{imgUrls}}" wx:for-index="index" wx:key="index">
+                <swiper-item>
+                    <image src='{{item}}' class='u-img-slide' mode='aspectFill'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
         <view class="con_1">
-            <text class='text1'>西安门1</text>
-            <text class='text2'>规格 1</text>
-            <view class="con_2"> 
-                <text>库存998件</text> <text>销量0</text> <text>1个起订</text>
+            <text class='text1'>{{result.goodsName}}  {{result.specificationName}}</text>
+            <text class='text2'>规格 {{result.goodsCatId}}</text>
+            <view class="con_2">
+                <text>库存{{result.inventory+result.specificationName}}</text>
+                <text>销量0 件</text>
             </view>
+            <text class='shopPrice'>{{"$"+ result.shopPrice}}</text>
         </view>
         <view class='xxxx'>
             <text class="spxq">-商品详情-</text>
-           
+            <import src="../..//wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
         </view>
     </view>
     <view class='footer'>
+        <view class='footer_1'>
+            <image wx:if="{{sc}}" src='../../image/ic_collection.png' class='img3' ></image> 
+            <image wx:else src="../../image/ic_cancel_collection.png" class='img3'></image>
+            <text  wx:if="{{sc}}" bindtap='quxiao'>已收藏</text>
+            <text wx:else>收藏</text>
+        </view>
+        <text class='jrgwc' bindtap='jrgwc'>加入购物车</text>
     </view>
 </view>
