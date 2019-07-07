@@ -252,6 +252,18 @@ Page({
             url: '../acknowledgement/acknowledgement',
         }) 
     },
+    // 跳到详情页
+    acknowledgement(e){
+        console.log(e.currentTarget.dataset.port.goodsId)
+        wx.navigateTo({
+            url: '../commodity/commodity?goodsId=' + e.currentTarget.dataset.port.goodsId ,
+        })
+    },
+    acknow(e){
+        wx.navigateTo({
+            url: '../commodity/commodity?goodsId='+e.currentTarget.dataset.ports.goodsId,
+        })
+    },
 
     
 

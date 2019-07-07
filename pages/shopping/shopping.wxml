@@ -26,7 +26,7 @@
 
             <view class="cont">
             
-                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
+                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list" data-port="{{_item}}" bindtap="acknowledgement">
                 
                     <view bindtouchstart="touchS"  bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
                         <view class="display">
@@ -83,7 +83,7 @@
 
             <view class="cont">
             
-                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
+                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list" data-ports="{{_item}}" bindtap="acknow">
                 
                     <view bindtouchstart="touchS" bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
                         <view class="display">
@@ -112,7 +112,6 @@
             <view class="check">
                 <image wx:if="{{item.checked}}" src="{{xuanzhong}}" class="photo jj" bindtap="AllSelect" data-status ="0" data-ids="{{item.allIds}}"></image>
                 <image wx:else src="{{weixuan}}" class="photo jj" bindtap="AllSelect" data-status="1" data-ids="{{item.allIds}}"></image>
-                <!-- <image src="{{status? weixuan:xuanzhong }}" class="photo jj" bindtap="selectAll" data-selectAll="{{item.goodsList}}"></image> -->
                 <view class='checked'>全选</view>
                 <view class="summation">
                     合计:
