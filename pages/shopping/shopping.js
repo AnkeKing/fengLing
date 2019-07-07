@@ -27,7 +27,14 @@ Page({
         },
         capsule:null,
         picture:true ,
-        pictures:false
+        pictures:false,
+        list:null,
+        status:true,
+        weixuan:'../../img/ic_check_defult.png',
+        xuanzhong:'../../img/ic_checked.png',
+        arr:[],
+        check:true,
+        totalPrice:0
     },
 
 
@@ -41,56 +48,147 @@ Page({
         
         this.initEleWidth();
 
-        let can={
-            customerId: 589, 
-            shopId: 18, 
-            storeId: 56200, 
+        this.shopping()
+
+    },
+    //获取购物车商品接口
+    shopping(){
+        let can = {
+            customerId: 589,
+            shopId: 18,
+            storeId: 56200,
             teminal: 2
         }
 
-        let minus = {
-            // customerId: "",
-            // goodsId: "",
-            // goodsType:"" ,
-            // quantity: "",
-            // shopId: "",
-            // storeId: "",
-            // teminal: 2
-        }
-        let cartQuantity = {
-            memberId: 589,
-            customerId: 589 ,
-            shopId: 18,
-            storeId: 56200
-        }
-
-        http(api.baseUrl + '/orderShoppingCart/getShoppingCartGroup', "data", can ,"post" ).then(res=>{
+        http(api.baseUrl + '/orderShoppingCart/getShoppingCartGroup', "data", can, "post").then(res => {
             console.log("购物车商品", res)
-            if (res.data.status.statusCode === 0){
+            if (res.data.status.statusCode === 0) {
                 this.setData({
-                    picture : true,
-                    pictures : false,
-                    port: res.data.result.selfOperatedCart.goodsCarQueryList
+                    picture: true,
+                    pictures: false,
+                    port: res.data.result.selfOperatedCart.goodsCarQueryList,
+
                 })
-            }else{
+                if (this.data.status == false) {
+                    this.setData({
+                        totalPrice: res.data.result.selfOperatedCart.goodsTotalPrice
+                    })
+                } else {
+                    this.setData({
+                        totalPrice: 0
+                    })
+                }
+            } else {
                 this.setData({
-                    picture : false,
-                    pictures : true
+                    picture: false,
+                    pictures: true,
                 })
             }
             console.log(this.data.port)
         })
+    },
 
-        http(api.baseUrl + '/orderShoppingCart/subtractShoppingCart', "params", minus , "post").then(res=>{
-            console.log('购物车商品数量减',res)
+    // 单选按钮
+    xuanzheong(e){
+        console.log('check',e)
+        var arr = e.currentTarget.dataset.id.goodsId
+        let xuanzhong = {
+            customerId:589 ,
+            goodsIds: [e.currentTarget.dataset.check.goodsId],
+            shopId: 18,
+            storeId: 56200,
+            teminal: 2
+        }
+        http(api.baseUrl + '/orderShoppingCart/checkShoppingCartGoods','data' , xuanzhong ,'post').then(res=>{
+            if(res.data.status.statusCode === 0){
+                this.shopping()
+            }else{
+                wx.showToast({
+                    title: 'res.data.status.statusReson',
+                })
+            }
         })
+    },
 
-        http(api.baseUrl + '/orderShoppingCart/getShoppingCartQuantity','data',cartQuantity,'post').then(res=>{
-            console.log('获取购物车商品数量',res)
+
+
+    // selectAll(e){
+    //     if(this.data.status == true){
+    //         var arr = []
+    //         var current = e.currentTarget.dataset.selectall
+    //         for (var i = 0; i < current.length; i++) {
+    //             var goodsIdsa = current[i].goodsId
+    //             arr.push(goodsIdsa)
+    //         }
+    //         this.setData({
+    //             arr: arr
+    //         })
+
+    //         let selectAll = {
+    //             customerId: 589,
+    //             goodsIds: this.data.arr,
+    //             shopId: 18,
+    //             storeId: 56200,
+    //             teminal: 2
+    //         }
+    //         http(api.baseUrl + '/orderShoppingCart/allCheckShoppingCartGoods', "data", selectAll, "post").then(res => {
+    //             console.log(res)
+    //             if (this.data.status == true) {
+    //                 this.setData({
+    //                     status: false,
+    //                 })
+    //                 this.onLoad()
+    //             } else {
+    //                 this.setData({
+    //                     status: true,
+    //                 })
+    //             }
+    //         })
+    //     }else{
+    //         let select = {
+    //             customerId:589,
+    //             goodsIds:this.data.arr,
+
+    //         }
+    //     }
+        
+    // },
+
+    // 商品数量减
+    minus(e){
+        console.log(e)
+        let minus = {
+            customerId: 589,
+            goodsId: e.currentTarget.dataset.minus.goodsId,
+            goodsType: e.currentTarget.dataset.minus.goodsType,
+            quantity: e.currentTarget.dataset.minus.quantity,
+            shopId: 18,
+            storeId: 56200,
+            teminal: 2
+        }
+        http(api.baseUrl + '/orderShoppingCart/subtractShoppingCart', "data", minus, "post").then(res => {
+            this.onLoad()
         })
 
     },
 
+    // 商品数量加
+    add(e){
+        let add= {
+            customerId: 589,
+            goodsId: e.currentTarget.dataset.add.goodsId,
+            goodsType: e.currentTarget.dataset.add.goodsType,
+            quantity: e.currentTarget.dataset.add.quantity,
+            shopId: 18,
+            storeId: 56200,
+            teminal: 2
+        }
+        http(api.baseUrl + '/orderShoppingCart/addShoppingCart','data' ,add , "post").then(res=>{
+            this.onLoad()
+        })
+    },
+
+    // 跳转页面
     acknowledgement(){
         wx.navigateTo({
             url: '../acknowledgement/acknowledgement',
@@ -99,10 +197,8 @@ Page({
 
     
 
-
-    // 开始滑动事件
     touchS: function (e) {
-        console.log('开始',e)
+        // console.log('开始',e)
         if (e.touches.length == 1) {
             this.setData({
                 //设置触摸起始点水平方向位置 
@@ -110,33 +206,9 @@ Page({
             });
         }
     },
-    touchM: function (e) {
-        console.log('移动', e)
-        var that = this;
-        initdata(that)
-        if (e.touches.length == 1) {
-            //手指移动时水平方向位置 
-            var moveX = e.touches[0].clientX;
-            //手指起始点位置与移动期间的差值 
-            var disX = this.data.startX - moveX;
-            var delBtnWidth = this.data.delBtnWidth;
-            var txtStyle = "";
-            if (disX == 0 || disX < 0) { //如果移动距离小于等于0，文本层位置不变 
-                txtStyle = "left:0px";
-            } else if (disX > 0) { //移动距离大于0，文本层left值等于手指移动距离 
-                txtStyle = "left:-" + disX + "px";
-                if (disX >= delBtnWidth) {
-                    //控制手指移动距离最大值为删除按钮的宽度 
-                    txtStyle = "left:-" + delBtnWidth + "px";
-                }
-            }
-            console.log(txtStyle)
 
-        }
-    },
     // 滑动中事件
     touchE: function (e) {
-        console.log('结束', e)
         if (e.changedTouches.length == 1) {
             //手指移动结束后水平位置 
             var endX = e.changedTouches[0].clientX;
@@ -145,7 +217,7 @@ Page({
             var delBtnWidth = this.data.delBtnWidth;
             //如果距离小于删除按钮的1/2，不显示删除按钮 
             var txtStyle = "";
-            txtStyle = disX > delBtnWidth / 2 ? "left:-" + delBtnWidth + "px" : "left:0px";
+            txtStyle = (disX > (delBtnWidth / 2) ? "left:-" + delBtnWidth + "px" : "left:0px");
             //获取手指触摸的是哪一项 
             var index = e.currentTarget.dataset.index;
             var idx = e.currentTarget.dataset.idx;
@@ -181,7 +253,7 @@ Page({
         });
     },
     delItem: function (e) {
-        console.log(e)
+        // console.log(e)
         var index = e.currentTarget.dataset.index;
         var item = e.currentTarget.dataset.item;
         var port = this.data.port;
@@ -197,15 +269,11 @@ Page({
         http(api.baseUrl + '/orderShoppingCart/deleteShoppingCart','data',data,'post')
         .then(res => {
             if(res.data.status.statusCode === 0) {
-                this.onLoad();
+                this.shopping()
             }
         })
 
     },
-
-
-
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

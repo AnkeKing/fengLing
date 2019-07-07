@@ -8,18 +8,17 @@
     width:100%;
 }
 .custom{
-  width: 100%;
-  text-align:center;
-  background: #f8562f;
-  z-index: 999;
-    padding:10rpx;
+    width: 100%;
+    text-align:center;
+    background: #f8562f;
+    z-index: 999;
+    padding:15rpx;
 }
 .custom text{
     color: #fff;
     font-size: 34rpx;
     font-weight: 500;
     max-width: 280rpx;
-  
 }
 .empty_custom{
     height: 45px;
@@ -29,7 +28,7 @@
     width:100%;
     height:100vh;
     margin-bottom:20rpx;
-    margin-top:124rpx;
+    margin-top:133rpx;
     background-color:#f2f1f6;
 }
 .commodity{
@@ -67,11 +66,6 @@
     font-size:30rpx;
     margin-left:20rpx;
 }
-
-
-
-
-
 .cont{ 
   width: 100%; 
   margin: 0 auto; 
@@ -106,7 +100,7 @@
 /* 删除 */
 .list_del.del{ 
   background-color: #e64340; 
-  width: 180rpx;
+  width: 120rpx;
   text-align: center; 
   z-index: 4; 
   right: 0; 
@@ -209,8 +203,14 @@
 .titleGoodsName{
     width:410rpx;
     height:70rpx;
+    line-height:35rpx;
     font-size:30rpx;  
     white-space:pre-line;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
 }
 .jian{
     font-size:26rpx;
@@ -232,7 +232,7 @@
     height: 50rpx;
     position:absolute;
     top:170rpx;
-    left:500rpx;
+    left:500rpx; 
     display:flex;
     align-items: center;
 }
@@ -275,6 +275,7 @@
     display:flex;
     align-items: center;
     background-color:#fff;
+    position:relative;
 }
 .jj{
     margin-left:26rpx;
@@ -300,6 +301,8 @@
     background-color: #f6592c;
     color:#fff;
     margin-left:146rpx;
+    position:absolute;
+    right:0;
 }
 .kong{
     width:100%;
