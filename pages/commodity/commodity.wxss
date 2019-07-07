@@ -100,3 +100,9 @@
   width: 100%;
   height: inherit;
 }
+.wxParse-img{
+    margin-top: 30rpx;
+}
+.WxEmojiView{
+    display: none
+}
