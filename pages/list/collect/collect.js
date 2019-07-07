@@ -214,6 +214,13 @@ Page({
             })
         }
     },
+    // 跳到详情页
+    toXingQing(e){
+        console.log("456789",e);
+        wx.navigateTo({
+            url: '/pages/commodity/commodity?goodsId='+e.currentTarget.dataset.goodsid,
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

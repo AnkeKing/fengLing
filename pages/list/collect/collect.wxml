@@ -19,7 +19,7 @@
         </view>
         <view class='list'wx:else>
             <view class='item_one' wx:for="{{result}}" wx:key="index">
-                <image src='{{item.goodsMasterMap}}' class='commodityImg' bindtap="toXingQing"></image>
+                <image src='{{item.goodsMasterMap}}' class='commodityImg' bindtap="toXingQing" data-goodsid="{{item.goodsId}}"></image>
                 <view class='listZhong'>
                     <view class='self_operated'>自营</view>
                     <text class='commodityName'>{{item.goodsName}}</text>
