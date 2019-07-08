@@ -88,6 +88,9 @@ Page({
             this.onLoad()
         })
     },
+    tianjia(){
+        
+    },
     // 加入购物车
     jrgwc(){
         let fa={

@@ -151,6 +151,13 @@ Page({
             data: e.currentTarget.dataset.city,
         })
     },
+    xg(e){
+        console.log(e.currentTarget.dataset.aa)
+        let str = JSON.stringify(e.currentTarget.dataset.aa)
+        wx.navigateTo({
+            url: '/pages/list/address/editAddress/editAddress?mm='+str,
+        })
+    },
     bindKeyInput: function (e) {
         var keywords = e.detail.value
         console.log(keywords)

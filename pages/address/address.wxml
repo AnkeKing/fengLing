@@ -72,7 +72,7 @@
                 <text>{{item.districtName}}</text>
                 <text> {{item.detailAddress}}</text>
             </view>
-            <image src='../../image/ic_modifyAddress.png' class='ic_modifyAddress'></image>
+            <image src='../../image/ic_modifyAddress.png' class='ic_modifyAddress' data-aa="{{item}}" bindtap='xg'></image>
         </view>
         <view class='view-add-address' bindtap='jumpNewAddress' hover-class='hover-button'>新增地址</view>
 
