@@ -2,7 +2,7 @@
 <!-- <text>pages/indentDetail/indentDetail.wxml</text> -->
 <view class="pages">
     <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
-        <image src="../../img/ic_left_white.png" class="image"></image>
+        <image src="../../img/ic_left_white.png" class="image" bindtap="back"></image>
         <text>订单详情</text>
     </view>
     <!-- 待付款 -->

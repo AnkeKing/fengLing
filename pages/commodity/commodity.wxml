@@ -1,0 +1,48 @@
+<!--pages/commodity/commodity.wxml-->
+<!-- 手机自带 信息栏高度-->
+<view class='topp'>
+    <view>
+        <view style='height:{{Topha}}px' class='top'></view>
+        <!--自定义导航栏 和右上角胶南位置一样 -->
+        <view style='height:{{jiaonan.height}}px;padding-top:{{6}}px' class='top1'>
+            <image src='../../image/ic_left_white.png' class='img1' bindtap='houtui'></image>
+            <text>商品详情</text>
+            <text class='kong'></text>
+        </view>
+    </view>
+
+    <view class='con'>
+
+        <swiper class='u-wrp-bnr' indicator-dots='true' autoplay='true' interval='5000' duration='1000' circular='true'>
+            <block wx:for="{{imgUrls}}" wx:for-index="index" wx:key="index">
+                <swiper-item>
+                    <image src='{{item}}' class='u-img-slide' mode='aspectFill'></image>
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <view class="con_1">
+            <text class='text1'>{{result.goodsName}}  {{result.specificationName}}</text>
+            <text class='text2'>规格 {{result.goodsCatId}}</text>
+            <view class="con_2">
+                <text>库存{{result.inventory+result.specificationName}}</text>
+                <text>销量0 件</text>
+            </view>
+            <text class='shopPrice'>{{"$"+ result.shopPrice}}</text>
+        </view>
+        <view class='xxxx'>
+            <text class="spxq">-商品详情-</text>
+            <import src="../..//wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+    </view>
+    <view class='footer'>
+        <view class='footer_1'>
+            <image wx:if="{{sc}}" src='../../image/ic_collection.png' class='img3' ></image> 
+            <image wx:else src="../../image/ic_cancel_collection.png" class='img3'></image>
+            <text  wx:if="{{sc}}" bindtap='quxiao'>已收藏</text>
+            <text wx:else>收藏</text>
+        </view>
+        <text class='jrgwc' bindtap='jrgwc'>加入购物车</text>
+    </view>
+</view>

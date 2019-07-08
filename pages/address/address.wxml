@@ -14,12 +14,12 @@
     </view>
     <view class='con'>
         <view class='con_1'>
-            <image src='../../img/定位.png' class="dw"></image>
+            <image src='../../image/ic-receiveGoodLocation.png' class="dw"></image>
             <text class='dz' bindtap='dz' data-city="{{city}}">{{locCity}}</text>
             <image src='../../image/ic-more-down.png' class='xx'></image>
             <input class='sousuo' placeholder='搜索小区/写字楼/学校' placeholder-class='place' bindinput="bindKeyInput" bindfocus='bindSearchFocus' value='{{keywords}}'></input>
             <image wx:if='{{keywords.length>0}}' mode='widthFix' class='ic-style-30' src='../../image/ic-search-clear.png' bindtap='clearInput'></image>
-            <image class="sstb" src="../../img/搜索.png"></image>
+            <image class="sstb" src="../../image/ic_search_gary.png"></image>
             <!-- 搜索城市列表 -->
             <view class="search_list" wx:if="{{search_list.length>0}}" >
                 <view wx:for="{{search_list}}" wx:key="index" class='search_list_1' data-district="{{item.district}}" bindtap='district'>
@@ -31,7 +31,7 @@
             <text style="font-size: 13px;color: #999;">当前位置</text>
             <view class='view-location-content'>
                 <text class="name" wx:if="{{address}}!=null">{{address}}</text>
-                <view class="view-location-button" bindtap='getLocation'>
+                <view class="view-location-button" bindtap='getLocationn'>
                     <image src='../../image/ic_refresh.png' style="width: 14px; height: 13px;"></image>
                     <text>刷新</text>
                 </view>
@@ -41,9 +41,17 @@
     </view>
     
     <!-- 自提门店 -->
-    <view wx:if='{{pickk}}'>
-        <view class="view-my-address-title">自提门店</view>
-        <scroll-view></scroll-view>
+    <view wx:if='{{pickk}}'  class="view-my-address-title">
+        <view class='ztmd'>自提门店</view>
+        <view class='view-title' bindtap='hhh'>
+            <text class='view-title-name'>{{storeList.storeName}}</text>
+            <text class='view-title-data'>营业时间: {{storeList.deliveryTimeBegin}}-{{storeList.deliveryTimeEnd}}</text>
+            <text>{{storeList.allAddress}}</text>
+            <view class='ddw'>
+                <image src='../../image/ic-receiveGoodLocation.png'></image>
+                <text>{{storeList.distance}}m</text>
+            </view> 
+        </view>
     </view>
     <!-- 送货上门 -->
     <view wx:if="{{deliverr}}">
@@ -64,7 +72,7 @@
                 <text>{{item.districtName}}</text>
                 <text> {{item.detailAddress}}</text>
             </view>
-            <image src='../../image/ic_modifyAddress.png' class='ic_modifyAddress'></image>
+            <image src='../../image/ic_modifyAddress.png' class='ic_modifyAddress' data-aa="{{item}}" bindtap='xg'></image>
         </view>
         <view class='view-add-address' bindtap='jumpNewAddress' hover-class='hover-button'>新增地址</view>
 

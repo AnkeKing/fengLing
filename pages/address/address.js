@@ -48,7 +48,8 @@ Page({
       receiverAddress:[],//收货地址,
       search_list:[],//搜索城市列表
       city:null,
-      locCity:""
+      locCity:"",
+      storeList:[]
   },
 //   送货上门,到店自提切换
     deliver(){//送货上门
@@ -71,10 +72,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options.city)
-      this.setData({
-          locCity: options.city
-      })
+      if (options!=undefined){
+          this.setData({
+              locCity: options.city
+          })
+      }
+     
       let thit = this
       wx.getStorage({
           key: 'userData',
@@ -86,7 +89,6 @@ Page({
               console.log(thit.data.userData)
           },
       })
-      console.log(this.data.userData)
     this.setData({
       Topha: app.globalData.statusBarHeight
     })
@@ -94,7 +96,7 @@ Page({
       jiaonan: app.globalData.jiaonan
     })
      wx.getLocation({
-         type:"gjc02",
+         type:"wgs84",
          success:function(res){
              console.log("获取用户经纬度",res.latitude, res.longitude)
              let from={
@@ -104,6 +106,7 @@ Page({
              http(api.baseUrl + "/location/analysis", "params", from, "get").then(res=>{
                  console.log(res.data.result.result.sematic_description)
                  console.log("经纬度逆向解析",res.data)
+                 console.log(res.data.result.result.sematic_description)
                  thit.setData({
                      locationCityName: res.data.result.result.addressComponent.city,
                      markers: { address: res.data.result.result.sematic_description, latitude: res.data.result.result.location.lat, longitude: res.data.result.result.location.lng },
@@ -111,11 +114,10 @@ Page({
                      lat: res.data.result.result.location.lat,
                      lng: res.data.result.result.location.lng
                  })
-                 
+                 thit.getStoreBuyLocation(thit)
              })
          },
          fail: err => {
-             console.log(err)
              thit.setData({
                  address: "定位失败",
              });
@@ -147,6 +149,13 @@ Page({
         wx.setStorage({
             key: 'city',
             data: e.currentTarget.dataset.city,
+        })
+    },
+    xg(e){
+        console.log(e.currentTarget.dataset.aa)
+        let str = JSON.stringify(e.currentTarget.dataset.aa)
+        wx.navigateTo({
+            url: '/pages/list/address/editAddress/editAddress?mm='+str,
         })
     },
     bindKeyInput: function (e) {
@@ -195,8 +204,8 @@ Page({
         })
     },
     // 刷新按钮
-    getLocation(){
-        console.log("刷新")
+    getLocationn(){
+       this.onLoad()
     },
     goBack(){
         wx.navigateBack({})
@@ -212,6 +221,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+      this.onLoad()
       getCityList(this)
       wx.getSetting({
           success: res => {
@@ -243,6 +253,32 @@ Page({
     
      
   },
+    hhh(){
+       wx.switchTab({
+           url: '../home/home',
+       })
+    },
+//   根据经纬度匹配门店
+    getStoreBuyLocation(thit){
+        console.log(this.data.lat, this.data.lng)
+        let ha={
+            shopId:18 ,
+            memberId:589 ,
+            lat:this.data.lat ,
+            lng: this.data.lng,
+            supportDelivery: 0
+        }
+        http(api.baseUrl + "/location/match","params", ha, "get").then(res=>{
+            console.log(res.data.status.statusCode)
+            if (res.data.status.statusCode===0){
+                console.log(res.data.result.storeList)
+                thit.setData({
+                    storeList: res.data.result.storeList[0]
+                })
+            }
+            console.log(this.data.storeList)
+        })
+    },
 
   /**
    * 生命周期函数--监听页面隐藏

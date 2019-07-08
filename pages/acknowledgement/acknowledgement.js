@@ -27,7 +27,13 @@ Page({
 
     list(){
         wx.navigateTo({
-            url: 'list/address/address',
+            url: '../list/address/newAddress/newAddress',
+        })
+    },
+
+    back(){
+        wx.navigateBack({
+            delta:1,
         })
     },
 

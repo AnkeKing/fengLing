@@ -19,42 +19,44 @@
         "pages/list/collect/collect",
         "pages/list/address/address",
         "pages/list/address/newAddress/newAddress",
-        "pages/cityList/cityList"
+        "pages/list/address/editAddress/editAddress",
+        "pages/cityList/cityList",
+        "pages/commodity/commodity"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black",
+        "navigationBarTextStyle": "white",
         "navigationStyle": "custom"
     },
     "tabBar": {
         "color": "#cccccc",
-        "selectedColor": "#1f4ba5",
+        "selectedColor": "#f8562f",
         "list": [
             {
                 "pagePath": "pages/home/home",
                 "text": "首页",
-                "iconPath": "./img/tag_home.png",
-                "selectedIconPath": "./img/tag_home_red.png"
+                "iconPath": "./image/tag_home.png",
+                "selectedIconPath": "./image/tag_home_red.png"
             },
             {
                 "pagePath": "pages/shopping/shopping",
                 "text": "购物车",
-                "iconPath": "./img/tag_ShoppingCart.png",
-                "selectedIconPath": "./img/tag_ShoppingCart_red.png"
+                "iconPath": "./image/tag_ShoppingCart.png",
+                "selectedIconPath": "./image/tag_ShoppingCart_red.png"
             },
             {
                 "pagePath": "pages/order/order",
                 "text": "订单",
-                "iconPath": "./img/tag_classification.png",
-                "selectedIconPath": "./img/tag_classification_red.png"
+                "iconPath": "./image/tag_classification.png",
+                "selectedIconPath": "./image/tag_classification_red.png"
             },
             {
                 "pagePath": "pages/my/my",
                 "text": "我的",
-                "iconPath": "./img/tag_me.png",
-                "selectedIconPath": "./img/tag_me_red.png"
+                "iconPath": "./image/tag_me.png",
+                "selectedIconPath": "./image/tag_me_red.png"
             }
         ]
     },
