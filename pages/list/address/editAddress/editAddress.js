@@ -13,7 +13,7 @@ Page({
         color: "black",
         sex: -1, //1 男  2  女
         list: null,
-        mapAddress: null,
+        // mapAddress: null,
         userName: "",
         phone: "",
         detailAddress: "",
@@ -30,7 +30,7 @@ Page({
                 list: object,
                 userName: object.contacts,
                 sex: object.sex,
-                mapAddress: object.mapAddress,
+                addressName: object.mapAddress,
                 userName: object.contacts,
                 phone: object.contactsMobile,
                 detailAddress: object.detailAddress,

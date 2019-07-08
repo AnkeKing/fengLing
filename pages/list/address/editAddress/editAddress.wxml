@@ -37,7 +37,7 @@
             <view class='one_right address_con' bindtap='select'>
                 <image src='/image/ic_loction.png' class='address_con_img'></image>
                 <view class='address_con_input' style='color:{{color}}'>
-                    {{mapAddress}}
+                    {{addressName}}
                 </view>
                 <image src='/image/ic-next-left_gary.png' class='address_con_right'></image>
             </view>
