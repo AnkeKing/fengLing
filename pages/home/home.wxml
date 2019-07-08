@@ -32,7 +32,7 @@
     <view class="canten">
       <view class="can-left">
       <!-- 竖向的tab -->
-          <view class="tab {{Tab==index?'tex':''}}" data-current="{{index}}" bindtap="ckb" wx:for="{{fenlei}}" >
+          <view class="tab {{Tab==index?'tex':''}}" data-current="{{index}}" bindtap="ckb" wx:for="{{fenlei}}" wx:key="index">
                {{item.categoryName}}
           </view>
           <!-- ssss -->
