@@ -2,11 +2,16 @@
 // 默认声明一个函数记录list显示的数据---删除状态
 var initdata = function (that) {
     var port = that.data.port
+    var ports = that.data.ports
     for (var i = 0; i < port.length; i++) {
         port[i].shows = ""
     }
+    for(var i=0;i<ports.length;i++){
+        ports[i].show = ""
+    }
     that.setData({
-        port: port
+        port: port,
+        ports:ports
     })
 }
 
@@ -33,7 +38,7 @@ Page({
         check:true,
         totalPrice:0,
         ports:{
-            shows:''
+            show:''
         },
         totalsPrice:0
     },
@@ -199,10 +204,7 @@ Page({
         http(api.baseUrl + '/orderShoppingCart/checkShoppingCartGoods','data' ,weixuan , 'post').then(res=>{
             if(res.data.status.statusCode === 0){
                 console.log('weixuan',res)
-                this.shopping(),
-                this.setData({
-                    // totalPrice:
-                })
+                this.shopping()
             }else{
                 wx.showToast({
                     title: res.data.status.statusReason,
@@ -253,7 +255,7 @@ Page({
         }) 
     },
     // 跳到详情页
-    acknowledgement(e){
+    acknowled(e){
         console.log(e.currentTarget.dataset.port.goodsId)
         wx.navigateTo({
             url: '../commodity/commodity?goodsId=' + e.currentTarget.dataset.port.goodsId ,
@@ -294,7 +296,7 @@ Page({
             var port = this.data.port;
             var ports = this.data.ports;
             port[idx].goodsList[index].shows = txtStyle;
-            ports[idx].goodsList[index].shows = txtStyle;
+            ports[idx].goodsList[index].show = txtStyle;
             // console.log("1", port[index].shows);
             //更新列表的状态 
             this.setData({
@@ -330,6 +332,7 @@ Page({
         var index = e.currentTarget.dataset.index;
         var item = e.currentTarget.dataset.item;
         var port = this.data.port;
+        var ports = this.data.ports;
         let data = {
             customerId: 589,
             goodsId: item.goodsId,
@@ -345,7 +348,6 @@ Page({
                 this.shopping()
             }
         })
-
     },
   /**
    * 生命周期函数--监听页面初次渲染完成

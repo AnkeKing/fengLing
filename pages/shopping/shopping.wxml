@@ -26,13 +26,13 @@
 
             <view class="cont">
             
-                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list" data-port="{{_item}}" bindtap="acknowledgement">
+                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
                 
                     <view bindtouchstart="touchS"  bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
                         <view class="display">
                             <image wx:if="{{_item.checkedState}}" src="{{xuanzhong}}" class="checkImage" bindtap="xuanzhong" data-id="{{_item}}"></image>
                             <image wx:else src="{{weixuan}}" bindtap="weixuan" data-id="{{_item}}" class="checkImage"></image>
-                            <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}"></image>
+                            <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}" data-port="{{_item}}" bindtap="acknowled"></image>
                             <view class="name">
                                 <view class="titleGoodsName">{{_item.goodsName}}</view>
                                 <view class="jian">{{_item.measurementUnit}}</view>
@@ -83,13 +83,13 @@
 
             <view class="cont">
             
-                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list" data-ports="{{_item}}" bindtap="acknow">
+                <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
                 
                     <view bindtouchstart="touchS" bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
                         <view class="display">
                             <image wx:if="{{_item.checkedState}}" src="{{xuanzhong}}" class="checkImage" bindtap="xuanzhong" data-id="{{_item}}"></image>
                             <image wx:else src="{{weixuan}}" bindtap="weixuan" data-id="{{_item}}" class="checkImage"></image>
-                            <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}"></image>
+                            <image class="list_img" mode="widthFix" src="{{_item.goodsPics}}" data-ports="{{_item}}" bindtap="acknow"></image>
                             <view class="name">
                                 <view class="titleGoodsName">{{_item.goodsName}}</view>
                                 <view class="jian">{{_item.measurementUnit}}</view>
