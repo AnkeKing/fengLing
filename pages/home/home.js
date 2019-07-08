@@ -13,6 +13,14 @@ Page({
     fenlei: null,
     jiushui: null,
     meishi: null,
+    dian:[],
+    shu:"",
+    id:"",
+    goodsId:"",
+    result:null,
+    dis:true,
+    goodsList: null,
+    
     //  困在全局直接在全局取
     statusBarHeight: app.globalData.statusBarHeight,
   },
@@ -76,9 +84,139 @@ Page({
         })
     },
 
+  jia(e){
+    var that=this;
+    console.log(e);
+    this.setData({
+      // goodsId:e.currentTarget.dataset.foodId
+    }),
+     http(
+       api.baseUrl +"/orderShoppingCart/addShoppingCart",
+      " data",
+       {
+        customerId: 589,
+         shopId: 18,
+         goodsId: 2052637,
+         quantity: 1 ,
+         teminal: 2,
+         storeId: 56200,  
+       },
+       "post",
+     ).then(res=>{
+       console.log("加一", res);
+      that.setData({
+        result:res.data.result
+      })
+     })
+   
+  },
+
+  add(e){
+    
+     console.log("哈哈哈哈",e);
+    var that=this
+    //   // 所点商品id
+      var foodId = e.currentTarget.dataset.foodId;
+    // var index = e.currentTarget.dataset.index;
+    // console.log(index);
+    // let goodsList = this.data.goodsList;
+    // goodsList[index].quantity++;
+    this.setData({
+      // goodsList: goodsList,
+      dis: false
+    })
+    http(
+      api.baseUrl + "/orderShoppingCart/addShoppingCart",
+      " data",
+      {
+        customerId: 589,
+        shopId: 18,
+        goodsId: foodId,
+        quantity: 1,
+        teminal: 2,
+        storeId: 56200,
+      },
+      "post",
+    ).then(res => {
+      that.setData({
+        result: res.data.result
+      })
+      console.log("加一", res);
+      
+    })
+  },
+
+  subtract: function (e) {
+    var that=this
+    // // 所点商品id
+    var foodId = e.currentTarget.dataset.foodId;
+    // let index = e.currentTarget.dataset.quantity;
+    // let goodsList = this.data.goodsList;
+    // if (goodsList[index].quantity <= 0) {
+    //   goodsList[index].quantity = 0;
+    // } else {
+    //   goodsList[index].quantity--;
+    // }
+    // this.setData({
+    //   goodsList: goodsList
+    // })
+    http(
+      api.baseUrl + "/orderShoppingCart/subtractShoppingCart",
+      " data",
+      {
+        customerId: 589,
+        shopId: 18,
+        goodsId: foodId,
+        quantity: 1,
+        teminal: 2,
+        storeId: 56200,
+      },
+      "post",
+    ).then(res => {
+      console.log("减一", res);
+      that.setData({
+        result: res.data.result
+      })
+      // console.log("小程序",that.data.result);
+      // if (that.data.result.goodsCarQueryList[0].goodsList[0].quantity==1){
+      //     dispaly:none;
+      //  }
+    })
+    
+  },
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+  weizhi(){
+    var that=this;
+    http(
+      api.baseUrl +"/shopInfoController/shopCoverageRange",
+      "params",
+      {
+        shopId: 18 
+      },
+      "get"
+  ).then(res=>{
+      console.log("城市",res)
+      that.setData({
+        dian:res.data.result
+         
+      })
+    console.log(that.data.dian);
+    })
+   
+  },
 
 
 
@@ -90,7 +228,8 @@ Page({
   onLoad: function (options) {
     var that = this;
     http(//首页
-      "https://web-gateway.newbeescm.com/ms-web/shopGoodsCategory/homeCategoryList",
+       api.home,
+      //  "https://web-gateway.newbeescm.com/ms-web/shopGoodsCategory/homeCategoryList",
       "params",
       {
         shopId: 18,
@@ -98,7 +237,7 @@ Page({
       },
       "POST"
     ).then(res => {
-      console.log("enenenenene", res);
+      console.log("分类：", res);
       that.setData({
         fenlei: res.data.result,
       })
@@ -110,8 +249,8 @@ Page({
       {
         "status": "1",
         "shopId": 18,
-        "storeId": 1558,
-        "salesCategoryId": 1680037,
+        "storeId": 56200,
+        "salesCategoryId": 830064,
         "sortType": 5,
         "isAsc": false,
         "teminal": 2,
@@ -124,8 +263,8 @@ Page({
       that.setData({
         jiushui: res.data.result.items,
       })
-      console.log(res);
-      console.log(that.data.jiushui)
+      console.log("右边的商品列表下标0",res);
+      // console.log(that.data.jiushui)
     }),
       http(
         api.baseUrl + "/shopGoods/getGoodsPageList",
@@ -133,8 +272,8 @@ Page({
         {
           "status": "1",
           "shopId": 18,
-          "storeId": 1558,
-          "salesCategoryId": 1700002,
+          "storeId": 56200,
+          "salesCategoryId": 830064,
           "sortType": 5,
           "isAsc": false,
           "teminal": 2,
@@ -150,6 +289,8 @@ Page({
         console.log("没事", res);
         console.log(that.data.meishi);
       })
+        that.jia();
+      that.weizhi();
   },
 
 
