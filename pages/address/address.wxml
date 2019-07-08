@@ -14,12 +14,12 @@
     </view>
     <view class='con'>
         <view class='con_1'>
-            <image src='../../img/dw.png' class="dw"></image>
+            <image src='../../image/ic-receiveGoodLocation.png' class="dw"></image>
             <text class='dz' bindtap='dz' data-city="{{city}}">{{locCity}}</text>
             <image src='../../image/ic-more-down.png' class='xx'></image>
             <input class='sousuo' placeholder='搜索小区/写字楼/学校' placeholder-class='place' bindinput="bindKeyInput" bindfocus='bindSearchFocus' value='{{keywords}}'></input>
             <image wx:if='{{keywords.length>0}}' mode='widthFix' class='ic-style-30' src='../../image/ic-search-clear.png' bindtap='clearInput'></image>
-            <image class="sstb" src="../../img/搜索.png"></image>
+            <image class="sstb" src="../../image/ic_search_gary.png"></image>
             <!-- 搜索城市列表 -->
             <view class="search_list" wx:if="{{search_list.length>0}}" >
                 <view wx:for="{{search_list}}" wx:key="index" class='search_list_1' data-district="{{item.district}}" bindtap='district'>
@@ -48,7 +48,7 @@
             <text class='view-title-data'>营业时间: {{storeList.deliveryTimeBegin}}-{{storeList.deliveryTimeEnd}}</text>
             <text>{{storeList.allAddress}}</text>
             <view class='ddw'>
-                <image src='../../img/dw.png'></image>
+                <image src='../../image/ic-receiveGoodLocation.png'></image>
                 <text>{{storeList.distance}}m</text>
             </view> 
         </view>
