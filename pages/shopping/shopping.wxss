@@ -1,6 +1,7 @@
 /* pages/shopping/shopping.wxss */
 .pages{
     width:100%;
+    height:auto;
     background-color:#f2f1f6;
 }
 .position{
@@ -342,3 +343,7 @@
     font-size:20rpx;
     border-radius: 50%;
 } 
+
+
+
+

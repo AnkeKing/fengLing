@@ -1,6 +1,7 @@
 <view class="pages">
     <view class="position">
         <view style="height:{{statusBarHeight}}px"></view>
+        <!-- 获取胶囊的高 -->
         <view class="custom flex_center" style="height:{{capsule}}px">
             <text>购物车</text>
         </view>
@@ -28,7 +29,7 @@
             
                 <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
                 
-                    <view bindtouchstart="touchS"  bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
+                    <view bindtouchstart="touchS"  bindtouchend="touchE" data-type="0" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
                         <view class="display">
                             <image wx:if="{{_item.checkedState}}" src="{{xuanzhong}}" class="checkImage" bindtap="xuanzhong" data-id="{{_item}}"></image>
                             <image wx:else src="{{weixuan}}" bindtap="weixuan" data-id="{{_item}}" class="checkImage"></image>
@@ -85,7 +86,7 @@
             
                 <view wx:for="{{item.goodsList}}" wx:for-item="_item" wx:key="index" class="list">
                 
-                    <view bindtouchstart="touchS" bindtouchend="touchE" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
+                    <view bindtouchstart="touchS" bindtouchend="touchE" data-type="1" data-index="{{index}}" data-idx='{{idx}}'  class="list_del txt" style="{{_item.shows}}">
                         <view class="display">
                             <image wx:if="{{_item.checkedState}}" src="{{xuanzhong}}" class="checkImage" bindtap="xuanzhong" data-id="{{_item}}"></image>
                             <image wx:else src="{{weixuan}}" bindtap="weixuan" data-id="{{_item}}" class="checkImage"></image>

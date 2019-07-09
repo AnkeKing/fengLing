@@ -6,12 +6,8 @@ var initdata = function (that) {
     for (var i = 0; i < port.length; i++) {
         port[i].shows = ""
     }
-    for(var i=0;i<ports.length;i++){
-        ports[i].show = ""
-    }
     that.setData({
         port: port,
-        ports:ports
     })
 }
 
@@ -38,7 +34,7 @@ Page({
         check:true,
         totalPrice:0,
         ports:{
-            show:''
+            
         },
         totalsPrice:0
     },
@@ -48,6 +44,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
     onLoad: function (options) {
+        // 获取胶囊的高
         this.setData({
             capsule: wx.getMenuButtonBoundingClientRect().height
         })
@@ -96,15 +93,6 @@ Page({
 
         http(api.baseUrl + '/orderShoppingCart/getShoppingCartGroup', "data", can, "post").then(res => {
             console.log("购物车商品", res)
-            // if (res.data.status.statusCode === 0) {
-            //     this.setData({
-            //         port: res.data.result.selfOperatedCart.goodsCarQueryList,
-            //         totalPrice: res.data.result.selfOperatedCart.goodsTotalPrice,
-            //         ports: res.data.result.agentCart.goodsCarQueryList,
-            //         totalsPrice: res.data.result.agentCart.goodsTotalPrice
-            //     })
-                
-            // } 
             if(res.data.status.statusCode === 0){
                 let goodsartQueryList = res.data.result.agentCart.goodsCarQueryList;
                 let selfOpenatedCart = res.data.result.selfOperatedCart.goodsCarQueryList;
@@ -121,8 +109,6 @@ Page({
                         }
                     }
                     selfOpenatedCart[i].checked = status;
-
-
 
                     // // 方法2:
                     // let count= 0
@@ -268,9 +254,9 @@ Page({
     },
 
     
-
+    
     touchS: function (e) {
-        // console.log('开始',e)
+        console.log('开始',e)
         if (e.touches.length == 1) {
             this.setData({
                 //设置触摸起始点水平方向位置 
@@ -295,13 +281,17 @@ Page({
             var idx = e.currentTarget.dataset.idx;
             var port = this.data.port;
             var ports = this.data.ports;
-            port[idx].goodsList[index].shows = txtStyle;
-            ports[idx].goodsList[index].show = txtStyle;
-            // console.log("1", port[index].shows);
+            let type = e.currentTarget.dataset.type;
+            if(type == 0) {
+                port[idx].goodsList[index].shows = txtStyle;
+            }else {
+                ports[idx].goodsList[index].shows = txtStyle;
+            }
+            
             //更新列表的状态 
-            this.setData({
+            this.setData({ 
                 port: port,
-                ports:ports
+                ports: ports
             });
         } else {
             console.log("2");
