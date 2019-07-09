@@ -16,6 +16,8 @@ Component({
   },
   lifetimes: {
     attached: function () {
+      console.log("this.data.warnTitle",this.data.warnTitle);
+      console.log("this.data.warnTitle",this.data.warnBool);
     },
     detached: function () {
       // 在组件实例被从页面节点树移除时执行

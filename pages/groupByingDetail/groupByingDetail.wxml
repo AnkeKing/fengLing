@@ -1,5 +1,6 @@
 <!-- pages/groupByingDetail/groupByingDetail.wxml -->
 <nav title="社区团购" color="linear-gradient(to right, #FF7500 , #EB3900)"></nav>
+<warning wx:if="{{warnBool}}" warnTitle="{{warnTitle}}"warnBool="{{warnBool}}"></warning>
 <wxs module="price" src="../../utils/public.wxs"></wxs>
 <view class="scoll-box"style="margin-top:{{martop}}px">
     <view class="detail-box">
@@ -14,7 +15,6 @@
         <image class="shop-img"
             src="{{item.goodsImages}}" />
         <view class="shop-detail">
-            
             <text class="shop-title overflow-txt">{{item.goodsName}}</text>
             <text class="shop-orgin-price">￥{{price.doublePrice(item.marketPrice)}}</text>
             <view class="shop-handle-box">
@@ -33,4 +33,3 @@
     </view>
 </view>
 <button class="to-bying-btn" bindtap="toBying">立即购买</button>
-<warning warnTitle="{{warnTitle}}"warnBool="{{warnBool}}"></warning>
