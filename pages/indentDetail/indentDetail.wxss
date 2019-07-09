@@ -52,8 +52,8 @@
     margin-left:16rpx;
 }
 .settimer{
-    border:1rpx solid white;
     color:#fff;
+    margin-right:20rpx;
 }
 
 /* 门店信息 */

@@ -10,16 +10,17 @@ Page({
     data: {
         Topha: null,
         jiaonan: null,
-        keywords:null,
+        keywords:"",//input value值
         search:false,
         historySearch: [], //历史记录
+        arra:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(this.data.historySearch)
+        let thit=this
         this.setData({
             Topha: app.globalData.statusBarHeight
         })
@@ -27,6 +28,7 @@ Page({
         this.setData({
             jiaonan: app.globalData.jiaonan
         })
+        
     },
     // 搜索按钮显示隐藏
     onInputText: function (e) {
@@ -44,7 +46,6 @@ Page({
         }
     },
     toSearch: function (e) {
-      
     },
     
     /**
@@ -62,7 +63,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      
     },
 
     /**

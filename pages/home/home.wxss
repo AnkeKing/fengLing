@@ -256,7 +256,7 @@ color:#a5a5a5;
 .yy{
  position:absolute;
   top:210rpx;
-  left:55rpx;
+  left:43rpx;
 }
 
 
@@ -410,3 +410,9 @@ color:#a5a5a5;
 .show::-webkit-scrollbar {
   display: none;
 }    
+.hi{
+   display:none;
+}
+.sh{
+  display:inline-block;
+}

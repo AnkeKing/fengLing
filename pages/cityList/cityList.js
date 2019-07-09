@@ -1,56 +1,42 @@
-// pages/acknowledgement/acknowledgement.js
-const app = getApp()
+// pages/cityList/cityList.js
+let app=getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        statusBarHeight: app.globalData.statusBarHeight,
-        selected: true,
-        selected1: false
-    },
-
-    selected: function (e) {
-        this.setData({
-            selected1: false,
-            selected: true
-        })
-    },
-    selected1: function (e) {
-        this.setData({
-            selected: false,
-            selected1: true
-        })
-    },
-
-
-    list(){
-        wx.navigateTo({
-            url: '../list/address/newAddress/newAddress',
-        })
-    },
-
-    back(){
-        wx.navigateBack({
-            delta:1,
-        })
+        city:[],
+        Topha:null,
+        jiaonan: null
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var that = this;
-        wx.getSystemInfo({
-            success: function (res) {
-                that.setData({
-                    windowHeight: res.windowHeight
-                });
-            }
-        });
+       
+        this.setData({
+            city: wx.getStorageSync("city")
+        })
+        console.log(this.data.city)
+        this.setData({
+            Topha: app.globalData.statusBarHeight
+        })
+        this.setData({
+            jiaonan: app.globalData.statusBarHeight
+        })
     },
-
+    goBack() {
+        wx.navigateBack({
+        })
+    },
+    city(e){
+        console.log(e.target.dataset.city)
+        wx.navigateTo({
+            url: '../address/address?city='+e.target.dataset.city,
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

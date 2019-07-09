@@ -2,10 +2,11 @@
 .regularlist{
     width: 750rpx;
     display: flex;
-    flex-direction: column;align-items: center
+    flex-direction: column;align-items: center;
+    position: relative
 }
 .nav{
-    height: 105rpx;
+    /* height: 105rpx; */
     width: 750rpx;
     background: #f84134;
     display: flex;
@@ -14,7 +15,9 @@
     font-size: 35rpx;
     color: #fefefe;
     font-weight: 400;
-    position: relative
+    position: fixed;
+    top: 0;
+    z-index: 999
 }
 .leftImg{
     height: 35rpx;
@@ -25,12 +28,16 @@
     transform: translateX(-50%)
 }
 .search{
-    width: 750rpx;
-    padding: 14rpx 0rpx;
+     width: 750rpx;
+    height: 100rpx;
+    /* background: red; */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f2f2f5
+    background: #f2f2f5;
+    position: fixed;
+    left: 0;
+    z-index: 3
 }
 .search_con{
     width: 585rpx;
@@ -71,7 +78,7 @@ button::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 225rpx
+    margin-top: 400rpx
 }
 .search_no_data{
     height: 150rpx;
@@ -160,6 +167,45 @@ button::after {
     right: 30rpx;
     background: #ffffff;
     border-radius: 50%
+}
+.shopCon{
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 28rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 40rpx;
+    left: 0; 
+}
+.shopingcar{
+    height: 90rpx;
+    width: 90rpx;
+    border-radius: 50%;
+    border: 2rpx solid #cecece;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.num{
+    min-height: 30rpx;
+    min-width: 30rpx; 
+    border-radius: 50%;
+    background: #f73934;
+    font-size: 16rpx;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -4rpx;
+    top: -4rpx;
+}
+.shopingcarImg{
+    height: 60rpx;
+    width: 60rpx
 }
 .bottom{
     height: 96rpx;

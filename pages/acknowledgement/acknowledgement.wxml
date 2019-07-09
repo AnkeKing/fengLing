@@ -2,7 +2,7 @@
 <!-- <text>pages/acknowledgement/acknowledgement.wxml</text> -->
 <view class="pages">
     <view class="custom flex_center" style="padding-top:{{statusBarHeight*2}}rpx">
-        <image src="../../img/ic_left_white.png" class="ic_left"></image>
+        <image src="../../img/ic_left_white.png" class="ic_left" bindtap="back"></image>
         <text>确认订单</text>
     </view>
     <view class="content">

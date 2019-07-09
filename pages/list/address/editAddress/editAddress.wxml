@@ -1,8 +1,8 @@
-<!--pages/list/address/newAddress/newAddress.wxml-->
+<!--pages/list/address/editAddress/editAddress.wxml-->
 <view class='newAddress'>
     <view class='nav' style="padding-top:{{statusBarHeight}}px">
         <image src='/image/ic_left_white.png' class='leftImg' bindtap='backtrack'></image>
-        新增收货地址
+        修改收货地址
     </view>
     <view class='con'>
         <view class='one'>
@@ -10,7 +10,7 @@
                 联系人
             </view>
             <view class='one_right'>
-                <input class='one_right_input' placeholder="请输入收货人姓名" placeholder-class='placeholder' bindinput='userName'></input>
+                <input class='one_right_input' value='{{userName}}' bindinput="userName"></input>
                 <view class='one_right_bottom'>
                     <view class="sexItemView-1" data-sexId="1" catchtap="clickSexButton" style="border:{{sex==1?'2rpx solid #F83737':'2rpx solid #ccc'}}">
                         <text class="sexItemText" style="color:{{sex==1?'red':'#333'}}">男士</text>
@@ -27,7 +27,7 @@
                 电话
             </view>
             <view class='one_right'>
-                <input class='one_right_input' placeholder="请输入手机号" placeholder-class='placeholder' bindinput='phone'></input>
+                <input class='one_right_input' value='{{phone}}' bindinput="phone"></input>
             </view>
         </view>
         <view class='one'>
@@ -36,7 +36,9 @@
             </view>
             <view class='one_right address_con' bindtap='select'>
                 <image src='/image/ic_loction.png' class='address_con_img'></image>
-                <view class='address_con_input' style='color:{{color}}'>{{addressName}}</view>
+                <view class='address_con_input' style='color:{{color}}'>
+                    {{addressName}}
+                </view>
                 <image src='/image/ic-next-left_gary.png' class='address_con_right'></image>
             </view>
         </view>
@@ -45,9 +47,11 @@
                 楼号门牌号
             </view>
             <view class='one_right'>
-                <input class='one_right_input' placeholder="例：10号楼2单元102" placeholder-class='placeholder' bindinput='detailAddress'></input>
+                <input class='one_right_input' value='{{detailAddress}}' bindinput="detailAddress"></input>
             </view>
         </view>
     </view>
-    <button class='saveBtn' bindtap='preservation'>保存</button>
+    <button class='saveBtn' bindtap='save'>保存</button>
+    <button class='saveBtn saveBtn2' bindtap='del' data-index="{{memberAddressId}}">删除</button>
 </view>
+

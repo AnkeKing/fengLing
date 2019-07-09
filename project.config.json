@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -67,6 +67,41 @@
 					"id": -1,
 					"name": "清单",
 					"pathName": "pages/list/regularlist/regularlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "22",
+					"pathName": "pages/cityList/cityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/shopping/shopping",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ll",
+					"pathName": "pages/commodity/commodity",
 					"scene": null
 				}
 			]

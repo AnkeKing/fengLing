@@ -2,10 +2,15 @@
 .collect{
     width: 750rpx;
     display: flex;
-    flex-direction: column;align-items: center
+    flex-direction: column;align-items: center;
+    position: relative;
+}
+.topCon{
+    width: 100%;
+    position: relative;
 }
 .nav{
-    height: 105rpx;
+    /* height: 105rpx; */
     width: 750rpx;
     background: #f84134;
     display: flex;
@@ -14,7 +19,8 @@
     font-size: 35rpx;
     color: #fefefe;
     font-weight: 400;
-    position: relative
+    position: fixed;
+    z-index: 999
 }
 .leftImg{
     height: 35rpx;
@@ -26,11 +32,15 @@
 }
 .search{
     width: 750rpx;
-    padding: 14rpx 0rpx;
+    height: 100rpx;
+    /* background: red; */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f2f2f5
+    background: #f2f2f5;
+    position: fixed;
+    left: 0;
+    z-index: 3
 }
 .search_con{
     width: 585rpx;
@@ -84,17 +94,19 @@ button::after {
 }
 .list{
     width: 750rpx;
+    flex: 1;
     box-sizing: border-box;
     padding: 0rpx 22rpx;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    margin-bottom: 96rpx;
 }
 .item_one{
     width: 342rpx;
     border: 2rpx solid #f1f1f2;
-    margin-bottom: 20rpx;
+    margin-top: 20rpx;
     position: relative
 }
 .commodityImg{
@@ -161,9 +173,50 @@ button::after {
     background: #ffffff;
     border-radius: 50%
 }
+.shopCon{
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 28rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 40rpx;
+    left: 0; 
+}
+.shopingcar{
+    height: 90rpx;
+    width: 90rpx;
+    background: #ffffff;
+    border-radius: 50%;
+    border: 2rpx solid #cecece;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.num{
+    min-height: 30rpx;
+    min-width: 30rpx; 
+    border-radius: 50%;
+    background: #f73934;
+    font-size: 16rpx;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -4rpx;
+    top: -4rpx;
+}
+.shopingcarImg{
+    height: 60rpx;
+    width: 60rpx
+}
 .bottom{
     height: 96rpx;
     width: 750rpx;
+    background: #ffffff;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -191,7 +244,7 @@ button::after {
 .bottom_btn{
     height: 96rpx;
     width: 186rpx;
-    background: #f73936;
+    /* background: #f73936; */
     border-radius: 0;
     font-size: 28rpx;
     color: #ffffff;
